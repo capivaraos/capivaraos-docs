@@ -1,14 +1,14 @@
 name: Deploy docs
 
-  on:
+on:
     push:
       branches:
         - main
 
-  permissions:
+permissions:
     contents: write
 
-  jobs:
+jobs:
     deploy:
       runs-on: ubuntu-latest
       steps:
