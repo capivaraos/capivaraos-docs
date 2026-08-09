@@ -66,16 +66,29 @@ plugins:
       lang: pt
 
 nav:
-  - Início: pt/index.md
-  - Instalação:
-    - Requisitos: pt/instalacao/requisitos.md
-    - Guia de instalação: pt/instalacao/guia.md
-  - Distribuições:
-    - Marsh (KDE Plasma): pt/distros/marsh.md
-    - Pup (Xfce): pt/distros/pup.md
-    - Snout (GNOME): pt/distros/snout.md
-  - Contribua: pt/contribua.md
-  - English: en/index.md
+  - Início: index.md
+  - Português:
+    - Início: pt/index.md
+    - Instalação:
+      - Requisitos: pt/instalacao/requisitos.md
+      - Guia de instalação: pt/instalacao/guia.md
+    - Distribuições:
+      - Marsh (KDE Plasma): pt/distros/marsh.md
+      - Pup (Xfce): pt/distros/pup.md
+      - Snout (GNOME): pt/distros/snout.md
+    - FAQ: pt/faq.md
+    - Contribua: pt/contribua.md
+  - English:
+    - Home: en/index.md
+    - Installation:
+      - Requirements: en/installation/requirements.md
+      - Installation guide: en/installation/guide.md
+    - Distributions:
+      - Marsh (KDE Plasma): en/distros/marsh.md
+      - Pup (Xfce): en/distros/pup.md
+      - Snout (GNOME): en/distros/snout.md
+    - FAQ: en/faq.md
+    - Contribute: en/contribute.md
 
 copyright: >
   © 2026 CapivaraOS Project —
