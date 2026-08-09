@@ -1,0 +1,82 @@
+site_name: CapivaraOS Docs
+site_url: https://docs.capivaraos.org
+site_description: Documentação oficial do CapivaraOS
+site_author: CapivaraOS Project
+repo_url: https://github.com/capivaraos/capivaraos-docs
+repo_name: capivaraos/capivaraos-docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: pt
+  logo: assets/img/logo.png
+  favicon: assets/img/favicon.ico
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+    - content.code.copy
+
+extra_css:
+  - assets/css/capivaraos.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/capivaraos/
+      name: Instagram
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/CapivaraOS
+      name: X
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@Capivara-OS
+      name: YouTube
+    - icon: fontawesome/brands/github
+      link: https://github.com/capivaraos
+      name: GitHub
+  alternate:
+    - name: Português
+      link: /pt/
+      lang: pt
+    - name: English
+      link: /en/
+      lang: en
+
+plugins:
+  - search:
+      lang: pt
+
+nav:
+  - Início: pt/index.md
+  - Instalação:
+    - Requisitos: pt/instalacao/requisitos.md
+    - Guia de instalação: pt/instalacao/guia.md
+  - Distribuições:
+    - Marsh (KDE Plasma): pt/distros/marsh.md
+    - Pup (Xfce): pt/distros/pup.md
+    - Snout (GNOME): pt/distros/snout.md
+  - Contribua: pt/contribua.md
+  - English: en/index.md
+
+copyright: >
+  © 2026 CapivaraOS Project —
+  <a href="https://capivaraos.org">capivaraos.org</a>
