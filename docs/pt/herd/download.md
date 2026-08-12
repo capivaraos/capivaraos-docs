@@ -46,3 +46,7 @@ sha256sum -c CHECKSUM
 
 - Servidor físico/VM → [Instalação via ISO](instalacao-iso.md)
 - Nuvem/virtualização → [Implantação em nuvem/VM](instalacao-nuvem.md)
+
+---
+
+*Conteúdo produzido com auxílio de IA, em revisão contínua. Encontrou um erro? [Abra uma issue](https://github.com/capivaraos/capivaraos-herd/issues).*

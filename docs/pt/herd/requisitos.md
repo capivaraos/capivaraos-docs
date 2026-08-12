@@ -49,3 +49,7 @@ O HERD roda bem em virtualização e nuvem. A imagem **qcow2** já traz
   [`nmcli`](primeiros-passos.md#rede) ou pelo [Cockpit](cockpit.md).
 - IPv6 via DHCPv6 é suportado (o serviço `dhcpv6-client` fica liberado no
   firewall de propósito).
+
+---
+
+*Conteúdo produzido com auxílio de IA, em revisão contínua. Encontrou um erro? [Abra uma issue](https://github.com/capivaraos/capivaraos-herd/issues).*

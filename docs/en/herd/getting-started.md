@@ -109,3 +109,7 @@ See more in [Administration › Firewall](administration.md#firewall).
 - [Web console (Cockpit)](cockpit.md)
 - [Security and compliance](security.md) — run `herd-compliance-scan`.
 - [Administration](administration.md) — services, storage, logs, updates.
+
+---
+
+*Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*

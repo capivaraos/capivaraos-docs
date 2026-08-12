@@ -48,6 +48,11 @@ chpasswd:
     `ssh_authorized_keys`, otherwise you won't get in over SSH. The password (if
     set) is for the console and for [Cockpit](cockpit.md).
 
+!!! note "Passwordless sudo"
+    The example uses `NOPASSWD:ALL` (sudo without a password prompt) — handy in
+    cloud with key-only login. For tighter control, switch to `ALL=(ALL) ALL`
+    and set a user password; then `sudo` will require it.
+
 ### 2. Build the seed ISO
 
 ```bash
@@ -87,3 +92,7 @@ Find the IP (`virsh domifaddr herd-01`) and connect: `ssh admin@<ip>`.
 - [Getting started](getting-started.md) — updates, network, timezone.
 - [Web console (Cockpit)](cockpit.md) — `https://<ip>:9090`.
 - [Security and compliance](security.md).
+
+---
+
+*Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*

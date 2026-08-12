@@ -64,3 +64,7 @@ and easy-to-administer server base, whether it is a single node or many.
 
 Questions, bugs and suggestions: see the [Support](support.md) page. HERD
 Community is community-maintained — your participation is welcome.
+
+---
+
+*Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*
