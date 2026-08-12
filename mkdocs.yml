@@ -61,6 +61,25 @@ extra:
       link: /en/
       lang: en
 
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
 plugins:
   - search:
       lang: pt
@@ -76,6 +95,17 @@ nav:
       - Marsh (KDE Plasma): pt/distros/marsh.md
       - Pup (Xfce): pt/distros/pup.md
       - Snout (GNOME): pt/distros/snout.md
+    - CapivaraOS HERD (Servidor):
+      - Visão geral: pt/herd/index.md
+      - Requisitos: pt/herd/requisitos.md
+      - Download e verificação: pt/herd/download.md
+      - Instalação via ISO: pt/herd/instalacao-iso.md
+      - Nuvem / VM (qcow2): pt/herd/instalacao-nuvem.md
+      - Primeiros passos: pt/herd/primeiros-passos.md
+      - Console web (Cockpit): pt/herd/cockpit.md
+      - Segurança e compliance: pt/herd/seguranca.md
+      - Administração: pt/herd/administracao.md
+      - Suporte: pt/herd/suporte.md
     - FAQ: pt/faq.md
     - Contribua: pt/contribua.md
   - English:

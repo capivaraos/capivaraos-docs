@@ -10,6 +10,13 @@ O CapivaraOS é uma família de distribuições Linux brasileiras baseadas no Fe
 | [Pup](distros/pup.md) | Xfce | Leve, confortável em hardware mais modesto |
 | [Snout](distros/snout.md) | GNOME | Limpo e direto ao ponto |
 
+## Servidor: CapivaraOS HERD
+
+Precisa de um **servidor**? O [**CapivaraOS HERD**](herd/index.md) é a linha
+_headless_ (sem desktop) para máquinas físicas, VMs e nuvem — com Cockpit,
+segurança endurecida e compliance de fábrica. Veja a
+[documentação do HERD](herd/index.md).
+
 ## Por onde começar
 
 - [Requisitos de hardware](instalacao/requisitos.md)
