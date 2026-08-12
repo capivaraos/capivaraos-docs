@@ -117,6 +117,17 @@ nav:
       - Marsh (KDE Plasma): en/distros/marsh.md
       - Pup (Xfce): en/distros/pup.md
       - Snout (GNOME): en/distros/snout.md
+    - CapivaraOS HERD (Server):
+      - Overview: en/herd/index.md
+      - Requirements: en/herd/requirements.md
+      - Download and verify: en/herd/download.md
+      - Install via ISO: en/herd/installation-iso.md
+      - Cloud / VM (qcow2): en/herd/installation-cloud.md
+      - Getting started: en/herd/getting-started.md
+      - Web console (Cockpit): en/herd/cockpit.md
+      - Security and compliance: en/herd/security.md
+      - Administration: en/herd/administration.md
+      - Support: en/herd/support.md
     - FAQ: en/faq.md
     - Contribute: en/contribute.md
 
