@@ -10,11 +10,18 @@ CapivaraOS is a family of Brazilian Linux distributions based on Fedora. Three s
 | Pup | Xfce | Lightweight, great on modest hardware |
 | Snout | GNOME | Clean and straightforward |
 
+## Server: CapivaraOS HERD
+
+Need a **server**? [**CapivaraOS HERD**](herd/index.md) is the _headless_ line
+(no desktop) for physical machines, VMs and the cloud — with Cockpit, hardened
+security and compliance out of the box. See the
+[HERD documentation](herd/index.md).
+
 ## Get started
 
-- System requirements
-- Installation guide
-- How to contribute
+- [System requirements](installation/requirements.md)
+- [Installation guide](installation/guide.md)
+- [How to contribute](contribute.md)
 
 ## Download
 
