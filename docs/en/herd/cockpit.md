@@ -64,3 +64,7 @@ Cockpit is a powerful administration door. On internet-facing servers, consider:
   network).
 
 See [Security and compliance](security.md).
+
+---
+
+*Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*

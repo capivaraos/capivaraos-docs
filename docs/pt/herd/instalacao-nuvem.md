@@ -48,6 +48,11 @@ chpasswd:
     `ssh_authorized_keys`, senão você não entra por SSH. A senha (se definida)
     vale para o console e para o [Cockpit](cockpit.md).
 
+!!! note "sudo sem senha"
+    O exemplo usa `NOPASSWD:ALL` (sudo sem pedir senha) — prático em nuvem com
+    login só por chave. Para um controle mais rígido, troque por
+    `ALL=(ALL) ALL` e defina uma senha ao usuário; aí o `sudo` passa a exigi-la.
+
 ### 2. Gere o ISO do seed
 
 ```bash
@@ -86,3 +91,7 @@ Descubra o IP (`virsh domifaddr herd-01`) e entre: `ssh admin@<ip>`.
 - [Primeiros passos](primeiros-passos.md) — atualizações, rede, fuso.
 - [Console web (Cockpit)](cockpit.md) — `https://<ip>:9090`.
 - [Segurança e compliance](seguranca.md).
+
+---
+
+*Conteúdo produzido com auxílio de IA, em revisão contínua. Encontrou um erro? [Abra uma issue](https://github.com/capivaraos/capivaraos-herd/issues).*

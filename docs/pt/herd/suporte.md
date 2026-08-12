@@ -65,3 +65,7 @@ documentação, testes e divulgação são todos bem-vindos — veja a página
     O HERD é uma base de servidor enxuta. Instale o que precisar com `dnf`
     (`nginx`, `podman`, `postgresql-server`, etc.) e libere as portas no
     [firewall](administracao.md#firewall).
+
+---
+
+*Conteúdo produzido com auxílio de IA, em revisão contínua. Encontrou um erro? [Abra uma issue](https://github.com/capivaraos/capivaraos-herd/issues).*

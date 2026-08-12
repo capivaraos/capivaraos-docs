@@ -111,3 +111,7 @@ right after installing **you cannot log in over SSH with a password**. Options:
 - [Getting started](getting-started.md) — network, hostname, updates.
 - [Web console (Cockpit)](cockpit.md) — administer from the browser.
 - [Security and compliance](security.md) — what's hardened.
+
+---
+
+*Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*

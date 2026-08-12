@@ -65,3 +65,7 @@ endurecida e fácil de administrar, seja um nó só ou muitos.
 
 Dúvidas, bugs e sugestões: veja a página de [Suporte](suporte.md). O HERD
 Community é mantido pela comunidade — sua participação é bem-vinda.
+
+---
+
+*Conteúdo produzido com auxílio de IA, em revisão contínua. Encontrou um erro? [Abra uma issue](https://github.com/capivaraos/capivaraos-herd/issues).*

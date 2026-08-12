@@ -46,3 +46,7 @@ sha256sum -c CHECKSUM
 
 - Physical server/VM → [Install via ISO](installation-iso.md)
 - Cloud/virtualization → [Cloud/VM deployment](installation-cloud.md)
+
+---
+
+*Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*

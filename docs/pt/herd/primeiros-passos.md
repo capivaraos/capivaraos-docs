@@ -63,7 +63,9 @@ timedatectl                              # estado atual
 sudo timedatectl set-timezone America/Sao_Paulo
 ```
 
-A sincronização de hora (`chronyd`) já vem ativa, usando `pool.ntp.br`.
+A sincronização de hora (`chronyd`) já vem ativa. Na imagem **qcow2** ela usa o
+`pool.ntp.br`; na instalação por **ISO**, os servidores padrão do Fedora (ajuste
+em `/etc/chrony.conf` se quiser).
 
 ## Idioma / locale
 
@@ -108,3 +110,7 @@ Veja mais em [Administração › Firewall](administracao.md#firewall).
 - [Console web (Cockpit)](cockpit.md)
 - [Segurança e compliance](seguranca.md) — rode o `herd-compliance-scan`.
 - [Administração](administracao.md) — serviços, storage, logs, updates.
+
+---
+
+*Conteúdo produzido com auxílio de IA, em revisão contínua. Encontrou um erro? [Abra uma issue](https://github.com/capivaraos/capivaraos-herd/issues).*

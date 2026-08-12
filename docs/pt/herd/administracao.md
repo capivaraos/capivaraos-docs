@@ -102,3 +102,7 @@ sudo systemctl poweroff
 
 - [Segurança e compliance](seguranca.md)
 - [Suporte](suporte.md)
+
+---
+
+*Conteúdo produzido com auxílio de IA, em revisão contínua. Encontrou um erro? [Abra uma issue](https://github.com/capivaraos/capivaraos-herd/issues).*

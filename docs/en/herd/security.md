@@ -120,3 +120,7 @@ chmod 600 ~/.ssh/authorized_keys
 - Keep the system updated (`dnf upgrade`) — Fedora security updates.
 - Run `herd-compliance-scan` periodically and address what makes sense for your
   environment.
+
+---
+
+*Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*

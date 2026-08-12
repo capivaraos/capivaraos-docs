@@ -102,3 +102,7 @@ sudo systemctl poweroff
 
 - [Security and compliance](security.md)
 - [Support](support.md)
+
+---
+
+*Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*

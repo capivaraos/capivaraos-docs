@@ -112,3 +112,7 @@ logo após instalar **você não consegue entrar por SSH com senha**. Opções:
 - [Primeiros passos](primeiros-passos.md) — rede, hostname, atualizações.
 - [Console web (Cockpit)](cockpit.md) — administrar pelo navegador.
 - [Segurança e compliance](seguranca.md) — o que vem endurecido.
+
+---
+
+*Conteúdo produzido com auxílio de IA, em revisão contínua. Encontrou um erro? [Abra uma issue](https://github.com/capivaraos/capivaraos-herd/issues).*

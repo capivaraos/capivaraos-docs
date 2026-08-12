@@ -65,3 +65,7 @@ testing and spreading the word are all welcome — see the
     HERD is a lean server base. Install what you need with `dnf` (`nginx`,
     `podman`, `postgresql-server`, etc.) and open the ports in the
     [firewall](administration.md#firewall).
+
+---
+
+*Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*

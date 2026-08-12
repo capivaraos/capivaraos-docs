@@ -64,3 +64,7 @@ internet, considere:
   administração).
 
 Veja [Segurança e compliance](seguranca.md).
+
+---
+
+*Conteúdo produzido com auxílio de IA, em revisão contínua. Encontrou um erro? [Abra uma issue](https://github.com/capivaraos/capivaraos-herd/issues).*
