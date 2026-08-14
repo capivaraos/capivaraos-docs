@@ -12,31 +12,32 @@ HERD Community 1.0.0 is distributed as two **x86_64** images:
 Download from:
 
 - **Website:** [capivaraos.org — Download](https://capivaraos.org/en/download.html)
-- **SourceForge:** [sourceforge.net/projects/capivaraos](https://sourceforge.net/projects/capivaraos/)
+- **SourceForge:** [CapivaraOS-HERD/1.0.0 folder](https://sourceforge.net/projects/capivaraos/files/CapivaraOS-HERD/1.0.0/)
 
 ## Verify integrity
 
-Always check the **SHA-256** of the downloaded file against the value published
-next to the image (`.sha256` / `CHECKSUM` file).
+Always check the **SHA-256** of the downloaded file against the published value.
+Both image sums are in the `SHA256SUMS` file, in the same download folder:
+
+```
+1a9603ff2d438f7bcf4e1c7ba236f0f4e25b859fa2f5f733ee745b609021bd2d  CapivaraOS-HERD-1.0.0-x86_64.qcow2
+754f21ce6b7ec5d4b107047cea016abe7743872eed6862ecec97cf6448fd2e2a  CapivaraOS-HERD-1.0.0-x86_64.installer.iso
+```
 
 === "Linux / macOS"
 
     ```bash
-    sha256sum CapivaraOS-HERD-1.0.0-x86_64.installer.iso
-    # compare the output with the published value
+    # download SHA256SUMS into the same folder, then run:
+    sha256sum -c SHA256SUMS
+    # it should answer "OK" for the file(s) you downloaded
     ```
 
 === "Windows (PowerShell)"
 
     ```powershell
     Get-FileHash .\CapivaraOS-HERD-1.0.0-x86_64.installer.iso -Algorithm SHA256
+    # compare the output with the value above
     ```
-
-If a `CHECKSUM` file with the sums is provided, you can verify everything at once:
-
-```bash
-sha256sum -c CHECKSUM
-```
 
 !!! warning "If the checksum doesn't match"
     Do not use the image. A different hash means a corrupted download or a
