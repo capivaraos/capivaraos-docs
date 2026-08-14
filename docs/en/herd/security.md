@@ -121,6 +121,27 @@ chmod 600 ~/.ssh/authorized_keys
 - Run `herd-compliance-scan` periodically and address what makes sense for your
   environment.
 
+## Third-party credits and licenses
+
+`herd-compliance-scan` uses the **[SCAP Security Guide](https://github.com/ComplianceAsCode/content)**
+(ComplianceAsCode project). HERD redistributes the SSG datastream for Fedora
+(`ssg-fedora-ds.xml`), licensed under **BSD-3-Clause**:
+
+> Copyright (c) 2012-2017, Red Hat, Inc. All rights reserved.
+>
+> Redistribution and use in source and binary forms, with or without
+> modification, are permitted provided the BSD-3-Clause conditions are met
+> (retain the copyright notice, conditions and disclaimer; the holders' names
+> may not be used for endorsement). The full text ships with the
+> `capivaraos-herd-hardening` package under
+> `/usr/share/licenses/capivaraos-herd-hardening/` and is available in the
+> [SSG repository](https://github.com/ComplianceAsCode/content/blob/master/LICENSE).
+
+Profile names (`standard`, `cis`, `cis_server_l1`, etc.) come from the SSG
+itself. "CIS" refers to the [Center for Internet Security](https://www.cisecurity.org/)
+benchmarks; HERD does not reproduce the benchmark text, it only runs the
+corresponding profiles shipped by the SSG.
+
 ---
 
 *Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*
