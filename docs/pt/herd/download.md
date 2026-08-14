@@ -21,8 +21,8 @@ somas das duas imagens estão no arquivo `SHA256SUMS`, na mesma pasta do
 download:
 
 ```
-1a9603ff2d438f7bcf4e1c7ba236f0f4e25b859fa2f5f733ee745b609021bd2d  CapivaraOS-HERD-1.0.0-x86_64.qcow2
-754f21ce6b7ec5d4b107047cea016abe7743872eed6862ecec97cf6448fd2e2a  CapivaraOS-HERD-1.0.0-x86_64.installer.iso
+b97a272ee6f0e91fa609e49d1184e4a4149f61667588a4c13f4ce87c03339123  CapivaraOS-HERD-1.0.0-x86_64.qcow2
+9a4c1b9957678e8aa25c1187eb962bcb8460c9415f8b0007de396536deeaa2c3  CapivaraOS-HERD-1.0.0-x86_64.installer.iso
 ```
 
 === "Linux / macOS"
