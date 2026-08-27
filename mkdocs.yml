@@ -104,6 +104,7 @@ nav:
       - Primeiros passos: pt/herd/primeiros-passos.md
       - Console web (Cockpit): pt/herd/cockpit.md
       - Segurança e compliance: pt/herd/seguranca.md
+      - Endurecimento em 1 comando: pt/herd/endurecimento.md
       - Administração: pt/herd/administracao.md
       - Suporte: pt/herd/suporte.md
     - FAQ: pt/faq.md
@@ -126,6 +127,7 @@ nav:
       - Getting started: en/herd/getting-started.md
       - Web console (Cockpit): en/herd/cockpit.md
       - Security and compliance: en/herd/security.md
+      - One-command hardening: en/herd/hardening.md
       - Administration: en/herd/administration.md
       - Support: en/herd/support.md
     - FAQ: en/faq.md
