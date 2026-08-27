@@ -122,6 +122,62 @@ chmod 600 ~/.ssh/authorized_keys
 - Rode o `herd-compliance-scan` periodicamente e trate o que fizer sentido para o
   seu ambiente.
 
+## Criptografia em repouso e FIPS (opcional)
+
+Dois reforços que ficam **desligados por padrão** (para não travar servidor
+headless e nuvem) e você habilita quando a sua política pedir.
+
+### Criptografia de disco (LUKS)
+
+Protege os dados **em repouso** (disco roubado/descartado não vaza nada). É uma
+decisão de **instalação**:
+
+- **Recomendado:** na tela de particionamento do instalador, marque
+  **"Criptografar meus dados"** e defina a senha.
+- **Automatizado:** o [kickstart do Herd](instalacao-iso.md) traz um template
+  comentado (`autopart --encrypted`) para instalação já cifrada.
+
+Conferir depois:
+
+```bash
+lsblk                       # o dispositivo deve aparecer como "crypt"
+sudo cryptsetup status luks-<uuid>
+```
+
+!!! warning "Servidor headless: a senha é pedida no boot"
+    Um volume LUKS pede a **senha a cada boot**. Sem console (físico/IPMI/serial),
+    a máquina **não sobe sozinha** depois de reiniciar. Para auto-desbloqueio em
+    servidor, o caminho é **NBDE** — `clevis` com **TPM2** (selo local) ou
+    **Tang** (chave pela rede). **Não** use LUKS na imagem de **nuvem** (qcow2).
+
+### Modo FIPS
+
+O FIPS 140 força o uso apenas de módulos criptográficos validados e restringe os
+algoritmos permitidos (via *crypto-policy* `FIPS`). Útil para requisitos
+governamentais/setoriais.
+
+Habilitar (exige reinício):
+
+```bash
+sudo fips-mode-setup --enable
+sudo reboot
+```
+
+Conferir:
+
+```bash
+fips-mode-setup --check
+cat /proc/sys/crypto/fips_enabled     # 1 = ativo
+```
+
+Para desativar: `sudo fips-mode-setup --disable && sudo reboot`.
+
+!!! warning "Teste o acesso antes de depender disso"
+    O modo FIPS **restringe algoritmos**: chaves/cifras SSH ou certificados fora
+    dos algoritmos aprovados param de funcionar. **Confirme o login SSH** (de
+    preferência numa segunda sessão) logo após reiniciar, antes de fechar o
+    acesso que você tem.
+
 ## Créditos e licenças de terceiros
 
 O `herd-compliance-scan` usa o **[SCAP Security Guide](https://github.com/ComplianceAsCode/content)**
