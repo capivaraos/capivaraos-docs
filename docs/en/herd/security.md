@@ -121,6 +121,62 @@ chmod 600 ~/.ssh/authorized_keys
 - Run `herd-compliance-scan` periodically and address what makes sense for your
   environment.
 
+## Encryption at rest and FIPS (optional)
+
+Two reinforcements that are **off by default** (so they don't get in the way of
+headless servers and cloud), which you enable when your policy calls for them.
+
+### Disk encryption (LUKS)
+
+Protects data **at rest** (a stolen/discarded disk leaks nothing). It's an
+**install-time** decision:
+
+- **Recommended:** on the installer's partitioning screen, tick
+  **"Encrypt my data"** and set the passphrase.
+- **Automated:** the [Herd kickstart](installation-iso.md) ships a commented
+  template (`autopart --encrypted`) for an already-encrypted install.
+
+Verify afterward:
+
+```bash
+lsblk                       # the device should show up as "crypt"
+sudo cryptsetup status luks-<uuid>
+```
+
+!!! warning "Headless server: the passphrase is asked at boot"
+    A LUKS volume prompts for the **passphrase on every boot**. Without a console
+    (physical/IPMI/serial), the machine **won't come up on its own** after a
+    reboot. For server auto-unlock, use **NBDE** — `clevis` with **TPM2** (local
+    seal) or **Tang** (key over the network). **Do not** use LUKS on the **cloud**
+    image (qcow2).
+
+### FIPS mode
+
+FIPS 140 forces the use of validated cryptographic modules only and restricts the
+allowed algorithms (via the `FIPS` *crypto-policy*). Useful for
+government/sector requirements.
+
+Enable (requires a reboot):
+
+```bash
+sudo fips-mode-setup --enable
+sudo reboot
+```
+
+Verify:
+
+```bash
+fips-mode-setup --check
+cat /proc/sys/crypto/fips_enabled     # 1 = active
+```
+
+To disable: `sudo fips-mode-setup --disable && sudo reboot`.
+
+!!! warning "Test access before relying on it"
+    FIPS mode **restricts algorithms**: SSH keys/ciphers or certificates outside
+    the approved set stop working. **Confirm SSH login** (ideally on a second
+    session) right after rebooting, before closing the access you have.
+
 ## Third-party credits and licenses
 
 `herd-compliance-scan` uses the **[SCAP Security Guide](https://github.com/ComplianceAsCode/content)**
