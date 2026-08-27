@@ -1,12 +1,12 @@
 # Security and compliance
 
-HERD is **hardened by default** — a freshly installed server comes with a sensible
+Herd is **hardened by default** — a freshly installed server comes with a sensible
 security profile, with no configuration needed from you. This page explains
 **what's enabled**, how to **audit**, and how to **adjust**.
 
 ## What's hardened
 
-| Area | HERD default |
+| Area | Herd default |
 |---|---|
 | **SELinux** | `enforcing` |
 | **Firewall** | `firewalld` allowing only **SSH** and **Cockpit** (plus `dhcpv6-client`); `mdns` off |
@@ -38,11 +38,11 @@ AllowAgentForwarding no
 
 !!! note "Ciphers (crypto policy)"
     SSH and TLS ciphers/MACs/KEX follow the **system crypto-policy** (already
-    strong by default on Fedora), rather than values hardcoded in HERD.
+    strong by default on Fedora), rather than values hardcoded in Herd.
 
 ## Audit: `herd-compliance-scan`
 
-HERD embeds an **OpenSCAP** scanner with Fedora's **SCAP Security Guide** content.
+Herd embeds an **OpenSCAP** scanner with Fedora's **SCAP Security Guide** content.
 Run:
 
 ```bash
@@ -70,7 +70,7 @@ sudo herd-compliance-scan xccdf_org.ssgproject.content_profile_cis
     (or open the file via Cockpit's **Terminal**/**Files**.)
 
 !!! info "Community's baseline profile"
-    HERD Community focuses on a solid baseline (SSH, firewall, SELinux, password,
+    Herd Community focuses on a solid baseline (SSH, firewall, SELinux, password,
     umask). Heavier controls like **full auditd**, **AIDE** and the complete
     **CIS** profile are the **Enterprise** path; the embedded datastream already
     includes the `cis`/`cis_server_l1` profiles should you want to evaluate them.
@@ -124,7 +124,7 @@ chmod 600 ~/.ssh/authorized_keys
 ## Third-party credits and licenses
 
 `herd-compliance-scan` uses the **[SCAP Security Guide](https://github.com/ComplianceAsCode/content)**
-(ComplianceAsCode project). HERD redistributes the SSG datastream for Fedora
+(ComplianceAsCode project). Herd redistributes the SSG datastream for Fedora
 (`ssg-fedora-ds.xml`), licensed under **BSD-3-Clause**:
 
 > Copyright (c) 2012-2017, Red Hat, Inc. All rights reserved.
@@ -139,7 +139,7 @@ chmod 600 ~/.ssh/authorized_keys
 
 Profile names (`standard`, `cis`, `cis_server_l1`, etc.) come from the SSG
 itself. "CIS" refers to the [Center for Internet Security](https://www.cisecurity.org/)
-benchmarks; HERD does not reproduce the benchmark text, it only runs the
+benchmarks; Herd does not reproduce the benchmark text, it only runs the
 corresponding profiles shipped by the SSG.
 
 ---

@@ -1,6 +1,6 @@
 # Web console (Cockpit)
 
-HERD ships with **Cockpit**, a browser-based administration panel. You can view
+Herd ships with **Cockpit**, a browser-based administration panel. You can view
 system health, manage services, network, storage, accounts, read logs and even
 open a terminal — without installing anything extra.
 
@@ -46,7 +46,7 @@ someone accesses port 9090, which is already allowed in the firewall.
 
 ## CapivaraOS identity
 
-HERD's Cockpit ships with the CapivaraOS branding (login screen and header) and
+Herd's Cockpit ships with the CapivaraOS branding (login screen and header) and
 **without** documentation links pointing to third parties — the docs link leads
 to this documentation.
 

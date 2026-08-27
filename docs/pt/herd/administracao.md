@@ -1,11 +1,11 @@
 # Administração
 
-Tarefas do dia a dia de um servidor HERD, pelo terminal. Quase tudo também está
+Tarefas do dia a dia de um servidor Herd, pelo terminal. Quase tudo também está
 disponível no [Cockpit](cockpit.md), de forma gráfica.
 
 ## Atualizações
 
-O HERD usa **dnf** (base Fedora):
+O Herd usa **dnf** (base Fedora):
 
 ```bash
 sudo dnf upgrade --refresh          # tudo

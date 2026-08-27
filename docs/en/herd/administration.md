@@ -1,11 +1,11 @@
 # Administration
 
-Day-to-day tasks for a HERD server, from the terminal. Almost everything is also
+Day-to-day tasks for a Herd server, from the terminal. Almost everything is also
 available in [Cockpit](cockpit.md), graphically.
 
 ## Updates
 
-HERD uses **dnf** (Fedora base):
+Herd uses **dnf** (Fedora base):
 
 ```bash
 sudo dnf upgrade --refresh          # everything
