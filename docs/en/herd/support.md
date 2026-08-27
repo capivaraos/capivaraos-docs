@@ -2,15 +2,15 @@
 
 ## Edition
 
-**HERD Community** is **free and open-source** (the code under GPLv3; the name and
+**Herd Community** is **free and open-source** (the code under GPLv3; the name and
 logo are the project's trademark). It is community-maintained, on a **best-effort**
 basis — with no contractual SLA.
 
 ## Lifecycle
 
-- HERD **1.x** is based on **Fedora 44** and follows that base's security
+- Herd **1.x** is based on **Fedora 44** and follows that base's security
   updates. Keep the system updated with `dnf upgrade`.
-- **Generation 2** (HERD 2.x) will move to a newer Fedora base, released when it
+- **Generation 2** (Herd 2.x) will move to a newer Fedora base, released when it
   is mature.
 
 !!! tip "Keep it updated"
@@ -62,7 +62,7 @@ testing and spreading the word are all welcome — see the
     repository's `TRADEMARK.md`.
 
 ??? question "How do I set up a web server/database/container?"
-    HERD is a lean server base. Install what you need with `dnf` (`nginx`,
+    Herd is a lean server base. Install what you need with `dnf` (`nginx`,
     `podman`, `postgresql-server`, etc.) and open the ports in the
     [firewall](administration.md#firewall).
 

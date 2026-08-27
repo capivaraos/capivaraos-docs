@@ -1,6 +1,6 @@
 # Primeiros passos
 
-Depois de instalar, estes são os ajustes iniciais de um servidor HERD. Tudo aqui
+Depois de instalar, estes são os ajustes iniciais de um servidor Herd. Tudo aqui
 pode ser feito pelo terminal (SSH/console) ou pelo [Cockpit](cockpit.md).
 
 ## Acesso

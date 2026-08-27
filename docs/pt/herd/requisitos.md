@@ -1,6 +1,6 @@
 # Requisitos
 
-O HERD Community 1.0.0 é distribuído para **x86_64** (64 bits). O suporte a
+O Herd Community 1.0.0 é distribuído para **x86_64** (64 bits). O suporte a
 **aarch64** (ARM) chega na versão 1.1.
 
 ## Hardware mínimo e recomendado
@@ -22,12 +22,12 @@ O HERD Community 1.0.0 é distribuído para **x86_64** (64 bits). O suporte a
 ## Firmware e boot
 
 - A ISO instaladora funciona tanto em **UEFI** quanto em **BIOS legado**.
-- Em UEFI com **Secure Boot**, o HERD usa o `shim` assinado do Fedora — o boot
+- Em UEFI com **Secure Boot**, o Herd usa o `shim` assinado do Fedora — o boot
   funciona sem desativar o Secure Boot na maioria dos equipamentos.
 
 ## Virtualização e nuvem
 
-O HERD roda bem em virtualização e nuvem. A imagem **qcow2** já traz
+O Herd roda bem em virtualização e nuvem. A imagem **qcow2** já traz
 `qemu-guest-agent` e `cloud-init`:
 
 | Plataforma | Observação |

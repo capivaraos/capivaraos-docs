@@ -1,12 +1,12 @@
 # Segurança e compliance
 
-O HERD já nasce **endurecido por padrão** — um servidor recém-instalado vem com
+O Herd já nasce **endurecido por padrão** — um servidor recém-instalado vem com
 um perfil de segurança sensato, sem você precisar configurar nada. Esta página
 explica **o que vem ativado**, como **auditar** e como **ajustar**.
 
 ## O que vem endurecido
 
-| Área | Padrão no HERD |
+| Área | Padrão no Herd |
 |---|---|
 | **SELinux** | `enforcing` |
 | **Firewall** | `firewalld` liberando só **SSH** e **Cockpit** (mais `dhcpv6-client`); `mdns` desligado |
@@ -39,11 +39,11 @@ AllowAgentForwarding no
 
 !!! note "Cifras (crypto policy)"
     Ciphers/MACs/KEX do SSH e TLS seguem a **crypto-policy do sistema** (já forte
-    por padrão no Fedora), em vez de valores fixos no HERD.
+    por padrão no Fedora), em vez de valores fixos no Herd.
 
 ## Auditar: `herd-compliance-scan`
 
-O HERD embarca um scanner **OpenSCAP** com o conteúdo do **SCAP Security Guide**
+O Herd embarca um scanner **OpenSCAP** com o conteúdo do **SCAP Security Guide**
 do Fedora. Rode:
 
 ```bash
@@ -71,7 +71,7 @@ sudo herd-compliance-scan xccdf_org.ssgproject.content_profile_cis
     (ou abra o arquivo pelo **Terminal**/**Arquivos** do Cockpit.)
 
 !!! info "Perfil básico do Community"
-    O HERD Community foca em um baseline sólido (SSH, firewall, SELinux, senha,
+    O Herd Community foca em um baseline sólido (SSH, firewall, SELinux, senha,
     umask). Controles mais pesados como **auditd completo**, **AIDE** e o perfil
     **CIS** integral são o caminho do **Enterprise**; o datastream embarcado já
     traz os perfis `cis`/`cis_server_l1` caso você queira avaliá-los.
@@ -125,7 +125,7 @@ chmod 600 ~/.ssh/authorized_keys
 ## Créditos e licenças de terceiros
 
 O `herd-compliance-scan` usa o **[SCAP Security Guide](https://github.com/ComplianceAsCode/content)**
-(projeto ComplianceAsCode). O HERD redistribui o datastream do SSG para Fedora
+(projeto ComplianceAsCode). O Herd redistribui o datastream do SSG para Fedora
 (`ssg-fedora-ds.xml`), licenciado sob **BSD-3-Clause**:
 
 > Copyright (c) 2012-2017, Red Hat, Inc. All rights reserved.
@@ -139,7 +139,7 @@ O `herd-compliance-scan` usa o **[SCAP Security Guide](https://github.com/Compli
 
 Os nomes de perfil (`standard`, `cis`, `cis_server_l1` etc.) vêm do próprio SSG.
 "CIS" refere-se aos *benchmarks* do [Center for Internet Security](https://www.cisecurity.org/);
-o HERD não reproduz o texto dos *benchmarks*, apenas executa os perfis
+o Herd não reproduz o texto dos *benchmarks*, apenas executa os perfis
 correspondentes disponibilizados pelo SSG.
 
 ---

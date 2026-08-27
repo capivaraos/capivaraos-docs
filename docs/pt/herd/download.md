@@ -2,7 +2,7 @@
 
 ## Escolha a imagem
 
-O HERD Community 1.0.0 é distribuído em duas imagens para **x86_64**:
+O Herd Community 1.0.0 é distribuído em duas imagens para **x86_64**:
 
 | Imagem | Arquivo | Quando usar |
 |---|---|---|

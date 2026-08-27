@@ -44,7 +44,7 @@ chpasswd:
 ```
 
 !!! warning "SSH is key-only"
-    HERD ships with `PasswordAuthentication no`. **Include your public key** in
+    Herd ships with `PasswordAuthentication no`. **Include your public key** in
     `ssh_authorized_keys`, otherwise you won't get in over SSH. The password (if
     set) is for the console and for [Cockpit](cockpit.md).
 

@@ -44,7 +44,7 @@ chpasswd:
 ```
 
 !!! warning "SSH é só por chave"
-    O HERD vem com `PasswordAuthentication no`. **Inclua sua chave pública** em
+    O Herd vem com `PasswordAuthentication no`. **Inclua sua chave pública** em
     `ssh_authorized_keys`, senão você não entra por SSH. A senha (se definida)
     vale para o console e para o [Cockpit](cockpit.md).
 

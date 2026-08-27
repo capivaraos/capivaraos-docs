@@ -95,7 +95,7 @@ nav:
       - Marsh (KDE Plasma): pt/distros/marsh.md
       - Pup (Xfce): pt/distros/pup.md
       - Snout (GNOME): pt/distros/snout.md
-    - CapivaraOS HERD (Servidor):
+    - Herd (Servidor):
       - Visão geral: pt/herd/index.md
       - Requisitos: pt/herd/requisitos.md
       - Download e verificação: pt/herd/download.md
@@ -117,7 +117,7 @@ nav:
       - Marsh (KDE Plasma): en/distros/marsh.md
       - Pup (Xfce): en/distros/pup.md
       - Snout (GNOME): en/distros/snout.md
-    - CapivaraOS HERD (Server):
+    - Herd (Server):
       - Overview: en/herd/index.md
       - Requirements: en/herd/requirements.md
       - Download and verify: en/herd/download.md

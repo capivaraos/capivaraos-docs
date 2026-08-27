@@ -1,21 +1,21 @@
-# CapivaraOS HERD
+# Herd by CapivaraOS
 
-**CapivaraOS HERD** is the **server** line of CapivaraOS: a _headless_ Linux
+**Herd** is the **server** line of CapivaraOS: a _headless_ Linux
 system (no graphical desktop), based on **Fedora 44**, meant to run on physical
 servers, virtual machines and the cloud — with a Brazilian identity, sane
 security by default, and **Cockpit** as the browser-based administration console.
 
 !!! info "Community Edition 1.0.0"
-    This documentation covers **HERD Community**, the **free and open-source**
+    This documentation covers **Herd Community**, the **free and open-source**
     edition. Architecture **x86_64** (**aarch64** support arrives in 1.1).
 
 ## The idea: herd = fleet
 
 In CapivaraOS, capybaras live in a **herd** — and that is how we think about
-servers: a **fleet** that works together. HERD delivers a predictable, hardened
+servers: a **fleet** that works together. Herd delivers a predictable, hardened
 and easy-to-administer server base, whether it is a single node or many.
 
-## What's in HERD Community
+## What's in Herd Community
 
 | Area | What you get |
 |---|---|
@@ -62,7 +62,7 @@ and easy-to-administer server base, whether it is a single node or many.
 
 ## Support and community
 
-Questions, bugs and suggestions: see the [Support](support.md) page. HERD
+Questions, bugs and suggestions: see the [Support](support.md) page. Herd
 Community is community-maintained — your participation is welcome.
 
 ---

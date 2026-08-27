@@ -1,6 +1,6 @@
 # Instalação via ISO (bare-metal)
 
-Este guia cobre a instalação do HERD Community em um servidor **físico** ou em
+Este guia cobre a instalação do Herd Community em um servidor **físico** ou em
 uma **VM**, usando a ISO instaladora. O instalador é o **Anaconda em modo texto**
 — ideal para servidores _headless_, sem depender de interface gráfica.
 
@@ -85,7 +85,7 @@ No menu do GRUB você verá a entrada **CapivaraOS HERD**. O sistema sobe em mod
 texto e mostra, no console, o endereço do Cockpit:
 
 ```
-CapivaraOS HERD Community 1.0.0  ·  servidor headless (Fedora 44)
+Herd Community 1.0.0  ·  servidor headless (Fedora 44)
 Web console: https://<ip>:9090/
 ```
 

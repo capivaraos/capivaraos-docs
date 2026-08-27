@@ -1,6 +1,6 @@
 # Console web (Cockpit)
 
-O HERD já vem com o **Cockpit**, um painel de administração no navegador. Dá para
+O Herd já vem com o **Cockpit**, um painel de administração no navegador. Dá para
 ver saúde do sistema, gerenciar serviços, rede, armazenamento, contas, ler logs e
 até abrir um terminal — sem instalar nada a mais.
 
@@ -46,7 +46,7 @@ acessa a porta 9090, que já vem liberada no firewall.
 
 ## Identidade CapivaraOS
 
-O Cockpit do HERD vem com a marca do CapivaraOS (tela de login e cabeçalho) e
+O Cockpit do Herd vem com a marca do CapivaraOS (tela de login e cabeçalho) e
 **sem** links de documentação apontando para terceiros — o link de docs leva a
 esta documentação.
 

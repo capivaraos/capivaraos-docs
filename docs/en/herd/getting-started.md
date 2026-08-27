@@ -1,6 +1,6 @@
 # Getting started
 
-After installing, these are the initial tweaks for a HERD server. Everything here
+After installing, these are the initial tweaks for a Herd server. Everything here
 can be done from the terminal (SSH/console) or from [Cockpit](cockpit.md).
 
 ## Access

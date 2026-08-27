@@ -2,15 +2,15 @@
 
 ## Edição
 
-O **HERD Community** é **gratuito e de código aberto** (o código sob GPLv3; nome
+O **Herd Community** é **gratuito e de código aberto** (o código sob GPLv3; nome
 e logotipo são marca do projeto). É mantido pela comunidade, em regime de
 **melhor esforço** — sem SLA contratual.
 
 ## Ciclo de vida
 
-- O HERD **1.x** é baseado no **Fedora 44** e acompanha as atualizações de
+- O Herd **1.x** é baseado no **Fedora 44** e acompanha as atualizações de
   segurança dessa base. Mantenha o sistema atualizado com `dnf upgrade`.
-- A **geração 2** (HERD 2.x) migrará para uma base Fedora mais nova, lançada
+- A **geração 2** (Herd 2.x) migrará para uma base Fedora mais nova, lançada
   quando estiver madura.
 
 !!! tip "Mantenha atualizado"
@@ -62,7 +62,7 @@ documentação, testes e divulgação são todos bem-vindos — veja a página
     `TRADEMARK.md` do repositório.
 
 ??? question "Como faço um servidor web/banco/container?"
-    O HERD é uma base de servidor enxuta. Instale o que precisar com `dnf`
+    O Herd é uma base de servidor enxuta. Instale o que precisar com `dnf`
     (`nginx`, `podman`, `postgresql-server`, etc.) e libere as portas no
     [firewall](administracao.md#firewall).
 
