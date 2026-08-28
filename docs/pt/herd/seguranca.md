@@ -145,12 +145,20 @@ headless e nuvem) e você habilita quando a sua política pedir.
 ### Criptografia de disco (LUKS)
 
 Protege os dados **em repouso** (disco roubado/descartado não vaza nada). É uma
-decisão de **instalação**:
+decisão de **instalação**. Como o instalador do Herd é em **modo texto** (não tem
+o checkbox "Criptografar" da versão gráfica), a criptografia é definida pelo
+**kickstart** — desde a **1.0.1** o pacote `cryptsetup` já vem no payload da ISO,
+então o install cifrado funciona offline. Use o template do
+[kickstart do Herd](instalacao-iso.md):
 
-- **Recomendado:** na tela de particionamento do instalador, marque
-  **"Criptografar meus dados"** e defina a senha.
-- **Automatizado:** o [kickstart do Herd](instalacao-iso.md) traz um template
-  comentado (`autopart --encrypted`) para instalação já cifrada.
+```text
+clearpart --all --initlabel
+autopart --type=lvm --encrypted --passphrase=SUA-SENHA
+```
+
+Aponte o instalador para esse kickstart gerando uma ISO própria
+(`KS=meu.ks ./build-iso.sh`, veja o [repositório](https://github.com/capivaraos/capivaraos-herd))
+ou passando `inst.ks=<url>` no boot.
 
 Conferir depois:
 
