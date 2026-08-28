@@ -53,16 +53,24 @@ sudo herd-compliance-scan
 Isso avalia o sistema contra o perfil **`standard`** e gera:
 
 ```
-/root/herd-compliance-<data>.html   # relatório legível (abra no navegador)
-/root/herd-compliance-<data>.xml    # resultados (máquina)
+/root/herd-compliance-<data>.html      # relatório legível (abra no navegador)
+/root/herd-compliance-<data>.xml       # resultados XCCDF (máquina)
+/root/herd-compliance-<data>.arf.xml   # ARF: evidência re-renderizável / auditoria
 ```
 
-Para ver os perfis disponíveis ou rodar outro:
+Para ver os perfis disponíveis ou rodar outro (aceita os **mesmos apelidos** do
+[`herd-harden`](endurecimento.md) — `standard`, `ospp`, `cis-l1`, `cis-l2`, `pci`
+— ou o id completo):
 
 ```bash
 herd-compliance-scan --list
-sudo herd-compliance-scan xccdf_org.ssgproject.content_profile_cis
+sudo herd-compliance-scan ospp
 ```
+
+!!! tip "ARF é a evidência"
+    O `.arf.xml` é o formato *machine-readable* que guarda datastream + resultados
+    juntos: dá para **re-gerar o relatório depois** sem escanear de novo e é o que
+    ferramentas de auditoria/agregação consomem.
 
 !!! tip "Copiar o relatório para ver no seu PC"
     ```bash
