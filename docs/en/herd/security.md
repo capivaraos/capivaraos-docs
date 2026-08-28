@@ -52,16 +52,24 @@ sudo herd-compliance-scan
 This evaluates the system against the **`standard`** profile and generates:
 
 ```
-/root/herd-compliance-<date>.html   # readable report (open in a browser)
-/root/herd-compliance-<date>.xml    # results (machine)
+/root/herd-compliance-<date>.html      # readable report (open in a browser)
+/root/herd-compliance-<date>.xml       # XCCDF results (machine)
+/root/herd-compliance-<date>.arf.xml   # ARF: re-renderable evidence / auditing
 ```
 
-To list available profiles or run another one:
+To list available profiles or run another one (it accepts the **same aliases**
+as [`herd-harden`](hardening.md) — `standard`, `ospp`, `cis-l1`, `cis-l2`, `pci`
+— or the full id):
 
 ```bash
 herd-compliance-scan --list
-sudo herd-compliance-scan xccdf_org.ssgproject.content_profile_cis
+sudo herd-compliance-scan ospp
 ```
+
+!!! tip "ARF is the evidence"
+    The `.arf.xml` is the *machine-readable* format that bundles datastream +
+    results together: you can **regenerate the report later** without re-scanning,
+    and it's what auditing/aggregation tools consume.
 
 !!! tip "Copy the report to your PC"
     ```bash
@@ -113,6 +121,13 @@ echo "ssh-ed25519 AAAA... you@machine" >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
 
+!!! warning "Planning to apply `ospp`/`cis` or FIPS mode? Don't rely on ed25519"
+    These profiles switch the system *crypto-policy* to **FIPS**, which **does not
+    accept ed25519 keys** (nor ciphers outside the FIPS set). Generate an **RSA**
+    (`ssh-keygen -t rsa -b 3072`) or **ECDSA** (`ssh-keygen -t ecdsa -b 384`) key
+    **before** hardening and confirm a fresh login. For the default baseline,
+    ed25519 is still great. See [One-command hardening](hardening.md).
+
 ## Production best practices
 
 - Expose the minimum: only the necessary ports in `firewalld`.
@@ -120,6 +135,82 @@ chmod 600 ~/.ssh/authorized_keys
 - Keep the system updated (`dnf upgrade`) — Fedora security updates.
 - Run `herd-compliance-scan` periodically and address what makes sense for your
   environment.
+
+## Encryption at rest and FIPS (optional)
+
+Two reinforcements that are **off by default** (so they don't get in the way of
+headless servers and cloud), which you enable when your policy calls for them.
+
+### Disk encryption (LUKS)
+
+Protects data **at rest** (a stolen/discarded disk leaks nothing). It's an
+**install-time** decision:
+
+- **Recommended:** on the installer's partitioning screen, tick
+  **"Encrypt my data"** and set the passphrase.
+- **Automated:** the [Herd kickstart](installation-iso.md) ships a commented
+  template (`autopart --encrypted`) for an already-encrypted install.
+
+Verify afterward:
+
+```bash
+lsblk                       # the device should show up as "crypt"
+sudo cryptsetup status luks-<uuid>
+```
+
+!!! warning "Headless server: the passphrase is asked at boot"
+    A LUKS volume prompts for the **passphrase on every boot**. Without a console
+    (physical/IPMI/serial), the machine **won't come up on its own** after a
+    reboot. For server auto-unlock, use **NBDE** — `clevis` with **TPM2** (local
+    seal) or **Tang** (key over the network). **Do not** use LUKS on the **cloud**
+    image (qcow2).
+
+### FIPS mode
+
+FIPS 140 forces the use of validated cryptographic modules only and restricts the
+allowed algorithms. Useful for government/sector requirements.
+
+!!! note "Fedora 44 no longer ships `fips-mode-setup`"
+    Fedora [removed `fips-mode-setup`](https://fedoraproject.org/wiki/Changes/RemoveFipsModeSetup).
+    FIPS is now turned on with **`fips=1`** on the kernel command line —
+    **preferably at install time** (enabling it afterward "has subtle bugs and is
+    no longer recommended", per Fedora). The initramfs already ships the `fips`
+    module and the crypto-policy switches to FIPS on its own when the kernel is in
+    FIPS mode.
+
+**Recommended — at install:** on the ISO boot menu, edit the entry (`e`/`Tab`)
+and append **`fips=1`** to the kernel line. The installed system boots in FIPS.
+
+**Post-install (with the caveat above):** on Herd `/boot` is a separate
+partition, so `fips=1` must be paired with `boot=UUID=<uuid of /boot>`. This
+block detects the UUID for you:
+
+```bash
+if findmnt /boot >/dev/null 2>&1; then
+  UUID=$(sudo blkid -s UUID -o value "$(findmnt -no SOURCE /boot)")
+  ARGS="fips=1 boot=UUID=$UUID"
+else
+  ARGS="fips=1"
+fi
+sudo grubby --update-kernel=ALL --args="$ARGS"
+sudo reboot
+```
+
+Verify:
+
+```bash
+cat /proc/sys/crypto/fips_enabled     # 1 = active
+update-crypto-policies --show          # FIPS
+```
+
+To disable: remove `fips=1`
+(`sudo grubby --update-kernel=ALL --remove-args="fips=1"`) and reboot.
+
+!!! warning "Test access before relying on it"
+    FIPS mode **restricts algorithms**: in particular, **ed25519 SSH keys stop
+    being accepted** (use **RSA** or **ECDSA**), along with ciphers and
+    certificates outside the approved set. **Confirm SSH login on a second
+    session** right after rebooting, before closing the access you have.
 
 ## Third-party credits and licenses
 

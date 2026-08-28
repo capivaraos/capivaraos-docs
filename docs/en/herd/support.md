@@ -54,7 +54,7 @@ testing and spreading the word are all welcome — see the
     administrative access**.
 
 ??? question "Is there an ARM (aarch64) version?"
-    Not yet in 1.0.0 — aarch64 support arrives in **1.1**.
+    Not yet in 1.0.1 — aarch64 support arrives in **1.1**.
 
 ??? question "Can I use it in commercial production?"
     Yes. The software is free (GPLv3) and can be used for any purpose, including

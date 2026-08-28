@@ -5,7 +5,7 @@ system (no graphical desktop), based on **Fedora 44**, meant to run on physical
 servers, virtual machines and the cloud — with a Brazilian identity, sane
 security by default, and **Cockpit** as the browser-based administration console.
 
-!!! info "Community Edition 1.0.0"
+!!! info "Community Edition 1.0.1"
     This documentation covers **Herd Community**, the **free and open-source**
     edition. Architecture **x86_64** (**aarch64** support arrives in 1.1).
 
