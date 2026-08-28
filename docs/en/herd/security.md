@@ -181,11 +181,18 @@ allowed algorithms. Useful for government/sector requirements.
 **Recommended — at install:** on the ISO boot menu, edit the entry (`e`/`Tab`)
 and append **`fips=1`** to the kernel line. The installed system boots in FIPS.
 
-**Post-install (with the caveat above):**
+**Post-install (with the caveat above):** on Herd `/boot` is a separate
+partition, so `fips=1` must be paired with `boot=UUID=<uuid of /boot>`. This
+block detects the UUID for you:
 
 ```bash
-sudo grubby --update-kernel=ALL --args="fips=1"
-# if /boot is a separate partition, also add: boot=UUID=<uuid-of-/boot>
+if findmnt /boot >/dev/null 2>&1; then
+  UUID=$(sudo blkid -s UUID -o value "$(findmnt -no SOURCE /boot)")
+  ARGS="fips=1 boot=UUID=$UUID"
+else
+  ARGS="fips=1"
+fi
+sudo grubby --update-kernel=ALL --args="$ARGS"
 sudo reboot
 ```
 
