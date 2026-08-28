@@ -17,7 +17,7 @@ ou "CD/DVD" da VM).
 
     ```bash
     lsblk   # descubra o dispositivo do pendrive (ex.: /dev/sdX)
-    sudo dd if=CapivaraOS-HERD-1.0.0-x86_64.installer.iso of=/dev/sdX bs=4M status=progress oflag=sync
+    sudo dd if=CapivaraOS-HERD-1.0.1-x86_64.installer.iso of=/dev/sdX bs=4M status=progress oflag=sync
     ```
 
     !!! warning "Confirme o dispositivo"
@@ -85,7 +85,7 @@ No menu do GRUB você verá a entrada **Herd**. O sistema sobe em modo
 texto e mostra, no console, o endereço do Cockpit:
 
 ```
-Herd Community 1.0.0  ·  servidor headless (Fedora 44)
+Herd by CapivaraOS 1.0.1  ·  servidor headless (Fedora 44)
 Web console: https://<ip>:9090/
 ```
 
