@@ -114,6 +114,13 @@ echo "ssh-ed25519 AAAA... voce@maquina" >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
 
+!!! warning "Vai aplicar `ospp`/`cis` ou o modo FIPS? Não dependa de ed25519"
+    Esses perfis trocam a *crypto-policy* do sistema para **FIPS**, que **não
+    aceita chaves ed25519** (nem cifras fora do conjunto FIPS). Gere uma chave
+    **RSA** (`ssh-keygen -t rsa -b 3072`) ou **ECDSA** (`ssh-keygen -t ecdsa -b 384`)
+    **antes** de endurecer e confirme um login novo. Para o baseline padrão, a
+    ed25519 continua ótima. Veja [Endurecimento em 1 comando](endurecimento.md).
+
 ## Boas práticas para produção
 
 - Exponha o mínimo: só as portas necessárias no `firewalld`.
@@ -173,10 +180,10 @@ cat /proc/sys/crypto/fips_enabled     # 1 = ativo
 Para desativar: `sudo fips-mode-setup --disable && sudo reboot`.
 
 !!! warning "Teste o acesso antes de depender disso"
-    O modo FIPS **restringe algoritmos**: chaves/cifras SSH ou certificados fora
-    dos algoritmos aprovados param de funcionar. **Confirme o login SSH** (de
-    preferência numa segunda sessão) logo após reiniciar, antes de fechar o
-    acesso que você tem.
+    O modo FIPS **restringe algoritmos**: em especial, **chaves SSH ed25519
+    deixam de ser aceitas** (use **RSA** ou **ECDSA**), além de cifras e
+    certificados fora do conjunto aprovado. **Confirme o login SSH numa segunda
+    sessão** logo após reiniciar, antes de fechar o acesso que você tem.
 
 ## Créditos e licenças de terceiros
 
