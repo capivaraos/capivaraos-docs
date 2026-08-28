@@ -2,17 +2,17 @@
 
 ## Escolha a imagem
 
-O Herd Community 1.0.0 é distribuído em duas imagens para **x86_64**:
+O Herd Community 1.0.1 é distribuído em duas imagens para **x86_64**:
 
 | Imagem | Arquivo | Quando usar |
 |---|---|---|
-| **ISO instaladora** | `CapivaraOS-HERD-1.0.0-x86_64.installer.iso` | Instalar em servidor físico ou VM a partir do zero |
-| **Disco qcow2** | `CapivaraOS-HERD-1.0.0-x86_64.qcow2` | Subir rápido em nuvem/virtualização com `cloud-init` |
+| **ISO instaladora** | `CapivaraOS-HERD-1.0.1-x86_64.installer.iso` | Instalar em servidor físico ou VM a partir do zero |
+| **Disco qcow2** | `CapivaraOS-HERD-1.0.1-x86_64.qcow2` | Subir rápido em nuvem/virtualização com `cloud-init` |
 
 Baixe em:
 
 - **Site:** [capivaraos.org — Download](https://capivaraos.org/pt/download.html)
-- **SourceForge:** [pasta CapivaraOS-HERD/1.0.0](https://sourceforge.net/projects/capivaraos/files/CapivaraOS-HERD/1.0.0/)
+- **SourceForge:** [pasta CapivaraOS-HERD/1.0.1](https://sourceforge.net/projects/capivaraos/files/CapivaraOS-HERD/1.0.1/)
 
 ## Verifique a integridade
 
@@ -21,8 +21,8 @@ somas das duas imagens estão no arquivo `SHA256SUMS`, na mesma pasta do
 download:
 
 ```
-b97a272ee6f0e91fa609e49d1184e4a4149f61667588a4c13f4ce87c03339123  CapivaraOS-HERD-1.0.0-x86_64.qcow2
-9a4c1b9957678e8aa25c1187eb962bcb8460c9415f8b0007de396536deeaa2c3  CapivaraOS-HERD-1.0.0-x86_64.installer.iso
+395d06472e47b9b572769fe35f295806da01abb6536a89e5b5b82a0ec757776b  CapivaraOS-HERD-1.0.1-x86_64.qcow2
+8b5283c9ff2115d30a7983b9641ac15fbfa66b90c57c35ef02d8b0517615d172  CapivaraOS-HERD-1.0.1-x86_64.installer.iso
 ```
 
 === "Linux / macOS"
@@ -36,7 +36,7 @@ b97a272ee6f0e91fa609e49d1184e4a4149f61667588a4c13f4ce87c03339123  CapivaraOS-HER
 === "Windows (PowerShell)"
 
     ```powershell
-    Get-FileHash .\CapivaraOS-HERD-1.0.0-x86_64.installer.iso -Algorithm SHA256
+    Get-FileHash .\CapivaraOS-HERD-1.0.1-x86_64.installer.iso -Algorithm SHA256
     # compare a saída com o valor acima
     ```
 

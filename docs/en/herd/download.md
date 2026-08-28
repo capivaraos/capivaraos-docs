@@ -2,17 +2,17 @@
 
 ## Choose the image
 
-Herd Community 1.0.0 is distributed as two **x86_64** images:
+Herd Community 1.0.1 is distributed as two **x86_64** images:
 
 | Image | File | When to use |
 |---|---|---|
-| **Installer ISO** | `CapivaraOS-HERD-1.0.0-x86_64.installer.iso` | Install on a physical server or VM from scratch |
-| **qcow2 disk** | `CapivaraOS-HERD-1.0.0-x86_64.qcow2` | Spin up quickly on cloud/virtualization with `cloud-init` |
+| **Installer ISO** | `CapivaraOS-HERD-1.0.1-x86_64.installer.iso` | Install on a physical server or VM from scratch |
+| **qcow2 disk** | `CapivaraOS-HERD-1.0.1-x86_64.qcow2` | Spin up quickly on cloud/virtualization with `cloud-init` |
 
 Download from:
 
 - **Website:** [capivaraos.org — Download](https://capivaraos.org/en/download.html)
-- **SourceForge:** [CapivaraOS-HERD/1.0.0 folder](https://sourceforge.net/projects/capivaraos/files/CapivaraOS-HERD/1.0.0/)
+- **SourceForge:** [CapivaraOS-HERD/1.0.1 folder](https://sourceforge.net/projects/capivaraos/files/CapivaraOS-HERD/1.0.1/)
 
 ## Verify integrity
 
@@ -20,8 +20,8 @@ Always check the **SHA-256** of the downloaded file against the published value.
 Both image sums are in the `SHA256SUMS` file, in the same download folder:
 
 ```
-b97a272ee6f0e91fa609e49d1184e4a4149f61667588a4c13f4ce87c03339123  CapivaraOS-HERD-1.0.0-x86_64.qcow2
-9a4c1b9957678e8aa25c1187eb962bcb8460c9415f8b0007de396536deeaa2c3  CapivaraOS-HERD-1.0.0-x86_64.installer.iso
+395d06472e47b9b572769fe35f295806da01abb6536a89e5b5b82a0ec757776b  CapivaraOS-HERD-1.0.1-x86_64.qcow2
+8b5283c9ff2115d30a7983b9641ac15fbfa66b90c57c35ef02d8b0517615d172  CapivaraOS-HERD-1.0.1-x86_64.installer.iso
 ```
 
 === "Linux / macOS"
@@ -35,7 +35,7 @@ b97a272ee6f0e91fa609e49d1184e4a4149f61667588a4c13f4ce87c03339123  CapivaraOS-HER
 === "Windows (PowerShell)"
 
     ```powershell
-    Get-FileHash .\CapivaraOS-HERD-1.0.0-x86_64.installer.iso -Algorithm SHA256
+    Get-FileHash .\CapivaraOS-HERD-1.0.1-x86_64.installer.iso -Algorithm SHA256
     # compare the output with the value above
     ```
 

@@ -6,7 +6,7 @@ em servidores físicos, máquinas virtuais e na nuvem — com identidade brasile
 segurança sã por padrão e o **Cockpit** como console de administração no
 navegador.
 
-!!! info "Edição Community 1.0.0"
+!!! info "Edição Community 1.0.1"
     Esta documentação cobre o **Herd Community**, a edição **gratuita e de código
     aberto**. Arquitetura **x86_64** (o suporte a **aarch64** chega na 1.1).
 

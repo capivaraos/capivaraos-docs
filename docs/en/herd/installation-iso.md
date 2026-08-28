@@ -17,7 +17,7 @@ or the VM's "CD/DVD").
 
     ```bash
     lsblk   # find the USB device (e.g. /dev/sdX)
-    sudo dd if=CapivaraOS-HERD-1.0.0-x86_64.installer.iso of=/dev/sdX bs=4M status=progress oflag=sync
+    sudo dd if=CapivaraOS-HERD-1.0.1-x86_64.installer.iso of=/dev/sdX bs=4M status=progress oflag=sync
     ```
 
     !!! warning "Confirm the device"
@@ -35,7 +35,7 @@ or the VM's "CD/DVD").
 ## 2. Boot from the ISO
 
 Enter the server's boot menu (usually **F11/F12/Del/Esc**) and select the media.
-The CapivaraOS GRUB menu appears — choose **Install CapivaraOS HERD**.
+The CapivaraOS GRUB menu appears — choose **Install Herd by CapivaraOS**.
 
 Anaconda starts in **text mode** and shows a numbered menu. Items marked `[x]`
 are already configured; those marked `[ ]` need your attention.
@@ -80,11 +80,11 @@ it finishes, **remove the media** and reboot.
 
 ## 5. First boot
 
-In the GRUB menu you'll see the **CapivaraOS HERD** entry. The system boots to
+In the GRUB menu you'll see the **Herd** entry. The system boots to
 text mode and prints, on the console, the Cockpit address:
 
 ```
-Herd Community 1.0.0  ·  headless server (Fedora 44)
+Herd by CapivaraOS 1.0.1  ·  headless server (Fedora 44)
 Web console: https://<ip>:9090/
 ```
 
