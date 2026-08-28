@@ -168,24 +168,36 @@ sudo cryptsetup status luks-<uuid>
 ### Modo FIPS
 
 O FIPS 140 força o uso apenas de módulos criptográficos validados e restringe os
-algoritmos permitidos (via *crypto-policy* `FIPS`). Útil para requisitos
-governamentais/setoriais.
+algoritmos permitidos. Útil para requisitos governamentais/setoriais.
 
-Habilitar (exige reinício):
+!!! note "No Fedora 44 não existe mais `fips-mode-setup`"
+    O Fedora [removeu o `fips-mode-setup`](https://fedoraproject.org/wiki/Changes/RemoveFipsModeSetup).
+    O FIPS agora se liga com **`fips=1`** no kernel — **de preferência na
+    instalação** (ligar depois "tem bugs sutis e não é mais recomendado", segundo
+    o Fedora). O initramfs já traz o módulo `fips` e a crypto-policy vira FIPS
+    sozinha quando o kernel está em modo FIPS.
+
+**Recomendado — na instalação:** no menu de boot da ISO, edite a entrada
+(tecla `e`/`Tab`) e acrescente **`fips=1`** à linha do kernel. O sistema
+instalado já sobe em FIPS.
+
+**Pós-instalação (com a ressalva acima):**
 
 ```bash
-sudo fips-mode-setup --enable
+sudo grubby --update-kernel=ALL --args="fips=1"
+# se /boot for uma partição separada, some também: boot=UUID=<uuid-do-/boot>
 sudo reboot
 ```
 
 Conferir:
 
 ```bash
-fips-mode-setup --check
 cat /proc/sys/crypto/fips_enabled     # 1 = ativo
+update-crypto-policies --show          # FIPS
 ```
 
-Para desativar: `sudo fips-mode-setup --disable && sudo reboot`.
+Para desativar: remova o `fips=1`
+(`sudo grubby --update-kernel=ALL --remove-args="fips=1"`) e reinicie.
 
 !!! warning "Teste o acesso antes de depender disso"
     O modo FIPS **restringe algoritmos**: em especial, **chaves SSH ed25519
