@@ -17,7 +17,7 @@ or the VM's "CD/DVD").
 
     ```bash
     lsblk   # find the USB device (e.g. /dev/sdX)
-    sudo dd if=CapivaraOS-HERD-1.0.0-x86_64.installer.iso of=/dev/sdX bs=4M status=progress oflag=sync
+    sudo dd if=CapivaraOS-HERD-1.0.1-x86_64.installer.iso of=/dev/sdX bs=4M status=progress oflag=sync
     ```
 
     !!! warning "Confirm the device"
@@ -84,7 +84,7 @@ In the GRUB menu you'll see the **Herd** entry. The system boots to
 text mode and prints, on the console, the Cockpit address:
 
 ```
-Herd Community 1.0.0  ·  headless server (Fedora 44)
+Herd by CapivaraOS 1.0.1  ·  headless server (Fedora 44)
 Web console: https://<ip>:9090/
 ```
 

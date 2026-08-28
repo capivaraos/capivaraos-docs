@@ -1,6 +1,6 @@
 # Requisitos
 
-O Herd Community 1.0.0 é distribuído para **x86_64** (64 bits). O suporte a
+O Herd Community 1.0.1 é distribuído para **x86_64** (64 bits). O suporte a
 **aarch64** (ARM) chega na versão 1.1.
 
 ## Hardware mínimo e recomendado

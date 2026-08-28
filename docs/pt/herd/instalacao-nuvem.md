@@ -63,7 +63,7 @@ genisoimage -output seed.iso -volid cidata -joliet -rock user-data meta-data
 ### 3. Suba a VM
 
 ```bash
-cp CapivaraOS-HERD-1.0.0-x86_64.qcow2 herd-01.qcow2
+cp CapivaraOS-HERD-1.0.1-x86_64.qcow2 herd-01.qcow2
 
 virt-install --name herd-01 --memory 2048 --vcpus 2 \
   --disk path=herd-01.qcow2,format=qcow2,bus=virtio \
