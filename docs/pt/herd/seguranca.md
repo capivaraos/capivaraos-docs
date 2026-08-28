@@ -181,11 +181,18 @@ algoritmos permitidos. Útil para requisitos governamentais/setoriais.
 (tecla `e`/`Tab`) e acrescente **`fips=1`** à linha do kernel. O sistema
 instalado já sobe em FIPS.
 
-**Pós-instalação (com a ressalva acima):**
+**Pós-instalação (com a ressalva acima):** no Herd o `/boot` é uma partição
+separada, então o `fips=1` precisa vir acompanhado de `boot=UUID=<uuid do /boot>`.
+Este bloco detecta o UUID sozinho:
 
 ```bash
-sudo grubby --update-kernel=ALL --args="fips=1"
-# se /boot for uma partição separada, some também: boot=UUID=<uuid-do-/boot>
+if findmnt /boot >/dev/null 2>&1; then
+  UUID=$(sudo blkid -s UUID -o value "$(findmnt -no SOURCE /boot)")
+  ARGS="fips=1 boot=UUID=$UUID"
+else
+  ARGS="fips=1"
+fi
+sudo grubby --update-kernel=ALL --args="$ARGS"
 sudo reboot
 ```
 
