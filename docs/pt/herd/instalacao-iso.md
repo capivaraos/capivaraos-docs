@@ -111,7 +111,7 @@ logo após instalar **você não consegue entrar por SSH com senha**. Opções:
 
 - [Primeiros passos](primeiros-passos.md) — rede, hostname, atualizações.
 - [Console web (Cockpit)](cockpit.md) — administrar pelo navegador.
-- [Segurança e compliance](seguranca.md) — o que vem endurecido.
+- [Segurança e compliance](seguranca.md) — o que vem fortalecido.
 
 ---
 

@@ -1,10 +1,10 @@
 # Segurança e compliance
 
-O Herd já nasce **endurecido por padrão** — um servidor recém-instalado vem com
+O Herd já nasce **fortalecido por padrão** — um servidor recém-instalado vem com
 um perfil de segurança sensato, sem você precisar configurar nada. Esta página
 explica **o que vem ativado**, como **auditar** e como **ajustar**.
 
-## O que vem endurecido
+## O que vem fortalecido
 
 | Área | Padrão no Herd |
 |---|---|
@@ -59,7 +59,7 @@ Isso avalia o sistema contra o perfil **`standard`** e gera:
 ```
 
 Para ver os perfis disponíveis ou rodar outro (aceita os **mesmos apelidos** do
-[`herd-harden`](endurecimento.md) — `standard`, `ospp`, `cis-l1`, `cis-l2`, `pci`
+[`herd-harden`](fortalecimento.md) — `standard`, `ospp`, `cis-l1`, `cis-l2`, `pci`
 — ou o id completo):
 
 ```bash
@@ -126,8 +126,8 @@ chmod 600 ~/.ssh/authorized_keys
     Esses perfis trocam a *crypto-policy* do sistema para **FIPS**, que **não
     aceita chaves ed25519** (nem cifras fora do conjunto FIPS). Gere uma chave
     **RSA** (`ssh-keygen -t rsa -b 3072`) ou **ECDSA** (`ssh-keygen -t ecdsa -b 384`)
-    **antes** de endurecer e confirme um login novo. Para o baseline padrão, a
-    ed25519 continua ótima. Veja [Endurecimento em 1 comando](endurecimento.md).
+    **antes** de fortalecer e confirme um login novo. Para o baseline padrão, a
+    ed25519 continua ótima. Veja [Fortalecimento em 1 comando](fortalecimento.md).
 
 ## Boas práticas para produção
 
@@ -145,12 +145,20 @@ headless e nuvem) e você habilita quando a sua política pedir.
 ### Criptografia de disco (LUKS)
 
 Protege os dados **em repouso** (disco roubado/descartado não vaza nada). É uma
-decisão de **instalação**:
+decisão de **instalação**. Como o instalador do Herd é em **modo texto** (não tem
+o checkbox "Criptografar" da versão gráfica), a criptografia é definida pelo
+**kickstart** — desde a **1.0.1** o pacote `cryptsetup` já vem no payload da ISO,
+então o install cifrado funciona offline. Use o template do
+[kickstart do Herd](instalacao-iso.md):
 
-- **Recomendado:** na tela de particionamento do instalador, marque
-  **"Criptografar meus dados"** e defina a senha.
-- **Automatizado:** o [kickstart do Herd](instalacao-iso.md) traz um template
-  comentado (`autopart --encrypted`) para instalação já cifrada.
+```text
+clearpart --all --initlabel
+autopart --type=lvm --encrypted --passphrase=SUA-SENHA
+```
+
+Aponte o instalador para esse kickstart gerando uma ISO própria
+(`KS=meu.ks ./build-iso.sh`, veja o [repositório](https://github.com/capivaraos/capivaraos-herd))
+ou passando `inst.ks=<url>` no boot.
 
 Conferir depois:
 
