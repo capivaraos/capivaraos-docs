@@ -14,7 +14,7 @@ O CapivaraOS é uma família de distribuições Linux brasileiras baseadas no Fe
 
 Precisa de um **servidor**? O [**Herd by CapivaraOS**](herd/index.md) é a linha
 _headless_ (sem desktop) para máquinas físicas, VMs e nuvem — com Cockpit,
-segurança endurecida e compliance de fábrica. Veja a
+segurança fortalecida e compliance de fábrica. Veja a
 [documentação do Herd](herd/index.md).
 
 ## Por onde começar
