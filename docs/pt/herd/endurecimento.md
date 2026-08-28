@@ -38,6 +38,14 @@ Você também pode passar o **id técnico completo** do perfil
       para conformidade*. Conformidade em si é processo, jurídico e organização;
       nenhum SO se declara "certificado" por você.
 
+!!! warning "`ospp` e `cis` mudam a criptografia — cuidado com chaves ed25519"
+    Os perfis `ospp` e `cis` ativam a *crypto-policy* **FIPS**, que **recusa
+    chaves SSH ed25519** (e cifras fora do conjunto FIPS). Num servidor acessado
+    por SSH, garanta uma chave **RSA** ou **ECDSA** antes de aplicar e **teste um
+    login novo** logo após o `--apply`, sem fechar a sessão atual — o próprio
+    `herd-harden` avisa sobre isso ao final. Detalhes na página de
+    [Segurança e compliance](seguranca.md#criptografia-em-repouso-e-fips-opcional).
+
 ## Uso
 
 ### 1. Ver o que mudaria (dry-run)

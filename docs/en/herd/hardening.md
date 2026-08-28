@@ -38,6 +38,15 @@ You can also pass the **full technical profile id**
       *compliance-ready*. Compliance itself is process, legal and organization;
       no OS declares itself "certified" on your behalf.
 
+!!! warning "`ospp` and `cis` change the crypto — watch out for ed25519 keys"
+    The `ospp` and `cis` profiles enable the **FIPS** *crypto-policy*, which
+    **rejects ed25519 SSH keys** (and ciphers outside the FIPS set). On a server
+    reached over SSH, make sure you have an **RSA** or **ECDSA** key before
+    applying and **test a fresh login** right after `--apply`, without closing
+    your current session — `herd-harden` itself warns about this at the end.
+    Details on the [Security and compliance](security.md#encryption-at-rest-and-fips-optional)
+    page.
+
 ## Usage
 
 ### 1. See what would change (dry-run)
