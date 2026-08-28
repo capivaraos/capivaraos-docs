@@ -144,12 +144,20 @@ headless servers and cloud), which you enable when your policy calls for them.
 ### Disk encryption (LUKS)
 
 Protects data **at rest** (a stolen/discarded disk leaks nothing). It's an
-**install-time** decision:
+**install-time** decision. Since the Herd installer is **text-mode** (no "Encrypt
+my data" checkbox from the graphical version), encryption is set via the
+**kickstart** — since **1.0.1** the `cryptsetup` package ships in the ISO payload,
+so an encrypted install works offline. Use the [Herd kickstart](installation-iso.md)
+template:
 
-- **Recommended:** on the installer's partitioning screen, tick
-  **"Encrypt my data"** and set the passphrase.
-- **Automated:** the [Herd kickstart](installation-iso.md) ships a commented
-  template (`autopart --encrypted`) for an already-encrypted install.
+```text
+clearpart --all --initlabel
+autopart --type=lvm --encrypted --passphrase=YOUR-PASSPHRASE
+```
+
+Point the installer at that kickstart either by building your own ISO
+(`KS=my.ks ./build-iso.sh`, see the [repository](https://github.com/capivaraos/capivaraos-herd))
+or by passing `inst.ks=<url>` at boot.
 
 Verify afterward:
 

@@ -22,7 +22,7 @@ download:
 
 ```
 395d06472e47b9b572769fe35f295806da01abb6536a89e5b5b82a0ec757776b  CapivaraOS-HERD-1.0.1-x86_64.qcow2
-8b5283c9ff2115d30a7983b9641ac15fbfa66b90c57c35ef02d8b0517615d172  CapivaraOS-HERD-1.0.1-x86_64.installer.iso
+3a38b869c4f8b883e35de2fe2126d2f90b84b244f4c81481e67414e78a8d0d71  CapivaraOS-HERD-1.0.1-x86_64.installer.iso
 ```
 
 === "Linux / macOS"
