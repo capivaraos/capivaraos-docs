@@ -36,7 +36,7 @@ ou "CD/DVD" da VM).
 ## 2. Dê boot pela ISO
 
 Entre no menu de boot do servidor (geralmente **F11/F12/Del/Esc**) e selecione a
-mídia. O menu do GRUB do CapivaraOS aparece — escolha **Install CapivaraOS HERD**.
+mídia. O menu do GRUB do CapivaraOS aparece — escolha **Install Herd by CapivaraOS**.
 
 O Anaconda inicia em **modo texto** e mostra um menu numerado. Cada item entre
 `[x]` já está configurado; os `[ ]` precisam da sua atenção.
@@ -81,7 +81,7 @@ para instalar. Ao terminar, **remova a mídia** e reinicie.
 
 ## 5. Primeiro boot
 
-No menu do GRUB você verá a entrada **CapivaraOS HERD**. O sistema sobe em modo
+No menu do GRUB você verá a entrada **Herd**. O sistema sobe em modo
 texto e mostra, no console, o endereço do Cockpit:
 
 ```

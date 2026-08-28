@@ -35,7 +35,7 @@ or the VM's "CD/DVD").
 ## 2. Boot from the ISO
 
 Enter the server's boot menu (usually **F11/F12/Del/Esc**) and select the media.
-The CapivaraOS GRUB menu appears — choose **Install CapivaraOS HERD**.
+The CapivaraOS GRUB menu appears — choose **Install Herd by CapivaraOS**.
 
 Anaconda starts in **text mode** and shows a numbered menu. Items marked `[x]`
 are already configured; those marked `[ ]` need your attention.
@@ -80,7 +80,7 @@ it finishes, **remove the media** and reboot.
 
 ## 5. First boot
 
-In the GRUB menu you'll see the **CapivaraOS HERD** entry. The system boots to
+In the GRUB menu you'll see the **Herd** entry. The system boots to
 text mode and prints, on the console, the Cockpit address:
 
 ```
