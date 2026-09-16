@@ -1,6 +1,6 @@
-# Endurecimento em 1 comando
+# Fortalecimento em 1 comando
 
-O Herd já vem [endurecido por padrão](seguranca.md). Quando você precisa ir
+O Herd já vem [fortalecido por padrão](seguranca.md). Quando você precisa ir
 **além do baseline** — para atender um padrão específico como CIS ou PCI-DSS —
 o `herd-harden` aplica um perfil de conformidade inteiro em **um comando**.
 
@@ -87,7 +87,7 @@ herd-harden --help      # ajuda resumida
 !!! tip "Comece pelo mais leve"
     Uma boa progressão é `standard` → `ospp` → `cis-l1` → `pci` (ou `cis-l2`,
     o mais restritivo). Aplique um por vez, sempre revisando o dry-run e testando
-    seus serviços depois — perfis mais altos endurecem bastante a superfície.
+    seus serviços depois — perfis mais altos fortalecem bastante a superfície.
 
 ## Cuidados
 
