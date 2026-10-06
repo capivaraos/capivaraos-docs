@@ -108,6 +108,7 @@ nav:
       - Administração: pt/herd/administracao.md
       - Suporte: pt/herd/suporte.md
     - FAQ: pt/faq.md
+    - Changelog: pt/changelog.md
     - Contribua: pt/contribua.md
   - English:
     - Home: en/index.md
@@ -131,6 +132,7 @@ nav:
       - Administration: en/herd/administration.md
       - Support: en/herd/support.md
     - FAQ: en/faq.md
+    - Changelog: en/changelog.md
     - Contribute: en/contribute.md
 
 copyright: >
