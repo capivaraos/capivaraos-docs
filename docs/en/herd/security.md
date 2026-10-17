@@ -77,11 +77,22 @@ sudo herd-compliance-scan ospp
     ```
     (or open the file via Cockpit's **Terminal**/**Files**.)
 
-!!! info "Community's baseline profile"
-    Herd Community focuses on a solid baseline (SSH, firewall, SELinux, password,
-    umask). Heavier controls like **full auditd**, **AIDE** and the complete
-    **CIS** profile are the **Enterprise** path; the embedded datastream already
-    includes the `cis`/`cis_server_l1` profiles should you want to evaluate them.
+!!! info "Why `standard` is the default"
+    The `standard` profile is a balanced baseline: it closes what matters (SSH,
+    firewall, SELinux, password, umask) without breaking ordinary services. That
+    is why it runs by default.
+
+    The stricter profiles — `cis-l1`, `cis-l2`, `ospp` and `pci` — **ship with
+    the system and run with one command**, no licence and nothing to install:
+
+    ```bash
+    sudo herd-harden cis-l2        # dry-run by default
+    sudo herd-harden cis-l2 --apply
+    ```
+
+    They change a great deal more (CIS Level 2 evaluates 438 rules against 76 in
+    `standard`) and can break services you rely on. Run the dry-run first, read
+    what would change, and decide — it is your call, not an edition limit.
 
 ## Adjust
 
