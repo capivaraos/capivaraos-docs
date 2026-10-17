@@ -84,6 +84,88 @@ sudo herd-compliance-scan ospp
     **CIS** integral são o caminho do **Enterprise**; o datastream embarcado já
     traz os perfis `cis`/`cis_server_l1` caso você queira avaliá-los.
 
+## Verificar que o software é nosso
+
+O checksum da imagem prova que o arquivo chegou inteiro — veja
+[Download e verificação](download.md). Ele **não** prova quem produziu o
+arquivo: quem substituísse a imagem publicaria o checksum novo junto. Quem
+responde essa pergunta é a assinatura GPG.
+
+Nada aqui depende de confiar em nós. São quatro conferências que você mesmo faz
+na máquina.
+
+### 1. A chave está instalada?
+
+A chave pública viaja dentro do sistema e é importada no RPM de repositórios:
+
+```bash
+rpm -q gpg-pubkey --qf '%{SUMMARY}\n' | grep -i capivaraos
+```
+
+### 2. A impressão digital confere?
+
+Este é o passo que importa. Compare o que está na sua máquina com o valor
+publicado aqui:
+
+```bash
+gpg --show-keys --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-capivaraos-herd
+```
+
+A impressão digital **tem que ser exatamente**:
+
+```
+C852 6722 0A81 18C9 864F  0648 BE5B 82AD C8A2 85C0
+```
+
+!!! danger "Se não bater"
+    Pare. Uma chave diferente significa que o sistema confia em alguém que não
+    somos nós. Não aplique atualizações e abra um relato pelo
+    [canal privado de segurança](https://www.capivaraos.org/pt/trust-center.html).
+
+A chave do Herd é **separada** da usada nas edições desktop
+(`75FA 3340 40FD 0150 4AAD  9337 E07F 78EA 4070 11BD`). Comprometer uma não
+compromete a outra.
+
+### 3. Os pacotes instalados estão assinados?
+
+```bash
+# assinatura de um RPM baixado, antes de instalar
+rpm -K ./algum-pacote.rpm
+# esperado: ...: digests signatures OK
+
+# quem assinou um pacote já instalado
+rpm -qi capivaraos-herd-hardening | grep -i signature
+```
+
+Um pacote sem assinatura, ou assinado por outra chave, aparece como
+`NOT OK`, `MISSING KEYS` ou `(none)`.
+
+### 4. O repositório exige assinatura?
+
+```bash
+grep -E 'gpgcheck|repo_gpgcheck' /etc/yum.repos.d/capivaraos-herd.repo
+```
+
+Os dois têm que estar em `1`. `gpgcheck` valida cada pacote; `repo_gpgcheck`
+valida também os **metadados** do repositório — sem ele, alguém que controlasse
+o servidor poderia anunciar uma lista de pacotes diferente, mesmo sem conseguir
+assinar os pacotes em si.
+
+!!! warning "`makecache` não é o teste"
+    No dnf5, `dnf makecache` apenas **avisa** quando os metadados estão mal
+    assinados, e ainda assim termina com código 0. Quem recusa de fato é a
+    **transação**. Para testar de verdade, tente uma operação real
+    (`dnf check-update` ou `dnf update`) — é ali que um repositório adulterado
+    é rejeitado.
+
+### Por que isso protege mesmo se o servidor cair
+
+A chave **privada** nunca esteve no servidor de repositórios, nem em nenhuma
+máquina de build conectada: ela fica offline. Então um servidor comprometido
+consegue, no máximo, servir arquivos que o seu sistema vai recusar — porque não
+há como assiná-los. É por isso que a confiança está na chave, e não em quem
+hospeda.
+
 ## Ajustar
 
 Toda a configuração vem do pacote `capivaraos-herd-hardening`. Você pode
