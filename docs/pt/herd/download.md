@@ -44,6 +44,11 @@ download:
     Não use a imagem. Um hash diferente indica download corrompido ou arquivo
     adulterado — baixe de novo, de preferência da fonte oficial.
 
+!!! tip "O checksum não diz quem fez o arquivo"
+    Ele prova que o download chegou inteiro. Para confirmar que o software é
+    mesmo nosso, confira a assinatura GPG —
+    [Verificar que o software é nosso](seguranca.md#verificar-que-o-software-e-nosso).
+
 ## Próximo passo
 
 - Servidor físico/VM → [Instalação via ISO](instalacao-iso.md)

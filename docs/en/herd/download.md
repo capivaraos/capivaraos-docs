@@ -43,6 +43,11 @@ Both image sums are in the `SHA256SUMS` file, in the same download folder:
     Do not use the image. A different hash means a corrupted download or a
     tampered file — download it again, preferably from the official source.
 
+!!! tip "A checksum does not say who made the file"
+    It proves the download arrived intact. To confirm the software is really
+    ours, check the GPG signature —
+    [Verify the software is ours](security.md#verify-the-software-is-ours).
+
 ## Next step
 
 - Physical server/VM → [Install via ISO](installation-iso.md)
