@@ -19,6 +19,9 @@ sudo dd if=capivaraos-marsh-1.x.x.iso of=/dev/sdX bs=4M status=progress
 !!! warning "Be careful with dd"
     Check the correct device with `lsblk` before running the command. Overwriting the wrong device is irreversible.
 
+!!! note "If Ventoy hangs at startup"
+    Ventoy works in most cases, but on some machines the live session won't come up — the boot gets stuck at *"Starting CapivaraOS…"*, sometimes with a message like `Can't create /lib/dracut/hooks/.../99-ventoy-…sh`. That error comes from Ventoy itself (it injects that script at boot), not from the ISO. If this happens, **write the ISO directly to the USB drive** with Balena Etcher, Fedora Media Writer or `dd` (without Ventoy) and boot again.
+
 ## 3. Boot from USB
 
 Restart your computer and enter the boot menu (usually F12, F2 or Del during startup). Select the USB drive.
