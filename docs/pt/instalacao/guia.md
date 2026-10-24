@@ -19,6 +19,9 @@ sudo dd if=capivaraos-marsh-1.x.x.iso of=/dev/sdX bs=4M status=progress
 !!! warning "Cuidado com o dd"
     Verifique qual é o dispositivo correto com `lsblk` antes de rodar o comando. Apagar o dispositivo errado é irreversível.
 
+!!! note "Se o Ventoy travar na inicialização"
+    O Ventoy funciona na maioria dos casos, mas em alguns computadores a sessão live não sobe — o boot fica preso em *"Inicializando o CapivaraOS…"*, às vezes com uma mensagem parecida com `Can't create /lib/dracut/hooks/.../99-ventoy-…sh`. Esse erro é do próprio Ventoy (ele injeta esse script no boot), não da ISO. Nesse caso, **grave a ISO direto no pendrive** com o Balena Etcher, o Fedora Media Writer ou o `dd` (sem Ventoy) e inicialize de novo.
+
 ## 3. Inicialize pelo pendrive
 
 Reinicie o computador e entre no menu de boot (geralmente F12, F2 ou Del durante a inicialização). Selecione o pendrive.
