@@ -168,10 +168,11 @@ sign the packages themselves.
 
 ### Why this holds even if the server falls
 
-The **private** key has never been on the repository server, nor on any
-connected build machine: it stays offline. So a compromised server can at most
-serve files your system will refuse, because there is no way to sign them. That
-is why the trust sits in the key, not in whoever hosts it.
+The **private** key has never been on the repository server. It is generated in
+an offline ceremony and kept in a vault; it enters a machine only at the moment
+of signing a release, and is removed afterwards. So a compromised server can at
+most serve files your system will refuse, because there is no way to sign them.
+That is why the trust sits in the key, not in whoever hosts it.
 
 ## Adjust
 
