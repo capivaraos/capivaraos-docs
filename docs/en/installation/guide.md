@@ -2,46 +2,62 @@
 
 ## 1. Download the ISO
 
-Go to the [download page](https://capivaraos.org/en/download.html) and choose your distro: Marsh, Pup or Snout.
+Go to the [download page](https://capivaraos.org/en/download.html) and choose your distro: [Marsh](../distros/marsh.md), [Pup](../distros/pup.md) or [Snout](../distros/snout.md).
 
-## 2. Flash to a USB drive
+## 2. Check what you downloaded
 
-You'll need a USB drive with at least 4 GB. Use one of these tools:
+Before writing it, check the ISO's SHA-256. It is quick, and it rules out the most common reason for a USB stick that will not boot: a corrupted download.
 
-- **Balena Etcher** (Windows, macOS, Linux) — easiest option
-- **Ventoy** (Windows, Linux) — lets you keep multiple ISOs on the same drive
+If you want to be sure not only that the file arrived intact but that it is **ours**, check the signature too. The steps are in [Verify your download](verify-download.md).
+
+## 3. Flash to a USB drive
+
+You'll need a USB drive with at least 4 GB. We recommend **Fedora Media Writer** or **balenaEtcher** — they write the image straight to the drive and just work:
+
+- **Fedora Media Writer** (Windows, macOS, Linux) — Fedora's official tool, the best choice
+- **balenaEtcher** (Windows, macOS, Linux) — simple, three clicks
 - **dd** (Linux/macOS, via terminal):
 
 ```bash
-sudo dd if=capivaraos-marsh-1.x.x.iso of=/dev/sdX bs=4M status=progress
+sudo dd if=capivaraos-marsh-2.0.0.iso of=/dev/sdX bs=4M status=progress
 ```
 
 !!! warning "Be careful with dd"
     Check the correct device with `lsblk` before running the command. Overwriting the wrong device is irreversible.
 
 !!! note "If Ventoy hangs at startup"
-    Ventoy works in most cases, but on some machines the live session won't come up — the boot gets stuck at *"Starting CapivaraOS…"*, sometimes with a message like `Can't create /lib/dracut/hooks/.../99-ventoy-…sh`. That error comes from Ventoy itself (it injects that script at boot), not from the ISO. If this happens, **write the ISO directly to the USB drive** with Balena Etcher, Fedora Media Writer or `dd` (without Ventoy) and boot again.
+    Ventoy keeps several ISOs on one stick and works in most cases, but on some computers the live session never comes up: the boot stays stuck at *"Starting CapivaraOS…"*, sometimes with a message like `Can't create /lib/dracut/hooks/.../99-ventoy-….sh`. Ventoy loads the ISO over *loopback* and injects that script into the boot — the error is Ventoy's, not the image's. When that happens, **write the ISO straight to the stick** with Fedora Media Writer, balenaEtcher or `dd`, and boot again.
 
-## 3. Boot from USB
+## 4. Boot from USB
 
 Restart your computer and enter the boot menu (usually F12, F2 or Del during startup). Select the USB drive.
 
-## 4. Try or install
+In the menu you will see **CapivaraOS \<edition\> 2 45** — the 2 is the CapivaraOS version and the 45 is the Fedora release it is built on.
+
+## 5. Try or install
 
 When it boots, you'll see the option to enter live mode (try without installing) or start the installation directly.
 
-## 5. Follow the Anaconda installer
+!!! tip "Try it first, if you can"
+    Live mode runs from memory and does not touch your disk. It is how you confirm that wireless, sound and video work on your machine before installing anything.
+
+## 6. Follow the installer
 
 CapivaraOS uses the Anaconda installer, the same one used by Fedora. It will guide you through:
 
-1. Language selection (pre-configured as Brazilian Portuguese)
-2. Disk partitioning
-3. User account creation
-4. Installation
+1. **Language** — the system ships ready in Brazilian Portuguese and English; you pick during installation and can change it later in [COS Config Center](../apps/cos-config.md)
+2. **Disk partitioning** — the default is Btrfs, which is what makes the snapshots before each upgrade possible
+3. **User account creation**
+4. **Installation**
 
-## 6. Done
+!!! note "Encrypting the disk"
+    If you choose encryption (LUKS), the computer will ask for the disk password at every boot, on a screen with the capybara. Keep that password: without it there is no way to open the disk.
 
-After installation, remove the USB drive and reboot. The system comes pre-configured in Portuguese, with the desktop environment ready to use.
+## 7. First boot
+
+Remove the USB drive and reboot. At first login **[COS Dev Center](../apps/cos-dev.md)** opens by itself and asks what you want to install — local AI, languages, dev tools. None of it is mandatory: you can close it and open it later from the menu.
+
+From then on the system stays up to date without reinstalling. See [Keeping your system updated](../update/index.md).
 
 ---
 

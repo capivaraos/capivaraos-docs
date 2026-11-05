@@ -8,6 +8,27 @@ Key milestones in the development of CapivaraOS's distros.
 
 ## CapivaraOS Marsh
 
+### 2.0.0
+*November 2026*
+
+The first release of **Series 2**, rebuilt on **Fedora 45** with **KDE Plasma 6.8** on a Wayland session.
+
+**New**
+
+- **Upgrades without reinstalling.** From this release on, the system moves between versions and between generations in place, through the software centre or the terminal, from a signed repository. A snapshot is taken before each generation upgrade. See [Keeping your system updated](update/index.md). `(FEAT-111)`
+- **COS Dev Center**, which opens at first boot and sets up the workstation: local AI on your own machine, language tracks, dev tools and GitHub. `(FEAT-90)`
+- **COS Config Center**, with nine modules that handle graphically what used to need a terminal — codecs, keyboard, language, firewall, disks, network, cleanup, logs and diagnostics. `(PROD-5)`
+- **A visual identity of our own from boot to desktop**: boot splash, boot menu, icons and theme, with an exclusive wallpaper collection. On Marsh the wallpaper changes with the time of day. `(FEAT-91, FEAT-132)`
+- The media boot menu now shows the CapivaraOS version alongside Fedora's.
+
+**Fixed**
+
+- On an encrypted disk (LUKS), the boot splash drew no password field: the system **looked frozen** on the capybara image, and the password could only be typed by dropping to text mode. `(BUG-45)`
+- The default wallpaper was not applied on Fedora 45 and the desktop fell back to Plasma's stock wallpaper.
+- The computer name came up as `localhost-live` instead of `capivaraos`. A name you choose yourself is still respected.
+- `fastfetch` showed only the capybara, without the system information beside it. `(FEAT-136)`
+- The installer's final screen no longer shows the feedback block with a QR code pointing outside the project. `(FEAT-145)`
+
 ### 1.2.4
 *August 2026*
 
@@ -47,6 +68,29 @@ Key milestones in the development of CapivaraOS's distros.
 
 ## CapivaraOS Pup
 
+### 2.0.0
+*November 2026*
+
+The first release of **Series 2**, on **Fedora 45** with **Xfce 4.20**.
+
+**New**
+
+- **Upgrades without reinstalling**, with a signed repository and a snapshot before each generation upgrade. See [Keeping your system updated](update/index.md). `(FEAT-111)`
+- **COS Dev Center** and **COS Config Center**, the same as the other editions — Pup is light, not cut down.
+- A new default wallpaper, **"rio"**, with capybaras in the river, exclusive to Pup.
+- The media boot menu now shows the CapivaraOS version.
+
+**Fixed**
+
+- On an encrypted disk (LUKS), the boot splash drew no password field and the system looked frozen. `(BUG-46)`
+- The computer name came up as `localhost-live` instead of `capivaraos`.
+- `fastfetch` showed only the capybara, without the system information.
+- The installer's final screen no longer shows the feedback block with a QR code. `(FEAT-145)`
+- Fixed the logo placement on the "rio" wallpaper.
+
+!!! warning "Day-to-day updates on Pup"
+    On Fedora 45, Xfce's graphical updater does not list our updates — a limitation of that component, not of the repository. On Pup, use `sudo dnf upgrade --refresh`. Details in [Keeping your system updated](update/index.md).
+
 ### 1.1.8
 *August 2026*
 
@@ -80,6 +124,24 @@ Key milestones in the development of CapivaraOS's distros.
 ---
 
 ## CapivaraOS Snout
+
+### 2.0.0
+*November 2026*
+
+The first release of **Series 2**, on **Fedora 45** with **GNOME 51** on a Wayland session, with no layout modifications.
+
+**New**
+
+- **Upgrades without reinstalling**, with a signed repository and a snapshot before each generation upgrade. See [Keeping your system updated](update/index.md). `(FEAT-111)`
+- **COS Dev Center** and **COS Config Center**.
+- An icon set of our own, curated extensions and an exclusive wallpaper collection, including one only Snout has.
+
+**Fixed**
+
+- On an encrypted disk (LUKS), the boot splash drew no password field and the system looked frozen. `(BUG-45)`
+- The computer name came up as `localhost-live` instead of `capivaraos`.
+- `fastfetch` showed only the capybara, without the system information.
+- The installer's final screen no longer shows the feedback block with a QR code. `(FEAT-145)`
 
 ### 1.1.15
 *August 2026*

@@ -90,11 +90,16 @@ nav:
     - Início: pt/index.md
     - Instalação:
       - Requisitos: pt/instalacao/requisitos.md
+      - Verificar o download: pt/instalacao/verificar-download.md
       - Guia de instalação: pt/instalacao/guia.md
     - Distribuições:
       - Marsh (KDE Plasma): pt/distros/marsh.md
       - Pup (Xfce): pt/distros/pup.md
       - Snout (GNOME): pt/distros/snout.md
+    - Atualizar o sistema: pt/atualizar/index.md
+    - Aplicativos do CapivaraOS:
+      - COS Dev Center: pt/apps/cos-dev.md
+      - COS Config Center: pt/apps/cos-config.md
     - Herd (Servidor):
       - Visão geral: pt/herd/index.md
       - Requisitos: pt/herd/requisitos.md
@@ -110,15 +115,30 @@ nav:
     - FAQ: pt/faq.md
     - Changelog: pt/changelog.md
     - Contribua: pt/contribua.md
+    - Arquivo (Série 1):
+      - Início: pt/arquivo/1.x/index.md
+      - Instalação:
+        - Requisitos: pt/arquivo/1.x/instalacao/requisitos.md
+        - Guia de instalação: pt/arquivo/1.x/instalacao/guia.md
+      - Distribuições:
+        - Marsh (KDE Plasma): pt/arquivo/1.x/distros/marsh.md
+        - Pup (Xfce): pt/arquivo/1.x/distros/pup.md
+        - Snout (GNOME): pt/arquivo/1.x/distros/snout.md
+      - FAQ: pt/arquivo/1.x/faq.md
   - English:
     - Home: en/index.md
     - Installation:
       - Requirements: en/installation/requirements.md
+      - Verify your download: en/installation/verify-download.md
       - Installation guide: en/installation/guide.md
     - Distributions:
       - Marsh (KDE Plasma): en/distros/marsh.md
       - Pup (Xfce): en/distros/pup.md
       - Snout (GNOME): en/distros/snout.md
+    - Keeping updated: en/update/index.md
+    - CapivaraOS applications:
+      - COS Dev Center: en/apps/cos-dev.md
+      - COS Config Center: en/apps/cos-config.md
     - Herd (Server):
       - Overview: en/herd/index.md
       - Requirements: en/herd/requirements.md
@@ -134,6 +154,16 @@ nav:
     - FAQ: en/faq.md
     - Changelog: en/changelog.md
     - Contribute: en/contribute.md
+    - Archive (Series 1):
+      - Home: en/arquivo/1.x/index.md
+      - Installation:
+        - Requirements: en/arquivo/1.x/installation/requirements.md
+        - Installation guide: en/arquivo/1.x/installation/guide.md
+      - Distributions:
+        - Marsh (KDE Plasma): en/arquivo/1.x/distros/marsh.md
+        - Pup (Xfce): en/arquivo/1.x/distros/pup.md
+        - Snout (GNOME): en/arquivo/1.x/distros/snout.md
+      - FAQ: en/arquivo/1.x/faq.md
 
 copyright: >
   © 2026 CapivaraOS Project —

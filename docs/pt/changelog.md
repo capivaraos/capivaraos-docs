@@ -8,6 +8,27 @@ Principais marcos do desenvolvimento das distros do CapivaraOS.
 
 ## CapivaraOS Marsh
 
+### 2.0.0
+*Novembro de 2026*
+
+A primeira versão da **Série 2**, reconstruída sobre o **Fedora 45** com **KDE Plasma 6.8** em sessão Wayland.
+
+**Novidades**
+
+- **Atualização sem reinstalar.** A partir desta versão o sistema sobe de versão e de geração no lugar, pela loja de aplicativos ou pelo terminal, a partir de um repositório assinado. Antes de cada upgrade de geração é tirado um instantâneo do sistema. Veja [Atualizar o sistema](atualizar/index.md). `(FEAT-111)`
+- **COS Dev Center**, que abre no primeiro boot e monta a estação de trabalho: IA local na sua máquina, trilhas de linguagem, ferramentas de desenvolvimento e GitHub. `(FEAT-90)`
+- **COS Config Center**, com nove módulos que resolvem no gráfico o que antes pedia terminal — codecs, teclado, idioma, firewall, discos, rede, limpeza, logs e diagnóstico. `(PROD-5)`
+- **Identidade visual própria do boot ao desktop**: tela de inicialização, menu de boot, ícones e tema, com coleção de wallpapers exclusiva. No Marsh o papel de parede muda conforme a hora do dia. `(FEAT-91, FEAT-132)`
+- O menu de boot da mídia passa a mostrar a versão do CapivaraOS, além da do Fedora.
+
+**Correções**
+
+- Em disco criptografado (LUKS), a tela de inicialização não desenhava o campo de senha: o sistema **parecia travado** na imagem da capivara, e a senha só podia ser digitada saindo para o modo texto. `(BUG-45)`
+- O papel de parede padrão não era aplicado no Fedora 45 e o desktop caía no wallpaper de fábrica do Plasma.
+- O nome do computador nascia como `localhost-live` em vez de `capivaraos`. Nome escolhido por você continua sendo respeitado.
+- O `fastfetch` mostrava apenas a capivara, sem as informações do sistema ao lado. `(FEAT-136)`
+- A tela final do instalador deixa de exibir o bloco de feedback com QR que apontava para fora do projeto. `(FEAT-145)`
+
 ### 1.2.4
 *Agosto de 2026*
 
@@ -47,6 +68,29 @@ Principais marcos do desenvolvimento das distros do CapivaraOS.
 
 ## CapivaraOS Pup
 
+### 2.0.0
+*Novembro de 2026*
+
+A primeira versão da **Série 2**, sobre o **Fedora 45** com **Xfce 4.20**.
+
+**Novidades**
+
+- **Atualização sem reinstalar**, com repositório assinado e instantâneo antes do upgrade de geração. Veja [Atualizar o sistema](atualizar/index.md). `(FEAT-111)`
+- **COS Dev Center** e **COS Config Center**, os mesmos das outras edições — o Pup é leve, mas não é reduzido.
+- Novo papel de parede padrão, **"rio"**, com capivaras no rio, exclusivo do Pup.
+- O menu de boot da mídia passa a mostrar a versão do CapivaraOS.
+
+**Correções**
+
+- Em disco criptografado (LUKS), a tela de inicialização não desenhava o campo de senha e o sistema parecia travado. `(BUG-46)`
+- O nome do computador nascia como `localhost-live` em vez de `capivaraos`.
+- O `fastfetch` mostrava apenas a capivara, sem as informações do sistema. 
+- A tela final do instalador deixa de exibir o bloco de feedback com QR. `(FEAT-145)`
+- Correção de posicionamento da logo no papel de parede "rio".
+
+!!! warning "Atualizações do dia a dia no Pup"
+    No Fedora 45 o atualizador gráfico do Xfce não lista as nossas atualizações — é limitação do componente, não do repositório. No Pup, use `sudo dnf upgrade --refresh`. Detalhes em [Atualizar o sistema](atualizar/index.md).
+
 ### 1.1.8
 *Agosto de 2026*
 
@@ -80,6 +124,24 @@ Principais marcos do desenvolvimento das distros do CapivaraOS.
 ---
 
 ## CapivaraOS Snout
+
+### 2.0.0
+*Novembro de 2026*
+
+A primeira versão da **Série 2**, sobre o **Fedora 45** com **GNOME 51** em sessão Wayland, sem modificações de leiaute.
+
+**Novidades**
+
+- **Atualização sem reinstalar**, com repositório assinado e instantâneo antes do upgrade de geração. Veja [Atualizar o sistema](atualizar/index.md). `(FEAT-111)`
+- **COS Dev Center** e **COS Config Center**.
+- Conjunto de ícones próprio, extensões curadas e coleção de wallpapers exclusiva, incluindo um só do Snout.
+
+**Correções**
+
+- Em disco criptografado (LUKS), a tela de inicialização não desenhava o campo de senha e o sistema parecia travado. `(BUG-45)`
+- O nome do computador nascia como `localhost-live` em vez de `capivaraos`.
+- O `fastfetch` mostrava apenas a capivara, sem as informações do sistema.
+- A tela final do instalador deixa de exibir o bloco de feedback com QR. `(FEAT-145)`
 
 ### 1.1.15
 *Agosto de 2026*
