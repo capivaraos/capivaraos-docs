@@ -172,8 +172,9 @@ assinar os pacotes em si.
 
 ### Por que isso protege mesmo se o servidor cair
 
-A chave **privada** nunca esteve no servidor de repositórios, nem em nenhuma
-máquina de build conectada: ela fica offline. Então um servidor comprometido
+A chave **privada** nunca esteve no servidor de repositórios. Ela é gerada numa
+cerimônia offline e guardada em cofre; entra numa máquina apenas no momento de
+assinar uma publicação, e é removida em seguida. Então um servidor comprometido
 consegue, no máximo, servir arquivos que o seu sistema vai recusar — porque não
 há como assiná-los. É por isso que a confiança está na chave, e não em quem
 hospeda.
