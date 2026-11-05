@@ -1,14 +1,19 @@
 # Welcome to CapivaraOS Docs
 
-CapivaraOS is a family of Brazilian Linux distributions based on Fedora. Three spins with different personalities, but the same identity: Brazilian, welcoming, and with the capybara as mascot.
+CapivaraOS is a family of Fedora-based Linux distributions built for developers: secure by default, with local AI and a full development environment ready at first boot.
+
+These docs cover **Series 2**, built on **Fedora 45**. Documentation for earlier releases is still available in the [Archive](arquivo/1.x/index.md).
 
 ## Choose your distro
 
 | Distro | Desktop | Profile |
 |---|---|---|
-| Marsh | KDE Plasma | Full-featured, highly customizable |
-| Pup | Xfce | Lightweight, great on modest hardware |
-| Snout | GNOME | Clean and straightforward |
+| [Marsh](distros/marsh.md) | KDE Plasma 6.8 | The flagship edition, highly customizable |
+| [Pup](distros/pup.md) | Xfce 4.20 | Light and fast, without giving up the toolkit |
+| [Snout](distros/snout.md) | GNOME 51 | Clean and direct, with no layout changes |
+
+All three ship the same toolkit and the same two exclusive applications:
+[COS Dev Center](apps/cos-dev.md) and [COS Config Center](apps/cos-config.md).
 
 ## Server: Herd by CapivaraOS
 
@@ -20,7 +25,9 @@ security and compliance out of the box. See the
 ## Get started
 
 - [System requirements](installation/requirements.md)
+- [Verify your download](installation/verify-download.md)
 - [Installation guide](installation/guide.md)
+- [Keeping your system updated](update/index.md) — no reinstall, from Series 2 on
 - [How to contribute](contribute.md)
 
 ## Download

@@ -1,14 +1,19 @@
 # Bem-vindo à documentação do CapivaraOS
 
-O CapivaraOS é uma família de distribuições Linux brasileiras baseadas no Fedora. São três spins com personalidades diferentes, mas com a mesma identidade: brasileira, acolhedora e com a capivara como mascote.
+O CapivaraOS é uma família de distribuições Linux baseadas no Fedora, feita para desenvolvedores: segura por padrão, com IA local e um ambiente de desenvolvimento pronto no primeiro boot.
+
+Esta documentação cobre a **Série 2**, construída sobre o **Fedora 45**. A documentação das versões anteriores continua disponível no [Arquivo](arquivo/1.x/index.md).
 
 ## Escolha a sua distro
 
 | Distro | Ambiente | Perfil |
 |---|---|---|
-| [Marsh](distros/marsh.md) | KDE Plasma | Desktop completo, altamente personalizável |
-| [Pup](distros/pup.md) | Xfce | Leve, confortável em hardware mais modesto |
-| [Snout](distros/snout.md) | GNOME | Limpo e direto ao ponto |
+| [Marsh](distros/marsh.md) | KDE Plasma 6.8 | A edição carro-chefe, altamente personalizável |
+| [Pup](distros/pup.md) | Xfce 4.20 | Leve e rápida, sem abrir mão das ferramentas |
+| [Snout](distros/snout.md) | GNOME 51 | Limpa e direta, sem modificações de leiaute |
+
+As três trazem o mesmo conjunto de ferramentas e os mesmos dois aplicativos exclusivos:
+o [COS Dev Center](apps/cos-dev.md) e o [COS Config Center](apps/cos-config.md).
 
 ## Servidor: Herd by CapivaraOS
 
@@ -20,7 +25,9 @@ segurança fortalecida e compliance de fábrica. Veja a
 ## Por onde começar
 
 - [Requisitos de hardware](instalacao/requisitos.md)
+- [Verificar o download](instalacao/verificar-download.md)
 - [Guia de instalação](instalacao/guia.md)
+- [Atualizar o sistema](atualizar/index.md) — sem reinstalar, a partir da Série 2
 - [Como contribuir](contribua.md)
 
 ## Download
