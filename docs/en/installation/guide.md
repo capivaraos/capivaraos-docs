@@ -25,8 +25,8 @@ sudo dd if=capivaraos-marsh-2.0.0.iso of=/dev/sdX bs=4M status=progress
 !!! warning "Be careful with dd"
     Check the correct device with `lsblk` before running the command. Overwriting the wrong device is irreversible.
 
-!!! note "About Ventoy"
-    Ventoy (which keeps several ISOs on one stick) may **fail to boot** Fedora/CapivaraOS live images on some machines: it loads the ISO over *loopback* and the live system can't always find its root. If you do use it, update Ventoy to the latest version, enable **"Ventoy Compatible Mode"**, verify the **SHA-256 of the ISO already copied** onto the stick, and with **Secure Boot** on, enroll Ventoy's key (MOK) when prompted. When in doubt, use Fedora Media Writer.
+!!! note "If Ventoy hangs at startup"
+    Ventoy keeps several ISOs on one stick and works in most cases, but on some computers the live session never comes up: the boot stays stuck at *"Starting CapivaraOS…"*, sometimes with a message like `Can't create /lib/dracut/hooks/.../99-ventoy-….sh`. Ventoy loads the ISO over *loopback* and injects that script into the boot — the error is Ventoy's, not the image's. When that happens, **write the ISO straight to the stick** with Fedora Media Writer, balenaEtcher or `dd`, and boot again.
 
 ## 4. Boot from USB
 
