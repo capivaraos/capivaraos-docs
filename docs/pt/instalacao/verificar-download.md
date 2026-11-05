@@ -66,7 +66,9 @@ Snout   8e25df502c4a22b6ac898fde9347aa03c47a28220a2bcdd83dc1981e5e212bd1
 O checksum prova que o arquivo chegou inteiro, mas não prova **quem** o publicou:
 quem trocasse a imagem publicaria o checksum novo junto. Quem responde isso é a
 assinatura. O `.sha256.asc` é a assinatura GPG do arquivo de checksum, feita com a
-nossa chave — cuja **parte privada nunca saiu de um ambiente offline**.
+nossa chave. A parte privada dela foi **gerada numa cerimônia offline** e fica
+**guardada em cofre**: ela entra numa máquina apenas no momento de assinar uma
+publicação, e é removida em seguida.
 
 **a) Baixe e importe a nossa chave pública:**
 

@@ -97,6 +97,9 @@ nav:
       - Pup (Xfce): pt/distros/pup.md
       - Snout (GNOME): pt/distros/snout.md
     - Atualizar o sistema: pt/atualizar/index.md
+    - Aplicativos do CapivaraOS:
+      - COS Dev Center: pt/apps/cos-dev.md
+      - COS Config Center: pt/apps/cos-config.md
     - Herd (Servidor):
       - Visão geral: pt/herd/index.md
       - Requisitos: pt/herd/requisitos.md
@@ -133,6 +136,9 @@ nav:
       - Pup (Xfce): en/distros/pup.md
       - Snout (GNOME): en/distros/snout.md
     - Keeping updated: en/update/index.md
+    - CapivaraOS applications:
+      - COS Dev Center: en/apps/cos-dev.md
+      - COS Config Center: en/apps/cos-config.md
     - Herd (Server):
       - Overview: en/herd/index.md
       - Requirements: en/herd/requirements.md

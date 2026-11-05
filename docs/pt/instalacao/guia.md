@@ -6,18 +6,21 @@ Acesse a [página de download](https://capivaraos.org/pt/download.html) e escolh
 
 ## 2. Grave no pendrive
 
-Você vai precisar de um pendrive com pelo menos 4 GB. Use uma das ferramentas abaixo:
+Você vai precisar de um pendrive com pelo menos 4 GB. Recomendamos o **Fedora Media Writer** ou o **balenaEtcher** — eles gravam a imagem direto no pendrive e funcionam de primeira:
 
-- **Balena Etcher** (Windows, macOS, Linux) — mais fácil
-- **Ventoy** (Windows, Linux) — permite múltiplas ISOs no mesmo pendrive
+- **Fedora Media Writer** (Windows, macOS, Linux) — ferramenta oficial do Fedora, a mais indicada
+- **balenaEtcher** (Windows, macOS, Linux) — simples, três cliques
 - **dd** (Linux/macOS, via terminal):
 
 ```bash
-sudo dd if=capivaraos-marsh-1.x.x.iso of=/dev/sdX bs=4M status=progress
+sudo dd if=capivaraos-marsh-2.0.0.iso of=/dev/sdX bs=4M status=progress
 ```
 
 !!! warning "Cuidado com o dd"
     Verifique qual é o dispositivo correto com `lsblk` antes de rodar o comando. Apagar o dispositivo errado é irreversível.
+
+!!! note "Sobre o Ventoy"
+    O Ventoy (que guarda várias ISOs no mesmo pendrive) pode **não inicializar** imagens live do Fedora/CapivaraOS em algumas máquinas: ele carrega a ISO por *loopback* e o sistema live nem sempre encontra a sua raiz. Se for usá-lo, atualize o Ventoy para a versão mais recente, ative o **"Ventoy Compatible Mode"**, confira a soma **SHA-256 da ISO já copiada** no pendrive e, com **Secure Boot** ligado, registre a chave (MOK) do Ventoy quando ele pedir. Na dúvida, prefira o Fedora Media Writer.
 
 ## 3. Inicialize pelo pendrive
 
