@@ -40,7 +40,7 @@ O CapivaraOS segue o ciclo do Fedora. Atualizações de segurança e pacotes che
 
 ## Onde reporto um problema?
 
-No fórum ou abrindo uma issue no GitHub. Veja a página [Como contribuir](contribua.md).
+No fórum ou abrindo uma issue no GitHub. Veja a página [Como contribuir](../../contribua.md).
 
 ## O CapivaraOS funciona em máquina virtual?
 

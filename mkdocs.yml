@@ -90,11 +90,13 @@ nav:
     - Início: pt/index.md
     - Instalação:
       - Requisitos: pt/instalacao/requisitos.md
+      - Verificar o download: pt/instalacao/verificar-download.md
       - Guia de instalação: pt/instalacao/guia.md
     - Distribuições:
       - Marsh (KDE Plasma): pt/distros/marsh.md
       - Pup (Xfce): pt/distros/pup.md
       - Snout (GNOME): pt/distros/snout.md
+    - Atualizar o sistema: pt/atualizar/index.md
     - Herd (Servidor):
       - Visão geral: pt/herd/index.md
       - Requisitos: pt/herd/requisitos.md
@@ -124,11 +126,13 @@ nav:
     - Home: en/index.md
     - Installation:
       - Requirements: en/installation/requirements.md
+      - Verify your download: en/installation/verify-download.md
       - Installation guide: en/installation/guide.md
     - Distributions:
       - Marsh (KDE Plasma): en/distros/marsh.md
       - Pup (Xfce): en/distros/pup.md
       - Snout (GNOME): en/distros/snout.md
+    - Keeping updated: en/update/index.md
     - Herd (Server):
       - Overview: en/herd/index.md
       - Requirements: en/herd/requirements.md

@@ -40,7 +40,7 @@ CapivaraOS follows Fedora's cycle. Security and package updates arrive continuou
 
 ## Where do I report a problem?
 
-On the forum or by opening an issue on GitHub. See the [Contribute](contribute.md) page.
+On the forum or by opening an issue on GitHub. See the [Contribute](../../contribute.md) page.
 
 ## Does CapivaraOS work in a virtual machine?
 
