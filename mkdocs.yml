@@ -110,6 +110,16 @@ nav:
     - FAQ: pt/faq.md
     - Changelog: pt/changelog.md
     - Contribua: pt/contribua.md
+    - Arquivo (Série 1):
+      - Início: pt/arquivo/1.x/index.md
+      - Instalação:
+        - Requisitos: pt/arquivo/1.x/instalacao/requisitos.md
+        - Guia de instalação: pt/arquivo/1.x/instalacao/guia.md
+      - Distribuições:
+        - Marsh (KDE Plasma): pt/arquivo/1.x/distros/marsh.md
+        - Pup (Xfce): pt/arquivo/1.x/distros/pup.md
+        - Snout (GNOME): pt/arquivo/1.x/distros/snout.md
+      - FAQ: pt/arquivo/1.x/faq.md
   - English:
     - Home: en/index.md
     - Installation:
@@ -134,6 +144,16 @@ nav:
     - FAQ: en/faq.md
     - Changelog: en/changelog.md
     - Contribute: en/contribute.md
+    - Archive (Series 1):
+      - Home: en/arquivo/1.x/index.md
+      - Installation:
+        - Requirements: en/arquivo/1.x/installation/requirements.md
+        - Installation guide: en/arquivo/1.x/installation/guide.md
+      - Distributions:
+        - Marsh (KDE Plasma): en/arquivo/1.x/distros/marsh.md
+        - Pup (Xfce): en/arquivo/1.x/distros/pup.md
+        - Snout (GNOME): en/arquivo/1.x/distros/snout.md
+      - FAQ: en/arquivo/1.x/faq.md
 
 copyright: >
   © 2026 CapivaraOS Project —
