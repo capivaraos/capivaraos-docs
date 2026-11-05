@@ -6,18 +6,21 @@ Go to the [download page](https://capivaraos.org/en/download.html) and choose yo
 
 ## 2. Flash to a USB drive
 
-You'll need a USB drive with at least 4 GB. Use one of these tools:
+You'll need a USB drive with at least 4 GB. We recommend **Fedora Media Writer** or **balenaEtcher** — they write the image straight to the drive and just work:
 
-- **Balena Etcher** (Windows, macOS, Linux) — easiest option
-- **Ventoy** (Windows, Linux) — lets you keep multiple ISOs on the same drive
+- **Fedora Media Writer** (Windows, macOS, Linux) — Fedora's official tool, the best choice
+- **balenaEtcher** (Windows, macOS, Linux) — simple, three clicks
 - **dd** (Linux/macOS, via terminal):
 
 ```bash
-sudo dd if=capivaraos-marsh-1.x.x.iso of=/dev/sdX bs=4M status=progress
+sudo dd if=capivaraos-marsh-2.0.0.iso of=/dev/sdX bs=4M status=progress
 ```
 
 !!! warning "Be careful with dd"
     Check the correct device with `lsblk` before running the command. Overwriting the wrong device is irreversible.
+
+!!! note "About Ventoy"
+    Ventoy (which keeps several ISOs on one stick) may **fail to boot** Fedora/CapivaraOS live images on some machines: it loads the ISO over *loopback* and the live system can't always find its root. If you do use it, update Ventoy to the latest version, enable **"Ventoy Compatible Mode"**, verify the **SHA-256 of the ISO already copied** onto the stick, and with **Secure Boot** on, enroll Ventoy's key (MOK) when prompted. When in doubt, use Fedora Media Writer.
 
 ## 3. Boot from USB
 

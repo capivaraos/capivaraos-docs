@@ -11,8 +11,9 @@ waiting for a new ISO. There are two kinds of update, with different tools:
 In both, besides Fedora's packages you receive **our** packages (branding, COS
 Dev Center, themes, fixes) from a **signed repository**. Trust doesn't depend on
 trusting the server: every package **and** the metadata are verified against our
-GPG key (`gpgcheck` + `repo_gpgcheck`), and the private key stays offline. It's
-the same key from [verifying your download](../installation/verify-download.md).
+GPG key (`gpgcheck` + `repo_gpgcheck`). The private half of that key is kept in a
+vault and only enters a machine at the moment of signing a release. It's the same
+key from [verifying your download](../installation/verify-download.md).
 
 ## Day-to-day updates
 
@@ -23,7 +24,7 @@ they show up:
 |---|---|
 | **Marsh** (KDE) | **Discover** |
 | **Snout** (GNOME) | **GNOME Software** |
-| **Pup** (Xfce) | tray notifier |
+| **Pup** (Xfce) | from the terminal — see the warning below |
 
 From the terminal, on any edition, this always works:
 
@@ -71,18 +72,38 @@ sudo capivaraos-upgrade reboot
 When the disk supports it, the tool takes a **snapshot first**, so you can roll
 back:
 
-- **btrfs + snapper** (default on Marsh 2.x): **automatic** snapshot.
+- **btrfs + snapper**: **automatic** snapshot. This is the installer's default
+  arrangement on all three editions.
 - **LVM**: not automatic — the tool prints the manual command
   (`lvcreate -s …`) in the pre-flight.
 - **No compatible storage**: nothing is snapshotted — **back up** first.
 
-To roll back an unwanted upgrade on a system with snapper, list and restore the
-previous snapshot:
+!!! tip "The pre-flight tells you what will happen on your machine"
+    No need to guess which case you are in: run `capivaraos-upgrade` with no
+    arguments. It reports whether a snapshot will be taken, and under what
+    conditions, before anything is downloaded.
+
+### If you need to go back
+
+The snapshot the tool creates shows up in the list described as
+**"pré capivaraos-upgrade"** — that is your return point:
 
 ```bash
 sudo snapper list
-sudo snapper undochange <before#>..<after#>
 ```
+
+To undo the file changes from that point to now:
+
+```bash
+sudo snapper undochange <snapshot#>..0
+```
+
+The `0` means "the current state". To revert **the whole system** after a
+generation upgrade, the path is to **boot the snapshot and promote it** —
+`undochange` reverts file changes, it does not swap the system over.
+
+On **LVM**, the rollback is `sudo lvconvert --merge <snapshot>` followed by a
+reboot.
 
 ## Why Series 1 doesn't upgrade to Series 2
 

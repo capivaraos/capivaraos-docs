@@ -12,7 +12,8 @@ Em ambos, além dos pacotes do Fedora, você recebe os **nossos** pacotes
 (identidade visual, COS Dev Center, temas, correções) a partir de um
 **repositório assinado**. A confiança não depende de confiar no servidor: cada
 pacote **e** os metadados são verificados contra a nossa chave GPG
-(`gpgcheck` + `repo_gpgcheck`); a chave privada fica offline. É a mesma chave da
+(`gpgcheck` + `repo_gpgcheck`). A parte privada da chave é guardada em cofre e só
+entra numa máquina no momento de assinar uma publicação. É a mesma chave da
 [verificação do download](../instalacao/verificar-download.md).
 
 ## Atualizações do dia a dia
@@ -24,7 +25,7 @@ aparecerem:
 |---|---|
 | **Marsh** (KDE) | **Discover** |
 | **Snout** (GNOME) | **Software do GNOME** |
-| **Pup** (Xfce) | notificador na bandeja |
+| **Pup** (Xfce) | pelo terminal — veja o aviso abaixo |
 
 Pelo terminal, em qualquer edição, funciona sempre:
 
@@ -72,18 +73,37 @@ sudo capivaraos-upgrade reboot
 Quando o disco suporta, a ferramenta tira um **snapshot antes** de começar, para
 você poder voltar atrás:
 
-- **btrfs + snapper** (padrão no Marsh 2.x): snapshot **automático**.
+- **btrfs + snapper**: snapshot **automático**. É o arranjo padrão do instalador
+  nas três edições.
 - **LVM**: não é automático — a ferramenta mostra o comando manual
   (`lvcreate -s …`) no pré-voo.
 - **Sem storage compatível**: nada é fotografado — **faça backup** antes.
 
-Para reverter um upgrade indesejado num sistema com snapper, liste e restaure o
-snapshot anterior:
+!!! tip "O pré-voo diz o que vai acontecer na sua máquina"
+    Não precisa adivinhar em qual dos casos você está: rode `capivaraos-upgrade`
+    sem argumento. Ele informa se vai tirar snapshot, e em que condições, antes
+    de qualquer coisa ser baixada.
+
+### Se precisar voltar atrás
+
+O snapshot criado pela ferramenta aparece na lista com a descrição
+**"pré capivaraos-upgrade"** — é o seu ponto de retorno:
 
 ```bash
 sudo snapper list
-sudo snapper undochange <nº-antes>..<nº-depois>
 ```
+
+Para desfazer as mudanças de arquivos daquele ponto até agora:
+
+```bash
+sudo snapper undochange <nº-do-snapshot>..0
+```
+
+O `0` significa "o estado atual". Para reverter **o sistema inteiro** depois de
+um upgrade de geração, o caminho é **inicializar pelo snapshot e promovê-lo** —
+o `undochange` desfaz mudanças de arquivos, não troca o sistema de lugar.
+
+Em **LVM**, a reversão é `sudo lvconvert --merge <snapshot>` seguida de reinício.
 
 ## Por que a Série 1 não atualiza para a Série 2
 
