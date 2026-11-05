@@ -20,16 +20,16 @@ CapivaraOS is a family of Brazilian Linux distributions based on Fedora. Three s
 
 ## Server: Herd by CapivaraOS
 
-Need a **server**? [**Herd by CapivaraOS**](herd/index.md) is the _headless_ line
+Need a **server**? [**Herd by CapivaraOS**](../../herd/index.md) is the _headless_ line
 (no desktop) for physical machines, VMs and the cloud — with Cockpit, hardened
 security and compliance out of the box. See the
-[Herd documentation](herd/index.md).
+[Herd documentation](../../herd/index.md).
 
 ## Get started
 
 - [System requirements](installation/requirements.md)
 - [Installation guide](installation/guide.md)
-- [How to contribute](contribute.md)
+- [How to contribute](../../contribute.md)
 
 ## Download
 
@@ -38,4 +38,4 @@ ISOs are available at [capivaraos.org/en/download.html](https://capivaraos.org/e
 ---
 
 !!! info "Documentação em português"
-    A documentação completa está disponível em português. [Acesse aqui](../pt/index.md).
+    A documentação completa está disponível em português. [Acesse aqui](../../../pt/index.md).
