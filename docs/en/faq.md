@@ -32,7 +32,7 @@ CapivaraOS follows Fedora's cycle. Security and package updates arrive continuou
 
 ## Do I have to reinstall to get the next version?
 
-No, from Series 2 on. The system moves between versions and generations **in place**, without reformatting, and takes a snapshot first so you can go back. See [Keeping your system updated](update/index.md).
+No, from Series 2 on. The system moves between versions and generations **in place**, without reformatting. On the desktop editions, installed on Btrfs, a snapshot is taken first so you can go back. See [Keeping your system updated](update/index.md) — and, for servers, [Keeping Herd updated](herd/update.md), where the default layout has no automatic snapshot and recovery is from backup.
 
 Series 1 is the exception: it does not have that path and needs a clean install — this is the last time.
 

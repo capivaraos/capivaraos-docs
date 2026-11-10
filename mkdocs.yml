@@ -110,6 +110,7 @@ nav:
       - Console web (Cockpit): pt/herd/cockpit.md
       - Segurança e compliance: pt/herd/seguranca.md
       - Fortalecimento em 1 comando: pt/herd/fortalecimento.md
+      - Atualizar o Herd: pt/herd/atualizar.md
       - Administração: pt/herd/administracao.md
       - Suporte: pt/herd/suporte.md
     - FAQ: pt/faq.md
@@ -149,6 +150,7 @@ nav:
       - Web console (Cockpit): en/herd/cockpit.md
       - Security and compliance: en/herd/security.md
       - One-command hardening: en/herd/hardening.md
+      - Keeping Herd updated: en/herd/update.md
       - Administration: en/herd/administration.md
       - Support: en/herd/support.md
     - FAQ: en/faq.md

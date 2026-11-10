@@ -8,6 +8,12 @@ waiting for a new ISO. There are two kinds of update, with different tools:
 | **Day-to-day updates** | fixes and new program versions, within the same generation | the app store or `dnf upgrade` |
 | **Generation upgrade** | jump to the next generation of the system (new Fedora base) | `capivaraos-upgrade` |
 
+!!! note "This page is about the desktop editions"
+    Marsh, Pup and Snout use `capivaraos-upgrade` and do get an automatic Btrfs
+    snapshot. **Herd** uses `herd-upgrade` and, on the usual server layout
+    (LVM + xfs), takes **no** automatic snapshot — see
+    [Keeping Herd updated](../herd/update.md).
+
 In both, besides Fedora's packages you receive **our** packages (branding, COS
 Dev Center, themes, fixes) from a **signed repository**. Trust doesn't depend on
 trusting the server: every package **and** the metadata are verified against our
@@ -103,7 +109,8 @@ generation upgrade, the path is to **boot the snapshot and promote it** —
 `undochange` reverts file changes, it does not swap the system over.
 
 On **LVM**, the rollback is `sudo lvconvert --merge <snapshot>` followed by a
-reboot.
+reboot — but only if an LVM snapshot was created beforehand, by hand. The LVM
+snapshot is not automatic and needs free space in the volume group.
 
 ## Why Series 1 doesn't upgrade to Series 2
 

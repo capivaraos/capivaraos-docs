@@ -8,6 +8,12 @@ ISO nova. São dois tipos de atualização, com ferramentas diferentes:
 | **Atualizações do dia a dia** | correções e novas versões de programas, dentro da mesma geração | a loja de aplicativos ou `dnf upgrade` |
 | **Upgrade de geração** | salto para a próxima geração do sistema (base Fedora nova) | `capivaraos-upgrade` |
 
+!!! note "Esta página é das edições desktop"
+    Marsh, Pup e Snout usam o `capivaraos-upgrade` e contam com snapshot
+    automático em Btrfs. O **Herd** usa o `herd-upgrade` e, no layout usual de
+    servidor (LVM + xfs), **não** tira snapshot automático — veja
+    [Atualizar o Herd](../herd/atualizar.md).
+
 Em ambos, além dos pacotes do Fedora, você recebe os **nossos** pacotes
 (identidade visual, COS Dev Center, temas, correções) a partir de um
 **repositório assinado**. A confiança não depende de confiar no servidor: cada
@@ -103,7 +109,9 @@ O `0` significa "o estado atual". Para reverter **o sistema inteiro** depois de
 um upgrade de geração, o caminho é **inicializar pelo snapshot e promovê-lo** —
 o `undochange` desfaz mudanças de arquivos, não troca o sistema de lugar.
 
-Em **LVM**, a reversão é `sudo lvconvert --merge <snapshot>` seguida de reinício.
+Em **LVM**, a reversão é `sudo lvconvert --merge <snapshot>` seguida de
+reinício — mas só se um snapshot de LVM tiver sido criado antes, à mão. O
+snapshot de LVM não é automático e precisa de espaço livre no grupo de volumes.
 
 ## Por que a Série 1 não atualiza para a Série 2
 
