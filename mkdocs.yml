@@ -115,7 +115,9 @@ nav:
       - Suporte: pt/herd/suporte.md
     - FAQ: pt/faq.md
     - Changelog: pt/changelog.md
-    - Contribua: pt/contribua.md
+    - O projeto:
+      - Como o CapivaraOS é construído: pt/projeto/como-construimos.md
+      - Contribua: pt/contribua.md
     - Arquivo (Série 1):
       - Início: pt/arquivo/1.x/index.md
       - Instalação:
@@ -155,7 +157,9 @@ nav:
       - Support: en/herd/support.md
     - FAQ: en/faq.md
     - Changelog: en/changelog.md
-    - Contribute: en/contribute.md
+    - The project:
+      - How CapivaraOS is built: en/project/how-we-build.md
+      - Contribute: en/contribute.md
     - Archive (Series 1):
       - Home: en/arquivo/1.x/index.md
       - Installation:
