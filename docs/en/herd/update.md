@@ -85,3 +85,7 @@ generation upgrade.
 - [Security and compliance](security.md)
 - [Administration](administration.md)
 - [Download verification](download.md)
+
+---
+
+*Content produced with AI assistance, under continuous review. Found an error? [Open an issue](https://github.com/capivaraos/capivaraos-herd/issues).*
