@@ -269,6 +269,18 @@ sudo cryptsetup status luks-<uuid>
 FIPS 140 forces the use of validated cryptographic modules only and restricts the
 allowed algorithms. Useful for government/sector requirements.
 
+!!! warning "FIPS mode is not FIPS validation"
+    Turning on `fips=1` puts the system in **FIPS mode**: it uses only the
+    cryptographic modules the base ships for that mode and rejects algorithms
+    outside the allowed set. That is a **configuration**, not a validation:
+    neither Herd nor the base becomes "FIPS certified" by enabling the mode.
+    CMVP validation is a formal process, carried out by an accredited laboratory
+    against a specific version of a module. If your requirement calls for a
+    **CMVP-validated** module, check the exact version you run against
+    [NIST's CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules)
+    — the mode being on does not prove validation. See also the compliance
+    caveat in [One-command hardening](hardening.md).
+
 !!! note "Fedora 44 no longer ships `fips-mode-setup`"
     Fedora [removed `fips-mode-setup`](https://fedoraproject.org/wiki/Changes/RemoveFipsModeSetup).
     FIPS is now turned on with **`fips=1`** on the kernel command line —
