@@ -32,7 +32,7 @@ O CapivaraOS segue o ciclo do Fedora. Atualizações de segurança e de pacotes 
 
 ## Preciso reinstalar para pegar a próxima versão?
 
-Não, a partir da Série 2. O sistema sobe de versão e de geração **no lugar**, sem formatar, e tira um instantâneo antes para você poder voltar atrás. Veja [Atualizar o sistema](atualizar/index.md).
+Não, a partir da Série 2. O sistema sobe de versão e de geração **no lugar**, sem formatar. Nas edições desktop, instaladas em Btrfs, um instantâneo é tirado antes para você poder voltar atrás. Veja [Atualizar o sistema](atualizar/index.md) — e, para servidor, [Atualizar o Herd](herd/atualizar.md), onde o layout padrão não tem instantâneo automático e a recuperação é por backup.
 
 Quem está na Série 1 é a exceção: ela não tem esse caminho e precisa de uma instalação limpa — é a última vez.
 
