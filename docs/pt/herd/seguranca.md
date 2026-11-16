@@ -170,15 +170,6 @@ assinar os pacotes em si.
     (`dnf check-update` ou `dnf update`) — é ali que um repositório adulterado
     é rejeitado.
 
-### Por que isso protege mesmo se o servidor cair
-
-A chave **privada** nunca esteve no servidor de repositórios. Ela é gerada numa
-cerimônia offline e guardada em cofre; entra numa máquina apenas no momento de
-assinar uma publicação, e é removida em seguida. Então um servidor comprometido
-consegue, no máximo, servir arquivos que o seu sistema vai recusar — porque não
-há como assiná-los. É por isso que a confiança está na chave, e não em quem
-hospeda.
-
 ## Ajustar
 
 Toda a configuração vem do pacote `capivaraos-herd-hardening`. Você pode

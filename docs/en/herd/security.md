@@ -166,14 +166,6 @@ sign the packages themselves.
     try an actual operation (`dnf check-update` or `dnf update`) — that is
     where a tampered repository is rejected.
 
-### Why this holds even if the server falls
-
-The **private** key has never been on the repository server. It is generated in
-an offline ceremony and kept in a vault; it enters a machine only at the moment
-of signing a release, and is removed afterwards. So a compromised server can at
-most serve files your system will refuse, because there is no way to sign them.
-That is why the trust sits in the key, not in whoever hosts it.
-
 ## Adjust
 
 All configuration comes from the `capivaraos-herd-hardening` package. You can
