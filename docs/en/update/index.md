@@ -10,8 +10,8 @@ waiting for a new ISO. There are two kinds of update, with different tools:
 
 !!! note "This page is about the desktop editions"
     Marsh, Pup and Snout use `capivaraos-upgrade` and do get an automatic Btrfs
-    snapshot. **Herd** uses `herd-upgrade` and, on the usual server layout
-    (LVM + xfs), takes **no** automatic snapshot — see
+    snapshot. **Herd** has its own page, and on the usual server layout
+    (LVM + xfs) takes **no** automatic snapshot — see
     [Keeping Herd updated](../herd/update.md).
 
 In both, besides Fedora's packages you receive **our** packages (branding, COS

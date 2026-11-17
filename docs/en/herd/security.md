@@ -94,77 +94,29 @@ sudo herd-compliance-scan ospp
     `standard`) and can break services you rely on. Run the dry-run first, read
     what would change, and decide — it is your call, not an edition limit.
 
-## Verify the software is ours
+## Verify the software
 
 The image checksum proves the file arrived intact — see
-[Download and verification](download.md). It does **not** prove who produced
-it: anyone who replaced the image would publish the new checksum alongside it.
-The GPG signature is what answers that question.
+[Download and verification](download.md).
 
-None of this asks you to trust us. These are four checks you run yourself.
-
-### 1. Is the key installed?
-
-The public key ships inside the system and is imported by the repositories RPM:
+On Herd 1.0.1, updates come from Fedora's repositories, and dnf checks every
+package from the fedora and updates repositories against Fedora's signing keys
+before installing it. Check that the setting is on:
 
 ```bash
-rpm -q gpg-pubkey --qf '%{SUMMARY}\n' | grep -i capivaraos
+dnf5 -q --dump-repo-config=updates | grep -E '^gpgcheck'
 ```
 
-### 2. Does the fingerprint match?
+It must print `gpgcheck = 1`.
 
-This is the step that matters. Compare what is on your machine against the
-value published here:
+The Herd packages in the 1.0.1 images are not signed, and the images have no Herd
+repository. Check what is installed:
 
 ```bash
-gpg --show-keys --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-capivaraos-herd
+rpm -q --qf '%{NAME}: %{RSAHEADER:pgpsig}\n' capivaraos-herd-branding capivaraos-herd-hardening
 ```
 
-The fingerprint **must be exactly**:
-
-```
-C852 6722 0A81 18C9 864F  0648 BE5B 82AD C8A2 85C0
-```
-
-!!! danger "If it does not match"
-    Stop. A different key means the system trusts someone who is not us. Do not
-    apply updates, and report it through the
-    [private security channel](https://www.capivaraos.org/en/trust-center.html).
-
-The Herd key is **separate** from the one used by the desktop editions
-(`75FA 3340 40FD 0150 4AAD  9337 E07F 78EA 4070 11BD`). Compromising one does
-not compromise the other.
-
-### 3. Are the installed packages signed?
-
-```bash
-# signature of a downloaded RPM, before installing
-rpm -K ./some-package.rpm
-# expected: ...: digests signatures OK
-
-# who signed an already installed package
-rpm -qi capivaraos-herd-hardening | grep -i signature
-```
-
-An unsigned package, or one signed by another key, shows up as `NOT OK`,
-`MISSING KEYS` or `(none)`.
-
-### 4. Does the repository require signatures?
-
-```bash
-grep -E 'gpgcheck|repo_gpgcheck' /etc/yum.repos.d/capivaraos-herd.repo
-```
-
-Both must be `1`. `gpgcheck` validates each package; `repo_gpgcheck` also
-validates the repository **metadata** — without it, someone controlling the
-server could advertise a different package list, even without being able to
-sign the packages themselves.
-
-!!! warning "`makecache` is not the test"
-    On dnf5, `dnf makecache` only **warns** when metadata is badly signed, and
-    still exits 0. The **transaction** is what refuses it. To test for real,
-    try an actual operation (`dnf check-update` or `dnf update`) — that is
-    where a tampered repository is rejected.
+On Herd 1.0.1 both lines end in `(none)`.
 
 ## Adjust
 

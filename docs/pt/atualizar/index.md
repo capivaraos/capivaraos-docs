@@ -10,7 +10,7 @@ ISO nova. São dois tipos de atualização, com ferramentas diferentes:
 
 !!! note "Esta página é das edições desktop"
     Marsh, Pup e Snout usam o `capivaraos-upgrade` e contam com snapshot
-    automático em Btrfs. O **Herd** usa o `herd-upgrade` e, no layout usual de
+    automático em Btrfs. O **Herd** tem página própria e, no layout usual de
     servidor (LVM + xfs), **não** tira snapshot automático — veja
     [Atualizar o Herd](../herd/atualizar.md).
 

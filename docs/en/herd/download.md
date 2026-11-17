@@ -44,9 +44,9 @@ Both image sums are in the `SHA256SUMS` file, in the same download folder:
     tampered file — download it again, preferably from the official source.
 
 !!! tip "A checksum does not say who made the file"
-    It proves the download arrived intact. To confirm the software is really
-    ours, check the GPG signature —
-    [Verify the software is ours](security.md#verify-the-software-is-ours).
+    It proves the download arrived intact. No signature is published for the
+    Herd 1.0.1 images. How updates are checked is in
+    [Verify the software](security.md#verify-the-software).
 
 ## Next step
 

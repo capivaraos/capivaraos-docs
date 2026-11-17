@@ -1,13 +1,12 @@
 # Atualizar o Herd
 
-O Herd instalado se mantém atualizado **sem formatar** e sem esperar uma ISO
-nova, pelo mesmo repositório assinado das outras edições. São dois tipos de
-atualização, com ferramentas diferentes:
+O Herd 1.0.1 instalado recebe as atualizações do Fedora **sem formatar** e sem
+esperar uma ISO nova. São dois tipos de atualização:
 
 | Tipo | O que muda | Ferramenta |
 |---|---|---|
 | **Atualizações do dia a dia** | correções e novas versões de pacotes, dentro da mesma geração | `dnf upgrade` |
-| **Upgrade de geração** | salto para a próxima geração do sistema (base Fedora nova) | `herd-upgrade` |
+| **Upgrade de geração** | salto para a próxima geração do sistema (base Fedora nova) | não incluído no Herd 1.0.1 |
 
 !!! note "Esta página é do Herd"
     As edições desktop usam o `capivaraos-upgrade` e contam com snapshot
@@ -21,33 +20,17 @@ atualização, com ferramentas diferentes:
 sudo dnf upgrade --refresh
 ```
 
-Além dos pacotes do Fedora, você recebe os **nossos** a partir de um
-**repositório assinado**: cada pacote **e** os metadados são verificados contra
-a nossa chave GPG (`gpgcheck` + `repo_gpgcheck`). Assinatura que não confere
-**interrompe a transação** — não há caminho para instalar um pacote nosso que
-não passe pela verificação.
+O Herd 1.0.1 só instala atualizações quando você roda esse comando; ele não se
+atualiza sozinho. As atualizações vêm dos repositórios do Fedora, e o dnf
+confere cada pacote dos repositórios fedora e updates contra as chaves de
+assinatura do Fedora (`gpgcheck`) antes de instalar. Os pacotes do Herd nas
+imagens 1.0.1 não são assinados e não têm repositório, então não são atualizados
+depois da instalação.
 
 ## Upgrade de geração
 
-O `herd-upgrade` usa o `dnf5 system-upgrade` e trabalha em passos explícitos:
-
-```bash
-herd-upgrade                   # pré-voo: mostra o que aconteceria; não altera nada
-sudo herd-upgrade download     # baixa a transação offline (não reinicia)
-sudo herd-upgrade reboot       # aplica agora, reiniciando no modo offline
-```
-
-Sem argumento ele roda o pré-voo e **nada é alterado**. O destino padrão é a
-geração atual + 1; para outra, use `--to N`.
-
-!!! tip "Rode o pré-voo primeiro"
-    O pré-voo responde, para a **sua** máquina, se já existe destino publicado,
-    qual é o sistema de arquivos da raiz e se um snapshot vai ser tirado. Não
-    precisa adivinhar em qual caso você está.
-
-Se ainda não houver geração de destino publicada, o pré-voo **recusa** — do
-contrário a máquina subiria uma base Fedora nova e deixaria os pacotes do
-CapivaraOS para trás. Isso é o comportamento correto, não um erro.
+O Herd 1.0.1 não inclui o `herd-upgrade`, e não há repositório do Herd para uma
+geração nova.
 
 ## Snapshot e recuperação
 
@@ -55,11 +38,10 @@ Esta é a parte que vale planejar antes.
 
 O layout usual de servidor é **LVM + xfs**, e nesse arranjo **não há snapshot
 automático**: o Snapper cobre Btrfs, não xfs. O Herd também **não vem com o
-Snapper instalado e configurado**. O `herd-upgrade` detecta o caso e diz no
-pré-voo em qual você está:
+Snapper instalado e configurado**. O caso depende da sua instalação:
 
-- **raiz em LVM** — snapshot automático não é feito. A ferramenta mostra o
-  comando manual (`lvcreate -s …`), que depende de **haver espaço livre no
+- **raiz em LVM** — snapshot automático não é feito. Um snapshot manual
+  (`lvcreate -s …`) depende de **haver espaço livre no
   grupo de volumes**. Numa instalação em que a raiz cresceu até ocupar o disco,
   não há espaço de onde tirar o snapshot.
 - **raiz em Btrfs com uma configuração `root` do Snapper ativa** — snapshot
