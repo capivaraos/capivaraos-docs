@@ -10,16 +10,14 @@ waiting for a new ISO. There are two kinds of update, with different tools:
 
 !!! note "This page is about the desktop editions"
     Marsh, Pup and Snout use `capivaraos-upgrade` and do get an automatic Btrfs
-    snapshot. **Herd** uses `herd-upgrade` and, on the usual server layout
-    (LVM + xfs), takes **no** automatic snapshot — see
+    snapshot. **Herd** has its own page, and on the usual server layout
+    (LVM + xfs) takes **no** automatic snapshot — see
     [Keeping Herd updated](../herd/update.md).
 
 In both, besides Fedora's packages you receive **our** packages (branding, COS
 Dev Center, themes, fixes) from a **signed repository**. Trust doesn't depend on
 trusting the server: every package **and** the metadata are verified against our
-GPG key (`gpgcheck` + `repo_gpgcheck`). The private half of that key is kept in a
-vault and only enters a machine at the moment of signing a release. It's the same
-key from [verifying your download](../installation/verify-download.md).
+GPG key (`gpgcheck` + `repo_gpgcheck`). It's the same key from [verifying your download](../installation/verify-download.md).
 
 ## Day-to-day updates
 

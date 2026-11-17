@@ -96,88 +96,29 @@ sudo herd-compliance-scan ospp
     dry-run, leia o que mudaria e decida — a escolha é sua, não uma limitação
     da edição.
 
-## Verificar que o software é nosso
+## Verificar o software
 
 O checksum da imagem prova que o arquivo chegou inteiro — veja
-[Download e verificação](download.md). Ele **não** prova quem produziu o
-arquivo: quem substituísse a imagem publicaria o checksum novo junto. Quem
-responde essa pergunta é a assinatura GPG.
+[Download e verificação](download.md).
 
-Nada aqui depende de confiar em nós. São quatro conferências que você mesmo faz
-na máquina.
-
-### 1. A chave está instalada?
-
-A chave pública viaja dentro do sistema e é importada no RPM de repositórios:
+No Herd 1.0.1, as atualizações vêm dos repositórios do Fedora, e o dnf confere
+cada pacote dos repositórios fedora e updates contra as chaves de assinatura do
+Fedora antes de instalar. Confira que a opção está ligada:
 
 ```bash
-rpm -q gpg-pubkey --qf '%{SUMMARY}\n' | grep -i capivaraos
+dnf5 -q --dump-repo-config=updates | grep -E '^gpgcheck'
 ```
 
-### 2. A impressão digital confere?
+Tem que aparecer `gpgcheck = 1`.
 
-Este é o passo que importa. Compare o que está na sua máquina com o valor
-publicado aqui:
+Os pacotes do Herd nas imagens 1.0.1 não são assinados, e as imagens não têm
+repositório do Herd. Confira o que está instalado:
 
 ```bash
-gpg --show-keys --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-capivaraos-herd
+rpm -q --qf '%{NAME}: %{RSAHEADER:pgpsig}\n' capivaraos-herd-branding capivaraos-herd-hardening
 ```
 
-A impressão digital **tem que ser exatamente**:
-
-```
-C852 6722 0A81 18C9 864F  0648 BE5B 82AD C8A2 85C0
-```
-
-!!! danger "Se não bater"
-    Pare. Uma chave diferente significa que o sistema confia em alguém que não
-    somos nós. Não aplique atualizações e abra um relato pelo
-    [canal privado de segurança](https://www.capivaraos.org/pt/trust-center.html).
-
-A chave do Herd é **separada** da usada nas edições desktop
-(`75FA 3340 40FD 0150 4AAD  9337 E07F 78EA 4070 11BD`). Comprometer uma não
-compromete a outra.
-
-### 3. Os pacotes instalados estão assinados?
-
-```bash
-# assinatura de um RPM baixado, antes de instalar
-rpm -K ./algum-pacote.rpm
-# esperado: ...: digests signatures OK
-
-# quem assinou um pacote já instalado
-rpm -qi capivaraos-herd-hardening | grep -i signature
-```
-
-Um pacote sem assinatura, ou assinado por outra chave, aparece como
-`NOT OK`, `MISSING KEYS` ou `(none)`.
-
-### 4. O repositório exige assinatura?
-
-```bash
-grep -E 'gpgcheck|repo_gpgcheck' /etc/yum.repos.d/capivaraos-herd.repo
-```
-
-Os dois têm que estar em `1`. `gpgcheck` valida cada pacote; `repo_gpgcheck`
-valida também os **metadados** do repositório — sem ele, alguém que controlasse
-o servidor poderia anunciar uma lista de pacotes diferente, mesmo sem conseguir
-assinar os pacotes em si.
-
-!!! warning "`makecache` não é o teste"
-    No dnf5, `dnf makecache` apenas **avisa** quando os metadados estão mal
-    assinados, e ainda assim termina com código 0. Quem recusa de fato é a
-    **transação**. Para testar de verdade, tente uma operação real
-    (`dnf check-update` ou `dnf update`) — é ali que um repositório adulterado
-    é rejeitado.
-
-### Por que isso protege mesmo se o servidor cair
-
-A chave **privada** nunca esteve no servidor de repositórios. Ela é gerada numa
-cerimônia offline e guardada em cofre; entra numa máquina apenas no momento de
-assinar uma publicação, e é removida em seguida. Então um servidor comprometido
-consegue, no máximo, servir arquivos que o seu sistema vai recusar — porque não
-há como assiná-los. É por isso que a confiança está na chave, e não em quem
-hospeda.
+No Herd 1.0.1 as duas linhas terminam em `(none)`.
 
 ## Ajustar
 

@@ -67,9 +67,7 @@ Snout   8e25df502c4a22b6ac898fde9347aa03c47a28220a2bcdd83dc1981e5e212bd1
 The checksum proves the file arrived intact, but not **who** published it:
 anyone who swapped the image would publish a matching checksum too. The signature
 answers that. The `.sha256.asc` is the GPG signature of the checksum file, made
-with our key. Its private half was **generated in an offline ceremony** and is
-**kept in a vault**: it enters a machine only at the moment of signing a release,
-and is removed afterwards.
+with our key.
 
 **a) Download and import our public key:**
 

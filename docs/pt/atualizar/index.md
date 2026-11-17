@@ -10,7 +10,7 @@ ISO nova. São dois tipos de atualização, com ferramentas diferentes:
 
 !!! note "Esta página é das edições desktop"
     Marsh, Pup e Snout usam o `capivaraos-upgrade` e contam com snapshot
-    automático em Btrfs. O **Herd** usa o `herd-upgrade` e, no layout usual de
+    automático em Btrfs. O **Herd** tem página própria e, no layout usual de
     servidor (LVM + xfs), **não** tira snapshot automático — veja
     [Atualizar o Herd](../herd/atualizar.md).
 
@@ -18,8 +18,7 @@ Em ambos, além dos pacotes do Fedora, você recebe os **nossos** pacotes
 (identidade visual, COS Dev Center, temas, correções) a partir de um
 **repositório assinado**. A confiança não depende de confiar no servidor: cada
 pacote **e** os metadados são verificados contra a nossa chave GPG
-(`gpgcheck` + `repo_gpgcheck`). A parte privada da chave é guardada em cofre e só
-entra numa máquina no momento de assinar uma publicação. É a mesma chave da
+(`gpgcheck` + `repo_gpgcheck`). É a mesma chave da
 [verificação do download](../instalacao/verificar-download.md).
 
 ## Atualizações do dia a dia

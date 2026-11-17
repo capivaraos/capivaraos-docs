@@ -1,13 +1,12 @@
 # Keeping Herd updated
 
-An installed Herd stays up to date **without reformatting** and without waiting
-for a new ISO, from the same signed repository as the other editions. There are
-two kinds of update, with different tools:
+An installed Herd 1.0.1 receives Fedora's updates **without reformatting** and
+without waiting for a new ISO. There are two kinds of update:
 
 | Kind | What changes | Tool |
 |---|---|---|
 | **Day-to-day updates** | fixes and new package versions, within the same generation | `dnf upgrade` |
-| **Generation upgrade** | jump to the next generation of the system (new Fedora base) | `herd-upgrade` |
+| **Generation upgrade** | jump to the next generation of the system (new Fedora base) | not included in Herd 1.0.1 |
 
 !!! note "This page is about Herd"
     The desktop editions use `capivaraos-upgrade` and do get an automatic Btrfs
@@ -20,33 +19,16 @@ two kinds of update, with different tools:
 sudo dnf upgrade --refresh
 ```
 
-Besides Fedora's packages you receive **ours** from a **signed repository**:
-every package **and** the metadata are verified against our GPG key
-(`gpgcheck` + `repo_gpgcheck`). A signature that does not check out **stops the
-transaction** — there is no path that installs one of our packages without
-passing verification.
+Herd 1.0.1 installs updates only when you run this command; it does not update
+on its own. The updates come from Fedora's repositories, and dnf checks every
+package from the fedora and updates repositories against Fedora's signing keys
+(`gpgcheck`) before installing it. The Herd packages in the 1.0.1 images are not
+signed and have no repository, so they are not updated after installation.
 
 ## Generation upgrade
 
-`herd-upgrade` drives `dnf5 system-upgrade` in explicit steps:
-
-```bash
-herd-upgrade                   # pre-flight: shows what would happen; changes nothing
-sudo herd-upgrade download     # downloads the offline transaction (no reboot)
-sudo herd-upgrade reboot       # applies now, rebooting into offline mode
-```
-
-With no argument it runs the pre-flight and **nothing is changed**. The default
-target is the current generation + 1; for another, use `--to N`.
-
-!!! tip "Run the pre-flight first"
-    The pre-flight answers, for **your** machine, whether a target generation
-    has been published, what filesystem the root is on, and whether a snapshot
-    will be taken. You don't have to guess which case you are in.
-
-If no target generation has been published yet, the pre-flight **refuses** —
-otherwise the machine would move to a new Fedora base and leave the CapivaraOS
-packages behind. That is the correct behaviour, not a failure.
+Herd 1.0.1 does not include `herd-upgrade`, and there is no Herd repository for
+a new generation.
 
 ## Snapshots and recovery
 
@@ -54,11 +36,10 @@ This is the part worth planning for.
 
 The usual server layout is **LVM + xfs**, and in that arrangement there is **no
 automatic snapshot**: Snapper covers Btrfs, not xfs. Herd also **does not ship
-Snapper installed and configured**. `herd-upgrade` detects the case and tells
-you in the pre-flight which one you are in:
+Snapper installed and configured**. Which case applies depends on your install:
 
-- **root on LVM** — no automatic snapshot. The tool prints the manual command
-  (`lvcreate -s …`), which depends on **free space in the volume group**. On an
+- **root on LVM** — no automatic snapshot. A manual snapshot
+  (`lvcreate -s …`) depends on **free space in the volume group**. On an
   install where root was grown to fill the disk, there is no space to take the
   snapshot from.
 - **root on Btrfs with an active Snapper `root` config** — automatic snapshot,

@@ -45,9 +45,9 @@ download:
     adulterado — baixe de novo, de preferência da fonte oficial.
 
 !!! tip "O checksum não diz quem fez o arquivo"
-    Ele prova que o download chegou inteiro. Para confirmar que o software é
-    mesmo nosso, confira a assinatura GPG —
-    [Verificar que o software é nosso](seguranca.md#verificar-que-o-software-e-nosso).
+    Ele prova que o download chegou inteiro. Não há assinatura publicada para
+    as imagens do Herd 1.0.1. Como as atualizações são conferidas está em
+    [Verificar o software](seguranca.md#verificar-o-software).
 
 ## Próximo passo
 
