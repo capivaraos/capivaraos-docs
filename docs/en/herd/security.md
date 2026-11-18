@@ -13,7 +13,8 @@ security profile, with no configuration needed from you. This page explains
 | **SSH** | key-only; no root; login attempt limits (see below) |
 | **Passwords** | quality minimum (`pwquality`) and password aging |
 | **umask** | `027` on login sessions (new files aren't world-readable) |
-| **Packages** | `gpgcheck=1` (signature verification in dnf) |
+| **Packages** | signed Herd repository; dnf checks packages and the repository index (`gpgcheck`, `repo_gpgcheck`) |
+| **Updates** | security updates installed automatically every day, no automatic reboot (see [Keeping Herd updated](update.md)) |
 
 ### SSH — default policy
 
@@ -90,33 +91,110 @@ sudo herd-compliance-scan ospp
     sudo herd-harden cis-l2 --apply
     ```
 
-    They change a great deal more (CIS Level 2 evaluates 438 rules against 76 in
+    They change a great deal more (CIS Level 2 evaluates 438 rules against 75 in
     `standard`) and can break services you rely on. Run the dry-run first, read
     what would change, and decide — it is your call, not an edition limit.
 
 ## Verify the software
 
-The image checksum proves the file arrived intact — see
-[Download and verification](download.md).
+The image checksum and its signature prove the image is intact and ours — see
+[Download and verify](download.md). After installing, these four checks show
+that the system trusts the right keys and refuses anything not signed with them.
+You run all of them yourself.
 
-On Herd 1.0.1, updates come from Fedora's repositories, and dnf checks every
-package from the fedora and updates repositories against Fedora's signing keys
-before installing it. Check that the setting is on:
+### 1. Are the keys installed?
+
+The Herd public keys ship inside the system, in the `capivaraos-herd-repos`
+package:
 
 ```bash
-dnf5 -q --dump-repo-config=updates | grep -E '^gpgcheck'
+sudo rpm -q gpg-pubkey --qf '%{VERSION}  %{SUMMARY}\n' | grep -i capivaraos
 ```
 
-It must print `gpgcheck = 1`.
+It must list exactly two keys, the main key and the reserve key. Each line
+starts with the key's fingerprint from step 2, in lowercase and without spaces.
+No other key may have a CapivaraOS name. If the list is empty on a new server,
+do check 2 first, then run `sudo systemctl start dnf5-automatic.service` once
+(this also installs any pending security updates) and check again.
 
-The Herd packages in the 1.0.1 images are not signed, and the images have no Herd
-repository. Check what is installed:
+### 2. Do the fingerprints match?
+
+This is the step that matters. Compare what is on your machine against the
+values published here:
+
+```bash
+gpg --show-keys --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-capivaraos-herd
+```
+
+The file must hold one key, and its fingerprint **must be exactly**:
+
+```
+C852 6722 0A81 18C9 864F  0648 BE5B 82AD C8A2 85C0
+```
+
+The system also ships a reserve key, used to sign only when the main key is
+replaced, in a planned rotation or after a compromise. Check it the same way:
+
+```bash
+gpg --show-keys --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-capivaraos-herd-reserve
+```
+
+It must also hold one key, and its fingerprint **must be exactly**:
+
+```
+F4EF 73FA F615 7390 BB65  38FF A765 804F 4ADA 507E
+```
+
+!!! danger "If either does not match"
+    Stop. A different key means the system trusts someone who is not us. Do not
+    apply updates, and report it through the
+    [private security channel](https://www.capivaraos.org/en/trust-center.html).
+
+The Herd key is **separate** from the one used by the desktop editions
+(`75FA 3340 40FD 0150 4AAD  9337 E07F 78EA 4070 11BD`). Compromising one does
+not compromise the other.
+
+### 3. Are the installed packages signed?
 
 ```bash
 rpm -q --qf '%{NAME}: %{RSAHEADER:pgpsig}\n' capivaraos-herd-branding capivaraos-herd-hardening
 ```
 
-On Herd 1.0.1 both lines end in `(none)`.
+Each line must end in `Key ID be5b82adc8a285c0`. To check a package file
+before installing it:
+
+```bash
+LC_ALL=C rpm -K ./some-package.rpm
+# expected: ...: digests signatures OK
+```
+
+For a package that is unsigned or signed by another key, `rpm -K` shows
+`SIGNATURES NOT OK` (or `MISSING KEYS`), and the query above shows `(none)` for
+an unsigned package.
+
+### 4. Does the repository require signatures?
+
+```bash
+grep -E 'gpgcheck|repo_gpgcheck' /etc/yum.repos.d/capivaraos-herd.repo
+```
+
+Every line must end in `1`. `gpgcheck` checks each package; `repo_gpgcheck`
+also checks the repository **index** — without it, someone controlling the
+server could advertise a different package list, even without being able to
+sign the packages themselves. Fedora's repositories use `gpgcheck=1` as well.
+
+!!! warning "`makecache` is not the test"
+    On dnf5, `dnf makecache` only **warns** when metadata is badly signed, and
+    still exits 0. The **transaction** is what refuses it. To test for real,
+    try an actual operation (`dnf check-update` or `dnf upgrade`) — that is
+    where a tampered repository is rejected.
+
+### Why this holds even if the server falls
+
+Every package and the repository index are checked against the Herd public
+keys installed on your system. A file altered on the repository server, or on
+a CDN in front of it, no longer matches its signature, so your system refuses
+it. That is why the trust sits in the key, not in whoever hosts it.
 
 ## Adjust
 
@@ -167,7 +245,8 @@ chmod 600 ~/.ssh/authorized_keys
 
 - Expose the minimum: only the necessary ports in `firewalld`.
 - Access Cockpit over VPN/tunnel, not open to the internet.
-- Keep the system updated (`dnf upgrade`) — Fedora security updates.
+- Keep automatic security updates on, run `dnf upgrade` regularly and plan
+  reboots — see [Keeping Herd updated](update.md).
 - Run `herd-compliance-scan` periodically and address what makes sense for your
   environment.
 
@@ -181,7 +260,7 @@ headless servers and cloud), which you enable when your policy calls for them.
 Protects data **at rest** (a stolen/discarded disk leaks nothing). It's an
 **install-time** decision. Since the Herd installer is **text-mode** (no "Encrypt
 my data" checkbox from the graphical version), encryption is set via the
-**kickstart** — since **1.0.1** the `cryptsetup` package ships in the ISO payload,
+**kickstart** — the `cryptsetup` package ships in the ISO payload,
 so an encrypted install works offline. Use the [Herd kickstart](installation-iso.md)
 template:
 
@@ -225,7 +304,7 @@ allowed algorithms. Useful for government/sector requirements.
     — the mode being on does not prove validation. See also the compliance
     caveat in [One-command hardening](hardening.md).
 
-!!! note "Fedora 44 no longer ships `fips-mode-setup`"
+!!! note "Fedora no longer ships `fips-mode-setup`"
     Fedora [removed `fips-mode-setup`](https://fedoraproject.org/wiki/Changes/RemoveFipsModeSetup).
     FIPS is now turned on with **`fips=1`** on the kernel command line —
     **preferably at install time** (enabling it afterward "has subtle bugs and is

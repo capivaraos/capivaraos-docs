@@ -15,6 +15,9 @@ sudo dnf check-update               # ver o que há de novo
 
 Reinicie após atualizar o kernel: `sudo systemctl reboot`.
 
+As atualizações de segurança também são instaladas automaticamente todo dia;
+veja [Atualizar o Herd](atualizar.md).
+
 ## Serviços (systemd)
 
 ```bash

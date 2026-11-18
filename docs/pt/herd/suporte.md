@@ -8,14 +8,17 @@ e logotipo são marca do projeto). É mantido pela comunidade, em regime de
 
 ## Ciclo de vida
 
-- O Herd **1.x** é baseado no **Fedora 44** e acompanha as atualizações de
-  segurança dessa base. Mantenha o sistema atualizado com `dnf upgrade`.
-- A **geração 2** (Herd 2.x) migrará para uma base Fedora mais nova, lançada
-  quando estiver madura.
+- O Herd **2.x** é baseado no **Fedora 45** e acompanha as atualizações dessa
+  base. As atualizações de segurança são instaladas automaticamente todo dia;
+  veja [Atualizar o Herd](atualizar.md).
+- O Herd **1.0.1** é baseado no Fedora 44 e não recebe atualizações do Herd.
+  Leve-o à 2.0 com [Atualizar do Herd 1.0.1](atualizar-1x.md).
 
 !!! tip "Mantenha atualizado"
-    A melhor postura de segurança é um sistema em dia. Rode `dnf upgrade`
-    regularmente (ou use o módulo **Atualizações** do [Cockpit](cockpit.md)).
+    A melhor postura de segurança é um sistema em dia. Deixe as atualizações
+    automáticas de segurança ligadas, rode `dnf upgrade` com regularidade (ou
+    use a página **Atualizações de Software** do [Cockpit](cockpit.md)) e
+    planeje os reinícios.
 
 ## Reportar bugs
 
@@ -50,11 +53,11 @@ documentação, testes e divulgação são todos bem-vindos — veja a página
     [Segurança › SSH](seguranca.md#ssh).
 
 ??? question "O Cockpit aceita login de root?"
-    Não. Use o usuário administrador (grupo `wheel`) e clique em **Ativar acesso
-    administrativo**.
+    Não. Use o usuário administrador (grupo `wheel`) e clique em
+    **Acesso limitado** para passar ao acesso administrativo.
 
 ??? question "Tem versão para ARM (aarch64)?"
-    Ainda não no 1.0.1 — o suporte a aarch64 chega na **1.1**.
+    Não. O Herd 2.0 é distribuído só para x86_64.
 
 ??? question "Posso usar em produção comercial?"
     Sim. O software é livre (GPLv3) e pode ser usado para qualquer finalidade,

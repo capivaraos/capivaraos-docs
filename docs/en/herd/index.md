@@ -1,13 +1,13 @@
 # Herd by CapivaraOS
 
 **Herd** is the **server** line of CapivaraOS: a _headless_ Linux
-system (no graphical desktop), based on **Fedora 44**, meant to run on physical
+system (no graphical desktop), based on **Fedora 45**, meant to run on physical
 servers, virtual machines and the cloud — with a Brazilian identity, sane
 security by default, and **Cockpit** as the browser-based administration console.
 
-!!! info "Community Edition 1.0.1"
+!!! info "Community Edition 2.0.0"
     This documentation covers **Herd Community**, the **free and open-source**
-    edition. Architecture **x86_64** (**aarch64** support arrives in 1.1).
+    edition. Architecture **x86_64**.
 
 ## The idea: herd = fleet
 
@@ -19,10 +19,11 @@ and easy-to-administer server base, whether it is a single node or many.
 
 | Area | What you get |
 |---|---|
-| **Base** | Fedora 44 (same generation as the Marsh/Pup/Snout 1.x desktops) |
+| **Base** | Fedora 45 |
 | **Profile** | _Headless_ server — no desktop, minimal surface |
 | **Web console** | **Cockpit** at `https://<ip>:9090` (services, network, storage, accounts, logs, terminal) |
 | **Security** | SELinux _enforcing_, restrictive `firewalld`, hardened SSH, password policy, `umask 027` |
+| **Updates** | signed Herd repository; security updates installed automatically every day |
 | **Compliance** | `herd-compliance-scan` — built-in OpenSCAP report (SSG _standard_ profile) |
 | **Cloud** | `cloud-init` on the qcow2 image (key/network/user injection) |
 | **Languages** | pt_BR and en_US; ABNT2 keyboard; America/Sao_Paulo timezone (adjustable) |
@@ -53,12 +54,14 @@ and easy-to-administer server base, whether it is a single node or many.
 2. [Download and verify](download.md) — get the image and check its integrity.
 3. [Install via ISO](installation-iso.md) **or** [cloud/VM](installation-cloud.md).
 4. [Getting started](getting-started.md) — access, network, updates.
-5. [Web console (Cockpit)](cockpit.md) — administer from the browser.
-6. [Security and compliance](security.md) — what's hardened and how to audit.
+5. [Keeping Herd updated](update.md) — automatic updates and upgrades.
+6. [Web console (Cockpit)](cockpit.md) — administer from the browser.
+7. [Security and compliance](security.md) — what's hardened and how to audit.
 
 !!! tip "Already installed?"
     Jump to [Getting started](getting-started.md) or the
-    [Web console (Cockpit)](cockpit.md).
+    [Web console (Cockpit)](cockpit.md). Running Herd 1.0.1? See
+    [Upgrade from Herd 1.0.1](upgrade-1x.md).
 
 ## Support and community
 

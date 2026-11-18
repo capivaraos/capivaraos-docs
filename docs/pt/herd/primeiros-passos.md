@@ -20,7 +20,8 @@ sudo dnf upgrade --refresh
 
 ## Atualize o sistema
 
-Antes de tudo, deixe o sistema em dia:
+O Herd instala as atualizações de segurança sozinho todo dia (veja
+[Atualizar o Herd](atualizar.md)). Logo depois de instalar, deixe tudo em dia:
 
 ```bash
 sudo dnf upgrade --refresh

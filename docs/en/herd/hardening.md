@@ -15,13 +15,13 @@ content and applies remediation through **Ansible**.
 
 ## Available profiles
 
-| Profile | Target | Rules (approx.) | Note |
+| Profile | Target | Rules evaluated | Note |
 |---|---|---|---|
-| `standard` | Herd baseline (default) | ~76 | Already applied out of the box |
-| `ospp` | Protection Profile for general-purpose OS (NIAP/Common Criteria) | ~208 | The "official" (non-draft) profile |
-| `cis-l1` | CIS Level 1 — Server | ~324 | SSG draft for Fedora |
-| `cis-l2` | CIS Level 2 — Server | ~438 | Draft; more aggressive |
-| `pci` | PCI-DSS v3.2.1 | ~121 | Controls for cardholder environments |
+| `standard` | Herd baseline (default) | 75 | Already applied out of the box |
+| `ospp` | Protection Profile for general-purpose OS (NIAP/Common Criteria) | 207 | Common Criteria baseline |
+| `cis-l1` | CIS Level 1 — Server | 324 | See the CIS note below |
+| `cis-l2` | CIS Level 2 — Server | 438 | Stricter than Level 1; see the CIS note below |
+| `pci` | PCI-DSS v3.2.1 | 120 | Controls for cardholder environments |
 
 You can also pass the **full technical profile id**
 (`xccdf_org.ssgproject.content_profile_*`). List them all with `herd-harden --list`.

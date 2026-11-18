@@ -27,9 +27,11 @@ acessa a porta 9090, que já vem liberada no firewall.
   (grupo `wheel`) que você criou.
 
 !!! tip "Acesso administrativo"
-    Após entrar, clique em **"Ativar acesso administrativo"** (canto superior) e
-    informe a senha novamente. Isso libera as ações que exigem privilégio
-    (instalar updates, mexer em serviços, storage, etc.).
+    Após entrar, o Cockpit começa em **Acesso limitado**. Clique em
+    **Acesso limitado** (canto superior) e informe a sua senha de novo para
+    passar ao **Acesso administrativo**. O menu é o mesmo nos dois modos; o modo
+    administrativo libera as ações que exigem privilégio (instalar updates,
+    mexer em serviços, storage, etc.).
 
 ## O que dá para fazer
 
@@ -41,8 +43,16 @@ acessa a porta 9090, que já vem liberada no firewall.
 | **Rede** | Interfaces, IP, firewall, _bonds_/bridges/VLANs |
 | **Contas** | Criar/editar usuários, grupos, chaves SSH, expiração de senha |
 | **Serviços** | Habilitar/parar/reiniciar unidades systemd, ver status |
-| **Atualizações** | Aplicar updates de segurança e do sistema |
+| **Atualizações de Software** | Ver e aplicar as atualizações disponíveis (veja o aviso abaixo) |
 | **Terminal** | Shell do servidor direto no navegador |
+
+!!! warning "Cartão de atualizações automáticas"
+    A página **Atualizações de Software** mostra **Atualizações automáticas:
+    Desabilitado** no Herd, mesmo com o `dnf5-automatic.timer` ativo. O cartão
+    não mostra a política do Herd: o Herd instala as atualizações de segurança
+    automaticamente todo dia. Não mude a opção por
+    esse cartão. Veja
+    [Atualizar o Herd](atualizar.md#atualizacoes-automaticas-de-seguranca).
 
 ## Identidade CapivaraOS
 

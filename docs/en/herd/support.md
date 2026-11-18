@@ -8,14 +8,16 @@ basis — with no contractual SLA.
 
 ## Lifecycle
 
-- Herd **1.x** is based on **Fedora 44** and follows that base's security
-  updates. Keep the system updated with `dnf upgrade`.
-- **Generation 2** (Herd 2.x) will move to a newer Fedora base, released when it
-  is mature.
+- Herd **2.x** is based on **Fedora 45** and follows that base's updates.
+  Security updates are installed automatically every day; see
+  [Keeping Herd updated](update.md).
+- Herd **1.0.1** is based on Fedora 44 and receives no Herd updates. Move it to
+  2.0 with [Upgrade from Herd 1.0.1](upgrade-1x.md).
 
 !!! tip "Keep it updated"
-    The best security posture is an up-to-date system. Run `dnf upgrade`
-    regularly (or use the **Software updates** module in [Cockpit](cockpit.md)).
+    The best security posture is an up-to-date system. Leave the automatic
+    security updates on, run `dnf upgrade` regularly (or use the
+    **Software updates** page in [Cockpit](cockpit.md)), and plan reboots.
 
 ## Report bugs
 
@@ -50,11 +52,11 @@ testing and spreading the word are all welcome — see the
     [Security › SSH](security.md#ssh).
 
 ??? question "Does Cockpit accept root login?"
-    No. Use the administrator user (`wheel` group) and click **Turn on
-    administrative access**.
+    No. Use the administrator user (`wheel` group), then click
+    **Limited access** to switch to administrative access.
 
 ??? question "Is there an ARM (aarch64) version?"
-    Not yet in 1.0.1 — aarch64 support arrives in **1.1**.
+    No. Herd 2.0 ships for x86_64 only.
 
 ??? question "Can I use it in commercial production?"
     Yes. The software is free (GPLv3) and can be used for any purpose, including

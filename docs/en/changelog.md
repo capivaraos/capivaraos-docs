@@ -179,6 +179,23 @@ The first release of **Series 2**, on **Fedora 45** with **GNOME 51** on a Wayla
 
 ## Herd by CapivaraOS
 
+### 2.0.0
+*November 2026*
+
+The first Herd release on **Fedora 45**, for x86_64.
+
+**New**
+
+- **A signed Herd update repository.** Herd packages now update with `dnf`, like the rest of the system. Each package and the repository index are signed with the Herd key, and dnf refuses anything that does not match. See [Keeping Herd updated](herd/update.md).
+- **Automatic security updates.** Once a day, Herd installs the updates marked as security fixes. It never reboots on its own: you choose when. The policy is in `/etc/dnf/automatic.conf`, and it is yours to change.
+- **`herd-upgrade`**, for moving Herd to a newer Fedora base in place. By default it only checks, and it refuses to download while the Herd repository has no packages for the target release.
+- **A reserve signing key**, installed next to the main one.
+- **Signed image checksums**: `SHA256SUMS.asc` lets you check that an image is ours. See [Download and verify](herd/download.md).
+
+**Upgrading from 1.0.1**
+
+- Herd 1.0.1 has no Herd repository, so it does not move to 2.0 on its own. [Upgrade from Herd 1.0.1](herd/upgrade-1x.md) explains how to do it without reinstalling.
+
 ### 1.0.1
 *August 2026*
 

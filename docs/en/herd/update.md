@@ -1,34 +1,102 @@
 # Keeping Herd updated
 
-An installed Herd 1.0.1 receives Fedora's updates **without reformatting** and
-without waiting for a new ISO. There are two kinds of update:
+An installed Herd receives updates **without reformatting** and without waiting
+for a new ISO. There are two kinds of update:
 
 | Kind | What changes | Tool |
 |---|---|---|
-| **Day-to-day updates** | fixes and new package versions, within the same generation | `dnf upgrade` |
-| **Generation upgrade** | jump to the next generation of the system (new Fedora base) | not included in Herd 1.0.1 |
+| **Day-to-day updates** | fixes and new package versions, within the same generation | automatic security updates, plus `dnf upgrade` |
+| **Generation upgrade** | jump to the next generation of the system (new Fedora base) | `herd-upgrade` |
 
 !!! note "This page is about Herd"
-    The desktop editions use `capivaraos-upgrade` and do get an automatic Btrfs
-    snapshot. On Herd both of those differ, which is what this page is for. For
+    The desktop editions update with a different tool. This page covers Herd
+    only. For
     desktop, see [Keeping your system updated](../update/index.md).
 
+!!! tip "Coming from Herd 1.0.1?"
+    Herd 1.0.1 has no Herd repository and no automatic updates. To move it to
+    2.0 without reinstalling, follow
+    [Upgrade from Herd 1.0.1](upgrade-1x.md).
+
+## Where updates come from
+
+- **Fedora's repositories** (`fedora` and `updates`), for the base system.
+- **The Herd repository** (`capivaraos-herd`), for the Herd packages: branding,
+  hardening, the update policy and the tools on this page.
+
+dnf checks every package against its signing key before installing it. For the
+Herd repository it also checks the signature of the repository index, so a
+tampered package list is refused as well. How to check this yourself is in
+[Verify the software](security.md#verify-the-software).
+
+## Automatic security updates
+
+Herd installs **security updates on its own**, once a day, and does not reboot
+the server. This is done by `dnf5-automatic.timer`, which is on from the first
+boot. The policy is in `/etc/dnf/automatic.conf`:
+
+| Setting | Value | Meaning |
+|---|---|---|
+| `upgrade_type` | `security` | only updates marked as security fixes |
+| `apply_updates` | `yes` | download and install them |
+| `reboot` | `never` | the server keeps running; you choose when to reboot |
+
+Updates that are not marked as security fixes arrive with `dnf upgrade` (next
+section).
+
+Check that it is on and see the last run:
+
+```bash
+systemctl is-active dnf5-automatic.timer
+journalctl -u dnf5-automatic.service -n 30
+```
+
+The result of each run is also shown in the login message.
+
+The file is yours to edit: Herd installs it only when it does not exist yet,
+so later Herd updates keep your changes. To turn automatic updates off:
+
+```bash
+sudo systemctl disable --now dnf5-automatic.timer
+```
+
+!!! note "Reboot after a kernel update"
+    A new kernel, or a new version of a library that a running service uses,
+    takes effect only after a reboot. Plan reboots in your maintenance window:
+    `sudo systemctl reboot`.
+
+!!! warning "The Automatic updates card in Cockpit"
+    Cockpit's **Software updates** page shows **Automatic updates: Disabled** on
+    Herd, even though `dnf5-automatic.timer` is active. The card does not show
+    Herd's policy. Do not change the setting from that card; use the
+    commands above.
+
 ## Day-to-day updates
+
+To install every available update, not only security fixes:
 
 ```bash
 sudo dnf upgrade --refresh
 ```
 
-Herd 1.0.1 installs updates only when you run this command; it does not update
-on its own. The updates come from Fedora's repositories, and dnf checks every
-package from the fedora and updates repositories against Fedora's signing keys
-(`gpgcheck`) before installing it. The Herd packages in the 1.0.1 images are not
-signed and have no repository, so they are not updated after installation.
+This covers Fedora's and Herd's repositories. Cockpit's **Software updates**
+page does the same from the browser.
 
 ## Generation upgrade
 
-Herd 1.0.1 does not include `herd-upgrade`, and there is no Herd repository for
-a new generation.
+`herd-upgrade` moves Herd to a newer Fedora base in place, using dnf's offline
+upgrade: it downloads everything with the server running and applies it on the
+next boot.
+
+```bash
+herd-upgrade                  # check only: changes nothing
+sudo herd-upgrade download    # download the upgrade; the server keeps running
+sudo herd-upgrade reboot      # reboot and apply it
+```
+
+By default, `herd-upgrade` refuses to download while the Herd repository has
+no packages for the target Fedora release. Herd 2.0 has no newer generation to
+upgrade to.
 
 ## Snapshots and recovery
 
@@ -41,9 +109,9 @@ Snapper installed and configured**. Which case applies depends on your install:
 - **root on LVM** — no automatic snapshot. A manual snapshot
   (`lvcreate -s …`) depends on **free space in the volume group**. On an
   install where root was grown to fill the disk, there is no space to take the
-  snapshot from.
-- **root on Btrfs with an active Snapper `root` config** — automatic snapshot,
-  as on the desktop editions. That requires you to have installed and
+  snapshot from. `herd-upgrade` prints the command for your system.
+- **root on Btrfs with an active Snapper `root` config** — `herd-upgrade` takes
+  a snapshot before the upgrade. That requires you to have installed and
   configured Snapper yourself.
 - **neither** — nothing is snapshotted.
 
@@ -63,6 +131,7 @@ generation upgrade.
 
 ## Links
 
+- [Upgrade from Herd 1.0.1](upgrade-1x.md)
 - [Security and compliance](security.md)
 - [Administration](administration.md)
-- [Download verification](download.md)
+- [Web console (Cockpit)](cockpit.md)

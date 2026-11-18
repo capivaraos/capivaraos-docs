@@ -179,6 +179,23 @@ A primeira versão da **Série 2**, sobre o **Fedora 45** com **GNOME 51** em se
 
 ## Herd by CapivaraOS
 
+### 2.0.0
+*Novembro de 2026*
+
+A primeira versão do Herd no **Fedora 45**, para x86_64.
+
+**Novidades**
+
+- **Um repositório de atualizações do Herd assinado.** Os pacotes do Herd agora se atualizam com o `dnf`, como o resto do sistema. Cada pacote e o índice do repositório são assinados com a chave do Herd, e o dnf recusa o que não bater. Veja [Atualizar o Herd](herd/atualizar.md).
+- **Atualizações automáticas de segurança.** Uma vez por dia, o Herd instala as atualizações marcadas como correção de segurança. Ele nunca reinicia sozinho: você escolhe quando. A política fica em `/etc/dnf/automatic.conf`, e é sua para mudar.
+- **`herd-upgrade`**, para levar o Herd a uma base Fedora mais nova no lugar. Por padrão ele só verifica, e se recusa a baixar enquanto o repositório do Herd não tiver pacotes para a versão de destino.
+- **Uma chave de assinatura reserva**, instalada ao lado da principal.
+- **Checksums das imagens assinados**: o `SHA256SUMS.asc` permite conferir que a imagem é nossa. Veja [Download e verificação](herd/download.md).
+
+**Vindo do 1.0.1**
+
+- O Herd 1.0.1 não tem repositório do Herd, então não passa à 2.0 sozinho. [Atualizar do Herd 1.0.1](herd/atualizar-1x.md) explica como fazer isso sem reinstalar.
+
 ### 1.0.1
 *Agosto de 2026*
 

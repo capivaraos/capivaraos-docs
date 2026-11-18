@@ -1,7 +1,6 @@
 # Requirements
 
-Herd Community 1.0.1 ships for **x86_64** (64-bit). **aarch64** (ARM) support
-arrives in version 1.1.
+Herd Community 2.0.0 ships for **x86_64** (64-bit).
 
 ## Minimum and recommended hardware
 
