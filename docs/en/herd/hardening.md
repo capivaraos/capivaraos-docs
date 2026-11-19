@@ -20,7 +20,7 @@ content and applies remediation through **Ansible**.
 | `standard` | Herd baseline (default) | 75 | Already applied out of the box |
 | `ospp` | Protection Profile for general-purpose OS (NIAP/Common Criteria) | 207 | Common Criteria baseline |
 | `cis-l1` | CIS Level 1 — Server | 324 | See the CIS note below |
-| `cis-l2` | CIS Level 2 — Server | 438 | Stricter than Level 1; see the CIS note below |
+| `cis-l2` | CIS Level 2 — Server | 438 | 438 rules, against 324 in Level 1; see the CIS note below |
 | `pci` | PCI-DSS v3.2.1 | 120 | Controls for cardholder environments |
 
 You can also pass the **full technical profile id**

@@ -175,7 +175,7 @@ LC_ALL=C rpm -K ./algum-pacote.rpm
 ```
 
 Para um pacote sem assinatura ou assinado por outra chave, o `rpm -K` mostra
-`SIGNATURES NOT OK` (ou `MISSING KEYS`), e a consulta acima mostra `(none)` para
+`SIGNATURES NOT OK`, e a consulta acima mostra `(none)` para
 um pacote sem assinatura.
 
 ### 4. O repositório exige assinatura?

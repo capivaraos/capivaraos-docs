@@ -169,7 +169,7 @@ LC_ALL=C rpm -K ./some-package.rpm
 ```
 
 For a package that is unsigned or signed by another key, `rpm -K` shows
-`SIGNATURES NOT OK` (or `MISSING KEYS`), and the query above shows `(none)` for
+`SIGNATURES NOT OK`, and the query above shows `(none)` for
 an unsigned package.
 
 ### 4. Does the repository require signatures?

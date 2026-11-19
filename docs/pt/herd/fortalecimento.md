@@ -20,7 +20,7 @@ Fedora e aplica a remediação via **Ansible**.
 | `standard` | Baseline do Herd (padrão) | 75 | Já aplicado de fábrica |
 | `ospp` | Protection Profile p/ SO de uso geral (NIAP/Common Criteria) | 207 | Baseline do Common Criteria |
 | `cis-l1` | CIS Nível 1 — Servidor | 324 | Veja a nota sobre CIS abaixo |
-| `cis-l2` | CIS Nível 2 — Servidor | 438 | Mais rígido que o Nível 1; veja a nota sobre CIS abaixo |
+| `cis-l2` | CIS Nível 2 — Servidor | 438 | 438 regras, contra 324 no Nível 1; veja a nota sobre CIS abaixo |
 | `pci` | PCI-DSS v3.2.1 | 120 | Controles para ambientes de cartão |
 
 Você também pode passar o **id técnico completo** do perfil

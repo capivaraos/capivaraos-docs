@@ -52,8 +52,7 @@ journalctl -u dnf5-automatic.service -n 30
 
 The result of each run is also shown in the login message.
 
-The file is yours to edit: Herd installs it only when it does not exist yet,
-so later Herd updates keep your changes. To turn automatic updates off:
+The file is yours to edit. To turn automatic updates off:
 
 ```bash
 sudo systemctl disable --now dnf5-automatic.timer
@@ -79,18 +78,15 @@ sudo dnf upgrade --refresh
 ```
 
 This covers Fedora's and Herd's repositories. Cockpit's **Software updates**
-page does the same from the browser.
+page lists and applies available updates from the browser.
 
 ## Generation upgrade
 
-`herd-upgrade` checks whether Herd can move to a newer Fedora base. It is built
-on dnf's offline upgrade: it downloads with the server running and applies on
-the next boot.
+`herd-upgrade` checks whether Herd can move to a newer Fedora base.
 
 ```bash
 herd-upgrade                  # check only: changes nothing
 sudo herd-upgrade download    # download the upgrade; the server keeps running
-sudo herd-upgrade reboot      # reboot and apply it
 ```
 
 By default, `herd-upgrade` refuses to download while the Herd repository has
@@ -108,10 +104,9 @@ Snapper installed and configured**. Which case applies depends on your install:
 - **root on LVM** — no automatic snapshot. A manual snapshot
   (`lvcreate -s …`) depends on **free space in the volume group**. On an
   install where root was grown to fill the disk, there is no space to take the
-  snapshot from. `herd-upgrade` prints the command for your system.
-- **root on Btrfs with an active Snapper `root` config** — `herd-upgrade` takes
-  a snapshot before the upgrade. That requires you to have installed and
-  configured Snapper yourself.
+  snapshot from.
+- **root on Btrfs** — a snapshot with Snapper is possible only if you installed
+  and configured Snapper yourself.
 - **neither** — nothing is snapshotted.
 
 On a server, then, **the recovery path is your backup**. Take a verified backup

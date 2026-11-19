@@ -53,9 +53,7 @@ journalctl -u dnf5-automatic.service -n 30
 
 O resultado de cada execução também aparece na mensagem de login.
 
-O arquivo é seu para editar: o Herd só o instala quando ele ainda não existe,
-então as próximas atualizações do Herd mantêm as suas mudanças. Para desligar
-as atualizações automáticas:
+O arquivo é seu para editar. Para desligar as atualizações automáticas:
 
 ```bash
 sudo systemctl disable --now dnf5-automatic.timer
@@ -81,18 +79,15 @@ sudo dnf upgrade --refresh
 ```
 
 Isso cobre os repositórios do Fedora e do Herd. A página **Atualizações de
-Software** do Cockpit faz o mesmo pelo navegador.
+Software** do Cockpit lista e aplica as atualizações disponíveis pelo navegador.
 
 ## Upgrade de geração
 
 O `herd-upgrade` verifica se o Herd pode passar para uma base Fedora mais nova.
-Ele usa o upgrade offline do dnf: baixa com o servidor no ar e aplica no
-próximo boot.
 
 ```bash
 herd-upgrade                  # só verifica: não muda nada
 sudo herd-upgrade download    # baixa o upgrade; o servidor continua no ar
-sudo herd-upgrade reboot      # reinicia e aplica
 ```
 
 Por padrão, o `herd-upgrade` se recusa a baixar enquanto o repositório do Herd
@@ -110,11 +105,9 @@ Snapper instalado e configurado**. O caso depende da sua instalação:
 - **raiz em LVM** — snapshot automático não é feito. Um snapshot manual
   (`lvcreate -s …`) depende de **haver espaço livre no
   grupo de volumes**. Numa instalação em que a raiz cresceu até ocupar o disco,
-  não há espaço de onde tirar o snapshot. O `herd-upgrade` mostra o comando
-  para o seu sistema.
-- **raiz em Btrfs com uma configuração `root` do Snapper ativa** — o
-  `herd-upgrade` tira um snapshot antes do upgrade. Isso exige que você mesmo
-  tenha instalado e configurado o Snapper.
+  não há espaço de onde tirar o snapshot.
+- **raiz em Btrfs** — um snapshot com o Snapper só é possível se você mesmo
+  instalou e configurou o Snapper.
 - **nenhum dos dois** — nada é fotografado.
 
 Em servidor, portanto, **o caminho de recuperação é o backup**. Faça um backup
