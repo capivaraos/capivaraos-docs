@@ -1,14 +1,14 @@
 # Herd by CapivaraOS
 
 O **Herd** é a linha de **servidor** do CapivaraOS: um sistema Linux
-_headless_ (sem ambiente gráfico), baseado em **Fedora 44**, pensado para rodar
+_headless_ (sem ambiente gráfico), baseado em **Fedora 45**, pensado para rodar
 em servidores físicos, máquinas virtuais e na nuvem — com identidade brasileira,
 segurança sã por padrão e o **Cockpit** como console de administração no
 navegador.
 
-!!! info "Edição Community 1.0.1"
+!!! info "Edição Community 2.0.0"
     Esta documentação cobre o **Herd Community**, a edição **gratuita e de código
-    aberto**. Arquitetura **x86_64** (o suporte a **aarch64** chega na 1.1).
+    aberto**. Arquitetura **x86_64**.
 
 ## A ideia: manada = frota
 
@@ -20,10 +20,11 @@ fortalecida e fácil de administrar, seja um nó só ou muitos.
 
 | Área | O que você tem |
 |---|---|
-| **Base** | Fedora 44 (mesma geração das spins de desktop Marsh/Pup/Snout 1.x) |
+| **Base** | Fedora 45 |
 | **Perfil** | Servidor _headless_ — sem desktop, superfície mínima |
 | **Console web** | **Cockpit** em `https://<ip>:9090` (serviços, rede, storage, contas, logs, terminal) |
 | **Segurança** | SELinux _enforcing_, `firewalld` restritivo, SSH fortalecido, política de senha, `umask 027` |
+| **Atualizações** | repositório do Herd assinado; atualizações de segurança instaladas automaticamente todo dia |
 | **Compliance** | `herd-compliance-scan` — relatório OpenSCAP embarcado (perfil _standard_ do SSG) |
 | **Nuvem** | `cloud-init` na imagem qcow2 (injeção de chave/rede/usuário) |
 | **Idiomas** | pt_BR e en_US; teclado ABNT2; fuso America/Sao_Paulo (ajustável) |
@@ -54,8 +55,9 @@ fortalecida e fácil de administrar, seja um nó só ou muitos.
 2. [Download e verificação](download.md) — baixar a imagem e conferir a integridade.
 3. [Instalação via ISO](instalacao-iso.md) **ou** [nuvem/VM](instalacao-nuvem.md).
 4. [Primeiros passos](primeiros-passos.md) — acesso, rede, atualizações.
-5. [Console web (Cockpit)](cockpit.md) — administrar pelo navegador.
-6. [Segurança e compliance](seguranca.md) — o que vem fortalecido e como auditar.
+5. [Atualizar o Herd](atualizar.md) — atualizações automáticas e upgrades.
+6. [Console web (Cockpit)](cockpit.md) — administrar pelo navegador.
+7. [Segurança e compliance](seguranca.md) — o que vem fortalecido e como auditar.
 
 !!! tip "Já instalou?"
     Vá direto para os [Primeiros passos](primeiros-passos.md) ou para o

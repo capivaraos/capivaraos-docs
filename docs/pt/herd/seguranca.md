@@ -13,7 +13,8 @@ explica **o que vem ativado**, como **auditar** e como **ajustar**.
 | **SSH** | só por **chave**; sem root; limites de tentativa (veja abaixo) |
 | **Senhas** | qualidade mínima (`pwquality`) e idade de senha |
 | **umask** | `027` em sessões de login (arquivos novos não ficam legíveis por "outros") |
-| **Pacotes** | `gpgcheck=1` (verificação de assinatura no dnf) |
+| **Pacotes** | repositório do Herd assinado; o dnf confere pacotes e o índice do repositório (`gpgcheck`, `repo_gpgcheck`) |
+| **Atualizações** | atualizações de segurança instaladas automaticamente todo dia, sem reinício automático (veja [Atualizar o Herd](atualizar.md)) |
 
 ### SSH — política padrão
 
@@ -91,34 +92,116 @@ sudo herd-compliance-scan ospp
     sudo herd-harden cis-l2 --apply
     ```
 
-    Eles mexem em muito mais coisa (o CIS Nível 2 avalia 438 regras, contra 76
+    Eles mexem em muito mais coisa (o CIS Nível 2 avalia 438 regras, contra 75
     do `standard`) e podem quebrar serviços que você usa. Rode primeiro em
     dry-run, leia o que mudaria e decida — a escolha é sua, não uma limitação
     da edição.
 
 ## Verificar o software
 
-O checksum da imagem prova que o arquivo chegou inteiro — veja
-[Download e verificação](download.md).
+O checksum da imagem e a assinatura dele provam que a imagem chegou inteira e é
+nossa — veja [Download e verificação](download.md). Depois de instalar, estas
+quatro conferências mostram que o sistema confia nas chaves certas e exige as
+assinaturas delas. Você mesmo roda todas.
 
-No Herd 1.0.1, as atualizações vêm dos repositórios do Fedora, e o dnf confere
-cada pacote dos repositórios fedora e updates contra as chaves de assinatura do
-Fedora antes de instalar. Confira que a opção está ligada:
+### 1. As chaves estão instaladas?
+
+As chaves públicas do Herd vêm dentro do sistema, no pacote
+`capivaraos-herd-repos`:
 
 ```bash
-dnf5 -q --dump-repo-config=updates | grep -E '^gpgcheck'
+sudo rpm -q gpg-pubkey --qf '%{VERSION}  %{SUMMARY}\n' | grep -i capivaraos
 ```
 
-Tem que aparecer `gpgcheck = 1`.
+Tem de listar exatamente duas chaves, a principal e a reserva. Cada linha
+começa com a impressão digital da chave do passo 2, em minúsculas e sem
+espaços. Nenhuma outra chave pode ter o nome CapivaraOS. Se a lista vier vazia
+num servidor novo, faça antes a conferência 2 e depois rode `sudo systemctl
+start dnf5-automatic.service` uma vez (isso também instala as atualizações de
+segurança pendentes) e confira de novo.
 
-Os pacotes do Herd nas imagens 1.0.1 não são assinados, e as imagens não têm
-repositório do Herd. Confira o que está instalado:
+### 2. As impressões digitais batem?
+
+Este é o passo que importa. Compare o que está na sua máquina com os valores
+publicados aqui:
+
+```bash
+gpg --show-keys --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-capivaraos-herd
+```
+
+O arquivo tem de ter uma chave, e a impressão digital dela **tem de ser
+exatamente**:
+
+```
+C852 6722 0A81 18C9 864F  0648 BE5B 82AD C8A2 85C0
+```
+
+O sistema também traz uma chave reserva, usada para assinar só quando a chave
+principal é trocada, numa rotação planejada ou depois de um comprometimento.
+Confira do mesmo jeito:
+
+```bash
+gpg --show-keys --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-capivaraos-herd-reserve
+```
+
+Ele também tem de ter uma chave, e a impressão digital dela **tem de ser
+exatamente**:
+
+```
+F4EF 73FA F615 7390 BB65  38FF A765 804F 4ADA 507E
+```
+
+!!! danger "Se alguma não bater"
+    Pare. Uma chave diferente quer dizer que o sistema confia em alguém que não
+    somos nós. Não aplique atualizações e avise pelo
+    [canal privado de segurança](https://www.capivaraos.org/pt/trust-center.html).
+
+A chave do Herd é **separada** da usada pelas edições desktop
+(`75FA 3340 40FD 0150 4AAD  9337 E07F 78EA 4070 11BD`). Comprometer uma não
+compromete a outra.
+
+### 3. Os pacotes instalados são assinados?
 
 ```bash
 rpm -q --qf '%{NAME}: %{RSAHEADER:pgpsig}\n' capivaraos-herd-branding capivaraos-herd-hardening
 ```
 
-No Herd 1.0.1 as duas linhas terminam em `(none)`.
+Cada linha tem de terminar em `Key ID be5b82adc8a285c0`. Para conferir um
+arquivo de pacote antes de instalar:
+
+```bash
+LC_ALL=C rpm -K ./algum-pacote.rpm
+# esperado: ...: digests signatures OK
+```
+
+Para um pacote alterado, ou assinado por uma chave em que o seu sistema não
+confia, o `rpm -K` mostra `SIGNATURES NOT OK`.
+
+### 4. O repositório exige assinatura?
+
+```bash
+grep -E 'gpgcheck|repo_gpgcheck' /etc/yum.repos.d/capivaraos-herd.repo
+```
+
+Todas as linhas têm de terminar em `1`. O `gpgcheck` confere cada pacote; o
+`repo_gpgcheck` confere também o **índice** do repositório — sem ele, quem
+controlasse o servidor poderia anunciar outra lista de pacotes, mesmo sem
+conseguir assinar os pacotes. Os repositórios do Fedora também usam
+`gpgcheck=1`.
+
+!!! warning "O `makecache` não é o teste"
+    No dnf5, o `dnf makecache` só **avisa** quando o metadado está mal
+    assinado, e ainda sai com 0. Quem recusa é a **transação**. Para testar de
+    verdade, faça uma operação real (`dnf check-update` ou `dnf upgrade`) — é
+    aí que um repositório adulterado é rejeitado.
+
+### Por que isso vale mesmo se o servidor cair
+
+Cada pacote e o índice do repositório são conferidos contra as chaves públicas
+do Herd instaladas no seu sistema. Um arquivo alterado no servidor do
+repositório, ou numa CDN na frente dele, não bate mais com a assinatura, então
+o seu sistema o recusa. Por isso a confiança está na chave, não em quem
+hospeda.
 
 ## Ajustar
 
@@ -169,7 +252,9 @@ chmod 600 ~/.ssh/authorized_keys
 
 - Exponha o mínimo: só as portas necessárias no `firewalld`.
 - Acesse o Cockpit por VPN/túnel, não aberto na internet.
-- Mantenha o sistema atualizado (`dnf upgrade`) — updates de segurança do Fedora.
+- Mantenha as atualizações automáticas de segurança ligadas, rode o
+  `dnf upgrade` com regularidade e planeje os reinícios — veja
+  [Atualizar o Herd](atualizar.md).
 - Rode o `herd-compliance-scan` periodicamente e trate o que fizer sentido para o
   seu ambiente.
 
@@ -183,7 +268,7 @@ headless e nuvem) e você habilita quando a sua política pedir.
 Protege os dados **em repouso** (disco roubado/descartado não vaza nada). É uma
 decisão de **instalação**. Como o instalador do Herd é em **modo texto** (não tem
 o checkbox "Criptografar" da versão gráfica), a criptografia é definida pelo
-**kickstart** — desde a **1.0.1** o pacote `cryptsetup` já vem no payload da ISO,
+**kickstart** — o pacote `cryptsetup` já vem no payload da ISO,
 então o install cifrado funciona offline. Use o template do
 [kickstart do Herd](instalacao-iso.md):
 
@@ -227,7 +312,7 @@ algoritmos permitidos. Útil para requisitos governamentais/setoriais.
     validação. Veja também a ressalva sobre conformidade em
     [Fortalecimento em 1 comando](fortalecimento.md).
 
-!!! note "No Fedora 44 não existe mais `fips-mode-setup`"
+!!! note "O Fedora não traz mais o `fips-mode-setup`"
     O Fedora [removeu o `fips-mode-setup`](https://fedoraproject.org/wiki/Changes/RemoveFipsModeSetup).
     O FIPS agora se liga com **`fips=1`** no kernel — **de preferência na
     instalação** (ligar depois "tem bugs sutis e não é mais recomendado", segundo

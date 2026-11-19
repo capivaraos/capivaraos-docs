@@ -15,6 +15,9 @@ sudo dnf check-update               # see what's new
 
 Reboot after a kernel update: `sudo systemctl reboot`.
 
+Security updates are also installed automatically every day; see
+[Keeping Herd updated](update.md).
+
 ## Services (systemd)
 
 ```bash

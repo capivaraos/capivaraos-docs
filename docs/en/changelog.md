@@ -15,25 +15,25 @@ The first release of **Series 2**, rebuilt on **Fedora 45** with **KDE Plasma 6.
 
 **New**
 
-- **Upgrades without reinstalling.** From this release on, the system moves between versions and between generations in place, through the software centre or the terminal, from a signed repository. A snapshot is taken before each generation upgrade. See [Keeping your system updated](update/index.md). `(FEAT-111)`
-- **COS Dev Center**, which opens at first boot and sets up the workstation: local AI on your own machine, language tracks, dev tools and GitHub. `(FEAT-90)`
-- **COS Config Center**, with nine modules that handle graphically what used to need a terminal — codecs, keyboard, language, firewall, disks, network, cleanup, logs and diagnostics. `(PROD-5)`
-- **A visual identity of our own from boot to desktop**: boot splash, boot menu, icons and theme, with an exclusive wallpaper collection. On Marsh the wallpaper changes with the time of day. `(FEAT-91, FEAT-132)`
+- **Upgrades without reinstalling.** From this release on, the system moves between versions and between generations in place, through the software centre or the terminal, from a signed repository. A snapshot is taken before each generation upgrade. See [Keeping your system updated](update/index.md).
+- **COS Dev Center**, which opens at first boot and sets up the workstation: local AI on your own machine, language tracks, dev tools and GitHub.
+- **COS Config Center**, with nine modules that handle graphically what used to need a terminal — codecs, keyboard, language, firewall, disks, network, cleanup, logs and diagnostics.
+- **A visual identity of our own from boot to desktop**: boot splash, boot menu, icons and theme, with an exclusive wallpaper collection. On Marsh the wallpaper changes with the time of day.
 - The media boot menu now shows the CapivaraOS version alongside Fedora's.
 
 **Fixed**
 
-- On an encrypted disk (LUKS), the boot splash drew no password field: the system **looked frozen** on the capybara image, and the password could only be typed by dropping to text mode. `(BUG-45)`
+- On an encrypted disk (LUKS), the boot splash drew no password field: the system **looked frozen** on the capybara image, and the password could only be typed by dropping to text mode.
 - The default wallpaper was not applied on Fedora 45 and the desktop fell back to Plasma's stock wallpaper.
 - The computer name came up as `localhost-live` instead of `capivaraos`. A name you choose yourself is still respected.
-- `fastfetch` showed only the capybara, without the system information beside it. `(FEAT-136)`
-- The installer's final screen no longer shows the feedback block with a QR code pointing outside the project. `(FEAT-145)`
+- `fastfetch` showed only the capybara, without the system information beside it.
+- The installer's final screen no longer shows the feedback block with a QR code pointing outside the project.
 
 ### 1.2.4
 *August 2026*
 
-- Fix: CapivaraOS Marsh now installs on computers with UEFI firmware. Previously the installation went almost all the way and then failed at the bootloader step, because the installer did not recognize CapivaraOS as its own profile and looked for the boot files in the wrong place. `(BUG-38)`
-- Fix: the installed system now boots on a wider range of hardware (for example, netbooks with eMMC storage). Previously, on machines whose storage differed from the one used to build the image, the system could fail to find the disk on first boot and drop into emergency mode. `(BUG-40)`
+- Fix: CapivaraOS Marsh now installs on computers with UEFI firmware. Previously the installation went almost all the way and then failed at the bootloader step, because the installer did not recognize CapivaraOS as its own profile and looked for the boot files in the wrong place.
+- Fix: the installed system now boots on a wider range of hardware (for example, netbooks with eMMC storage). Previously, on machines whose storage differed from the one used to build the image, the system could fail to find the disk on first boot and drop into emergency mode.
 
 ### 1.2.3
 *August 2026*
@@ -43,8 +43,8 @@ The first release of **Series 2**, rebuilt on **Fedora 45** with **KDE Plasma 6.
 ### 1.2.2
 *July 2026*
 
-- New visual identity: the walking capybara logo across all branding — wallpapers, icons, boot splash, login screen and installer. `(DOC-6)`
-- The dock's application launcher icon is now the capybara head, replacing the KDE logo. `(DOC-6)`
+- New visual identity: the walking capybara logo across all branding — wallpapers, icons, boot splash, login screen and installer.
+- The dock's application launcher icon is now the capybara head, replacing the KDE logo.
 - Fix: the logo no longer overlaps the text on the live session's welcome screen.
 - Fix: the ISO now ships with Fedora updates included, avoiding roughly 1,000 update packages on first boot.
 - Fix: the logo and photo credit on the photographic wallpapers are no longer cropped off on 4:3 screens.
@@ -75,17 +75,17 @@ The first release of **Series 2**, on **Fedora 45** with **Xfce 4.20**.
 
 **New**
 
-- **Upgrades without reinstalling**, with a signed repository and a snapshot before each generation upgrade. See [Keeping your system updated](update/index.md). `(FEAT-111)`
+- **Upgrades without reinstalling**, with a signed repository and a snapshot before each generation upgrade. See [Keeping your system updated](update/index.md).
 - **COS Dev Center** and **COS Config Center**, the same as the other editions — Pup is light, not cut down.
 - A new default wallpaper, **"rio"**, with capybaras in the river, exclusive to Pup.
 - The media boot menu now shows the CapivaraOS version.
 
 **Fixed**
 
-- On an encrypted disk (LUKS), the boot splash drew no password field and the system looked frozen. `(BUG-46)`
+- On an encrypted disk (LUKS), the boot splash drew no password field and the system looked frozen.
 - The computer name came up as `localhost-live` instead of `capivaraos`.
 - `fastfetch` showed only the capybara, without the system information.
-- The installer's final screen no longer shows the feedback block with a QR code. `(FEAT-145)`
+- The installer's final screen no longer shows the feedback block with a QR code.
 - Fixed the logo placement on the "rio" wallpaper.
 
 !!! warning "Day-to-day updates on Pup"
@@ -94,8 +94,8 @@ The first release of **Series 2**, on **Fedora 45** with **Xfce 4.20**.
 ### 1.1.8
 *August 2026*
 
-- Fix: CapivaraOS Pup now installs on computers with UEFI firmware. Previously the installation went almost all the way and then failed at the bootloader step, because the installer did not recognize CapivaraOS as its own profile and looked for the boot files in the wrong place. `(BUG-38)`
-- Fix: the installed system now boots on a wider range of hardware (for example, netbooks with eMMC storage). Previously, on machines whose storage differed from the one used to build the image, the system could fail to find the disk on first boot and drop into emergency mode. `(BUG-40)`
+- Fix: CapivaraOS Pup now installs on computers with UEFI firmware. Previously the installation went almost all the way and then failed at the bootloader step, because the installer did not recognize CapivaraOS as its own profile and looked for the boot files in the wrong place.
+- Fix: the installed system now boots on a wider range of hardware (for example, netbooks with eMMC storage). Previously, on machines whose storage differed from the one used to build the image, the system could fail to find the disk on first boot and drop into emergency mode.
 
 ### 1.1.7
 *August 2026*
@@ -106,7 +106,7 @@ The first release of **Series 2**, on **Fedora 45** with **Xfce 4.20**.
 *July 2026*
 
 - First public beta release of Pup, available to download.
-- New visual identity: the walking capybara logo across all branding — wallpapers, icons, boot splash, login screen and installer. `(DOC-6)`
+- New visual identity: the walking capybara logo across all branding — wallpapers, icons, boot splash, login screen and installer.
 - Fix: the ISO now ships with Fedora updates included. The updates repository was being silently ignored because it used a name reserved by Anaconda, so images shipped with plain Fedora 44.
 - Fix: the logo and photo credit on the photographic wallpapers are no longer cropped off on 4:3 screens.
 - Fix: the system identification in `os-release` and GRUB now survives future Fedora updates.
@@ -132,28 +132,28 @@ The first release of **Series 2**, on **Fedora 45** with **GNOME 51** on a Wayla
 
 **New**
 
-- **Upgrades without reinstalling**, with a signed repository and a snapshot before each generation upgrade. See [Keeping your system updated](update/index.md). `(FEAT-111)`
+- **Upgrades without reinstalling**, with a signed repository and a snapshot before each generation upgrade. See [Keeping your system updated](update/index.md).
 - **COS Dev Center** and **COS Config Center**.
 - An icon set of our own, curated extensions and an exclusive wallpaper collection, including one only Snout has.
 
 **Fixed**
 
-- On an encrypted disk (LUKS), the boot splash drew no password field and the system looked frozen. `(BUG-45)`
+- On an encrypted disk (LUKS), the boot splash drew no password field and the system looked frozen.
 - The computer name came up as `localhost-live` instead of `capivaraos`.
 - `fastfetch` showed only the capybara, without the system information.
-- The installer's final screen no longer shows the feedback block with a QR code. `(FEAT-145)`
+- The installer's final screen no longer shows the feedback block with a QR code.
 
 ### 1.1.15
 *August 2026*
 
-- Fix: the login screen shows up correctly again. Previously, when automatic login was turned off, the system did not show the login screen and instead entered an empty session — with no user list and no password field —, and in that state the Terminal could not be opened. Cause: a missing line in the GNOME login screen configuration, introduced when customizing the login wallpaper. `(BUG-42)`
+- Fix: the login screen shows up correctly again. Previously, when automatic login was turned off, the system did not show the login screen and instead entered an empty session — with no user list and no password field —, and in that state the Terminal could not be opened. Cause: a missing line in the GNOME login screen configuration, introduced when customizing the login wallpaper.
 - The Terminal now comes pinned to the app dock for easier access.
 
 ### 1.1.9
 *August 2026*
 
-- Fix: CapivaraOS Snout now installs on computers with UEFI firmware. Previously the installation went almost all the way and then failed at the bootloader step, because the installer did not recognize CapivaraOS as its own profile and looked for the boot files in the wrong place. `(BUG-38)`
-- Fix: the installed system now boots on a wider range of hardware (for example, netbooks with eMMC storage). Previously, on machines whose storage differed from the one used to build the image, the system could fail to find the disk on first boot and drop into emergency mode. `(BUG-40)`
+- Fix: CapivaraOS Snout now installs on computers with UEFI firmware. Previously the installation went almost all the way and then failed at the bootloader step, because the installer did not recognize CapivaraOS as its own profile and looked for the boot files in the wrong place.
+- Fix: the installed system now boots on a wider range of hardware (for example, netbooks with eMMC storage). Previously, on machines whose storage differed from the one used to build the image, the system could fail to find the disk on first boot and drop into emergency mode.
 
 ### 1.1.6
 *August 2026*
@@ -164,7 +164,7 @@ The first release of **Series 2**, on **Fedora 45** with **GNOME 51** on a Wayla
 *July 2026*
 
 - First public beta release of Snout, available to download.
-- New visual identity: the walking capybara logo across all branding — wallpapers, icons, boot splash, GDM login screen and installer. `(DOC-6)`
+- New visual identity: the walking capybara logo across all branding — wallpapers, icons, boot splash, GDM login screen and installer.
 - Fix: the ISO now ships with Fedora updates included. The updates repository was being silently ignored because it used a name reserved by Anaconda.
 - Fix: the logo in GNOME's "About" panel is no longer cropped at the edges.
 - Fix: the system identification and the CapivaraOS logo now survive future Fedora updates — three mechanisms meant to reapply them were never actually running.
@@ -179,16 +179,33 @@ The first release of **Series 2**, on **Fedora 45** with **GNOME 51** on a Wayla
 
 ## Herd by CapivaraOS
 
+### 2.0.0
+*November 2026*
+
+Herd 2.0.0 is based on **Fedora 45**, for x86_64.
+
+**New**
+
+- **A signed Herd update repository.** Herd packages now update with `dnf`, like the rest of the system. Each package and the repository index are signed with the Herd key, and dnf checks both signatures. See [Keeping Herd updated](herd/update.md).
+- **Automatic security updates.** Once a day, Herd installs the updates marked as security fixes. It never reboots on its own: you choose when. The policy is in `/etc/dnf/automatic.conf`.
+- **`herd-upgrade`**, which checks whether Herd can move to a newer Fedora base. By default it only checks. It refuses to download when the Herd repository has no packages for the target Fedora release; today no newer release has them.
+- **A reserve Herd signing key**: Herd systems trust a second public key alongside the main one. Its fingerprint is in [Security](herd/security.md).
+- **Signed Herd image checksums**: `SHA256SUMS.asc` lets you check that a Herd image is ours. See [Download and verify](herd/download.md).
+
+**Herd 1.0.1**
+
+- Herd 1.0.1 has no Herd repository, so it does not move to 2.0 on its own.
+
 ### 1.0.1
 *August 2026*
 
-- One-command hardening: new `herd-harden`, which applies SCAP Security Guide profiles (OSPP, CIS, PCI-DSS) via Ansible, with a dry-run preview by default. `(FEAT-97)`
-- Compliance report with evidence: `herd-compliance-scan` now accepts profile aliases and also produces an ARF file (auditing evidence), alongside HTML/XML. `(FEAT-97)`
+- One-command hardening: new `herd-harden`, which applies SCAP Security Guide profiles (OSPP, CIS, PCI-DSS) via Ansible, with a dry-run preview by default.
+- Compliance report with evidence: `herd-compliance-scan` now accepts profile aliases and also produces an ARF file (auditing evidence), alongside HTML/XML.
 - FIPS mode documented for Fedora 44 (via `fips=1` on the kernel) and disk encryption (LUKS) as opt-in options.
 - The line is now branded **Herd by CapivaraOS**.
 
 ### 1.0.0
 *August 2026*
 
-- First stable release of the server line: headless Fedora 44 base, SELinux enforcing, hardened SSH, restrictive firewall, auditing on, and the Cockpit web console included. `(PROD-4)`
-- qcow2 images (cloud/cloud-init) and a branded installer ISO (x86_64). `(PROD-4)`
+- First stable release of the server line: headless Fedora 44 base, SELinux enforcing, hardened SSH, restrictive firewall, auditing on, and the Cockpit web console included.
+- qcow2 images (cloud/cloud-init) and a branded installer ISO (x86_64).

@@ -27,9 +27,11 @@ someone accesses port 9090, which is already allowed in the firewall.
   (`wheel` group) you created.
 
 !!! tip "Administrative access"
-    After logging in, click **"Turn on administrative access"** (top corner) and
-    enter the password again. This unlocks actions that require privilege
-    (installing updates, managing services, storage, etc.).
+    After logging in, Cockpit starts in **Limited access**. Click
+    **Limited access** (top corner) and enter your password again to switch to
+    **Administrative access**. The menu is the same in both modes; the
+    administrative mode unlocks the actions that require privilege (installing
+    updates, managing services, storage, etc.).
 
 ## What you can do
 
@@ -41,8 +43,15 @@ someone accesses port 9090, which is already allowed in the firewall.
 | **Networking** | Interfaces, IP, firewall, bonds/bridges/VLANs |
 | **Accounts** | Create/edit users, groups, SSH keys, password expiration |
 | **Services** | Enable/stop/restart systemd units, view status |
-| **Software updates** | Apply security and system updates |
+| **Software updates** | See and apply available updates (see the note below) |
 | **Terminal** | The server shell right in the browser |
+
+!!! warning "Automatic updates card"
+    The **Software updates** page shows **Automatic updates: Disabled** on Herd,
+    even though `dnf5-automatic.timer` is active. The card does not show Herd's
+    policy: Herd installs security updates automatically every day. Do not
+    change the setting from that card. See
+    [Keeping Herd updated](update.md#automatic-security-updates).
 
 ## CapivaraOS identity
 
