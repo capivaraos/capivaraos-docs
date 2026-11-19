@@ -14,8 +14,9 @@ nova. São dois tipos de atualização:
     [Atualizar o sistema](../atualizar/index.md).
 
 !!! tip "Vindo do Herd 1.0.1?"
-    O Herd 1.0.1 não tem repositório do Herd nem atualizações automáticas, então
-    não passa à 2.0 sozinho.
+    O Herd 1.0.1 não tem repositório do Herd nem atualizações automáticas. Para
+    levá-lo à 2.0 sem reinstalar, siga
+    [Atualizar do Herd 1.0.1](atualizar-1x.md).
 
 ## De onde vêm as atualizações
 
@@ -128,6 +129,7 @@ upgrade de geração.
 
 ## Links
 
+- [Atualizar do Herd 1.0.1](atualizar-1x.md)
 - [Segurança e compliance](seguranca.md)
 - [Administração](administracao.md)
 - [Console web (Cockpit)](cockpit.md)
