@@ -12,6 +12,7 @@ e logotipo são marca do projeto). É mantido pela comunidade, em regime de
   base. As atualizações de segurança são instaladas automaticamente todo dia;
   veja [Atualizar o Herd](atualizar.md).
 - O Herd **1.0.1** é baseado no Fedora 44 e não recebe atualizações do Herd.
+  Leve-o à 2.0 com [Atualizar do Herd 1.0.1](atualizar-1x.md).
 
 !!! tip "Mantenha atualizado"
     A melhor postura de segurança é um sistema em dia. Deixe as atualizações

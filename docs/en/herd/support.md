@@ -11,7 +11,8 @@ basis — with no contractual SLA.
 - Herd **2.x** is based on **Fedora 45** and follows that base's updates.
   Security updates are installed automatically every day; see
   [Keeping Herd updated](update.md).
-- Herd **1.0.1** is based on Fedora 44 and receives no Herd updates.
+- Herd **1.0.1** is based on Fedora 44 and receives no Herd updates. Move it to
+  2.0 with [Upgrade from Herd 1.0.1](upgrade-1x.md).
 
 !!! tip "Keep it updated"
     The best security posture is an up-to-date system. Leave the automatic

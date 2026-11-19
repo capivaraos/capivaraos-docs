@@ -97,6 +97,7 @@ Depois, rode a conferência de checksum do passo 1 com este `SHA256SUMS`.
 
 - Servidor físico/VM → [Instalação via ISO](instalacao-iso.md)
 - Nuvem/virtualização → [Implantação em nuvem/VM](instalacao-nuvem.md)
+- Já roda o Herd 1.0.1 → [Atualizar do Herd 1.0.1](atualizar-1x.md)
 
 ---
 

@@ -194,7 +194,7 @@ O Herd 2.0.0 é baseado no **Fedora 45**, para x86_64.
 
 **Herd 1.0.1**
 
-- O Herd 1.0.1 não tem repositório do Herd, então não passa à 2.0 sozinho.
+- Usa o Herd 1.0.1? Veja [como atualizar para a 2.0 sem reinstalar](herd/atualizar-1x.md).
 
 ### 1.0.1
 *Agosto de 2026*

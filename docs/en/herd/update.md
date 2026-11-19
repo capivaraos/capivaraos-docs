@@ -14,8 +14,9 @@ for a new ISO. There are two kinds of update:
     desktop, see [Keeping your system updated](../update/index.md).
 
 !!! tip "Coming from Herd 1.0.1?"
-    Herd 1.0.1 has no Herd repository and no automatic updates, so it does not
-    move to 2.0 on its own.
+    Herd 1.0.1 has no Herd repository and no automatic updates. To move it to
+    2.0 without reinstalling, follow
+    [Upgrade from Herd 1.0.1](upgrade-1x.md).
 
 ## Where updates come from
 
@@ -125,6 +126,7 @@ generation upgrade.
 
 ## Links
 
+- [Upgrade from Herd 1.0.1](upgrade-1x.md)
 - [Security and compliance](security.md)
 - [Administration](administration.md)
 - [Web console (Cockpit)](cockpit.md)

@@ -61,7 +61,8 @@ fortalecida e fácil de administrar, seja um nó só ou muitos.
 
 !!! tip "Já instalou?"
     Vá direto para os [Primeiros passos](primeiros-passos.md) ou para o
-    [Console web (Cockpit)](cockpit.md).
+    [Console web (Cockpit)](cockpit.md). Roda o Herd 1.0.1? Veja
+    [Atualizar do Herd 1.0.1](atualizar-1x.md).
 
 ## Suporte e comunidade
 

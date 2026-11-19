@@ -96,6 +96,7 @@ Then run the checksum check in step 1 against this `SHA256SUMS`.
 
 - Physical server/VM → [Install via ISO](installation-iso.md)
 - Cloud/virtualization → [Cloud/VM deployment](installation-cloud.md)
+- Already running Herd 1.0.1 → [Upgrade from Herd 1.0.1](upgrade-1x.md)
 
 ---
 
