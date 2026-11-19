@@ -101,8 +101,8 @@ sudo herd-compliance-scan ospp
 
 O checksum da imagem e a assinatura dele provam que a imagem chegou inteira e é
 nossa — veja [Download e verificação](download.md). Depois de instalar, estas
-quatro conferências mostram que o sistema confia nas chaves certas e recusa o
-que não foi assinado por elas. Você mesmo roda todas.
+quatro conferências mostram que o sistema confia nas chaves certas e exige as
+assinaturas delas. Você mesmo roda todas.
 
 ### 1. As chaves estão instaladas?
 

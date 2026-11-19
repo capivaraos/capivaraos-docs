@@ -14,9 +14,8 @@ nova. São dois tipos de atualização:
     [Atualizar o sistema](../atualizar/index.md).
 
 !!! tip "Vindo do Herd 1.0.1?"
-    O Herd 1.0.1 não tem repositório do Herd nem atualizações automáticas. Para
-    levá-lo à 2.0 sem reinstalar, siga
-    [Atualizar do Herd 1.0.1](atualizar-1x.md).
+    O Herd 1.0.1 não tem repositório do Herd nem atualizações automáticas, então
+    não passa à 2.0 sozinho.
 
 ## De onde vêm as atualizações
 
@@ -86,9 +85,9 @@ Software** do Cockpit faz o mesmo pelo navegador.
 
 ## Upgrade de geração
 
-O `herd-upgrade` leva o Herd para uma base Fedora mais nova no lugar, com o
-upgrade offline do dnf: baixa tudo com o servidor no ar e aplica no próximo
-boot.
+O `herd-upgrade` verifica se o Herd pode passar para uma base Fedora mais nova.
+Ele usa o upgrade offline do dnf: baixa com o servidor no ar e aplica no
+próximo boot.
 
 ```bash
 herd-upgrade                  # só verifica: não muda nada
@@ -136,7 +135,6 @@ upgrade de geração.
 
 ## Links
 
-- [Atualizar do Herd 1.0.1](atualizar-1x.md)
 - [Segurança e compliance](seguranca.md)
 - [Administração](administracao.md)
 - [Console web (Cockpit)](cockpit.md)

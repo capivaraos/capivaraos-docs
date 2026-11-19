@@ -111,7 +111,6 @@ nav:
       - Segurança e compliance: pt/herd/seguranca.md
       - Fortalecimento em 1 comando: pt/herd/fortalecimento.md
       - Atualizar o Herd: pt/herd/atualizar.md
-      - Atualizar do Herd 1.0.1: pt/herd/atualizar-1x.md
       - Administração: pt/herd/administracao.md
       - Suporte: pt/herd/suporte.md
     - FAQ: pt/faq.md
@@ -152,7 +151,6 @@ nav:
       - Security and compliance: en/herd/security.md
       - One-command hardening: en/herd/hardening.md
       - Keeping Herd updated: en/herd/update.md
-      - Upgrade from Herd 1.0.1: en/herd/upgrade-1x.md
       - Administration: en/herd/administration.md
       - Support: en/herd/support.md
     - FAQ: en/faq.md

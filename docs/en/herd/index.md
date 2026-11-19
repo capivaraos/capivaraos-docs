@@ -60,8 +60,7 @@ and easy-to-administer server base, whether it is a single node or many.
 
 !!! tip "Already installed?"
     Jump to [Getting started](getting-started.md) or the
-    [Web console (Cockpit)](cockpit.md). Running Herd 1.0.1? See
-    [Upgrade from Herd 1.0.1](upgrade-1x.md).
+    [Web console (Cockpit)](cockpit.md).
 
 ## Support and community
 

@@ -61,8 +61,8 @@ gpg --show-keys --with-colons RPM-GPG-KEY-capivaraos-herd | grep -c '^pub'
 gpg --show-keys --with-fingerprint RPM-GPG-KEY-capivaraos-herd
 ```
 
-The first command **must print `1`**: the file holds exactly one key. Its
-fingerprint **must be exactly**:
+The second command (`grep -c`) **must print `1`**: the file holds exactly one
+key. The third shows that key, and its fingerprint **must be exactly**:
 
 ```
 C852 6722 0A81 18C9 864F  0648 BE5B 82AD C8A2 85C0
@@ -96,7 +96,6 @@ Then run the checksum check in step 1 against this `SHA256SUMS`.
 
 - Physical server/VM → [Install via ISO](installation-iso.md)
 - Cloud/virtualization → [Cloud/VM deployment](installation-cloud.md)
-- Already running Herd 1.0.1 → [Upgrade from Herd 1.0.1](upgrade-1x.md)
 
 ---
 

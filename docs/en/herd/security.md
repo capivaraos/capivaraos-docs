@@ -99,7 +99,7 @@ sudo herd-compliance-scan ospp
 
 The image checksum and its signature prove the image is intact and ours — see
 [Download and verify](download.md). After installing, these four checks show
-that the system trusts the right keys and refuses anything not signed with them.
+that the system trusts the right keys and requires their signatures.
 You run all of them yourself.
 
 ### 1. Are the keys installed?

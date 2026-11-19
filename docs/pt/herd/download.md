@@ -61,8 +61,9 @@ gpg --show-keys --with-colons RPM-GPG-KEY-capivaraos-herd | grep -c '^pub'
 gpg --show-keys --with-fingerprint RPM-GPG-KEY-capivaraos-herd
 ```
 
-O primeiro comando **tem de mostrar `1`**: o arquivo tem exatamente uma chave.
-A impressão digital dela **tem de ser exatamente**:
+O segundo comando (`grep -c`) **tem de mostrar `1`**: o arquivo tem exatamente
+uma chave. O terceiro mostra essa chave, e a impressão digital dela **tem de
+ser exatamente**:
 
 ```
 C852 6722 0A81 18C9 864F  0648 BE5B 82AD C8A2 85C0
@@ -96,7 +97,6 @@ Depois, rode a conferência de checksum do passo 1 com este `SHA256SUMS`.
 
 - Servidor físico/VM → [Instalação via ISO](instalacao-iso.md)
 - Nuvem/virtualização → [Implantação em nuvem/VM](instalacao-nuvem.md)
-- Já roda o Herd 1.0.1 → [Atualizar do Herd 1.0.1](atualizar-1x.md)
 
 ---
 
