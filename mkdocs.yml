@@ -60,6 +60,9 @@ extra:
     - name: English
       link: /en/
       lang: en
+    - name: 简体中文
+      link: /zh-CN/
+      lang: zh
 
 markdown_extensions:
   - admonition
@@ -126,6 +129,7 @@ nav:
         - Pup (Xfce): pt/arquivo/1.x/distros/pup.md
         - Snout (GNOME): pt/arquivo/1.x/distros/snout.md
       - FAQ: pt/arquivo/1.x/faq.md
+      - Início: pt/index.md 
   - English:
     - Home: en/index.md
     - Installation:
@@ -166,7 +170,48 @@ nav:
         - Pup (Xfce): en/arquivo/1.x/distros/pup.md
         - Snout (GNOME): en/arquivo/1.x/distros/snout.md
       - FAQ: en/arquivo/1.x/faq.md
-
+      - Home: en/index.md 
+  - 简体中文:
+    - 首页: zh-CN/index.md
+    - 安装指南:
+      - 系统要求: zh-CN/installation/requirements.md
+      - 验证你的下载: zh-CN/installation/verify-download.md
+      - 安装指南: zh-CN/installation/guide.md
+    - 发行版:
+      - Marsh (KDE Plasma): zh-CN/distros/marsh.md
+      - Pup (Xfce): zh-CN/distros/pup.md
+      - Snout (GNOME): zh-CN/distros/snout.md
+    - 保持系统更新: zh-CN/update/index.md
+    - CapivaraOS 应用:
+      - COS Dev Center: zh-CN/apps/cos-dev.md
+      - COS Config Center: zh-CN/apps/cos-config.md
+    - Herd (服务器):
+      - 概览: zh-CN/herd/index.md
+      - 系统要求: zh-CN/herd/requirements.md
+      - 下载与验证: zh-CN/herd/download.md
+      - 通过 ISO 安装: zh-CN/herd/installation-iso.md
+      - 云 / 虚拟机部署 (qcow2): zh-CN/herd/installation-cloud.md
+      - 快速入门: zh-CN/herd/getting-started.md
+      - Web 控制台 (Cockpit): zh-CN/herd/cockpit.md
+      - 安全与合规: zh-CN/herd/security.md
+      - 一键加固: zh-CN/herd/hardening.md
+      - 保持 Herd 更新: zh-CN/herd/update.md
+      - 系统管理: zh-CN/herd/administration.md
+      - 支持与生命周期: zh-CN/herd/support.md
+    - FAQ: zh-CN/faq.md
+    - 更新日志: zh-CN/changelog.md
+    - 如何贡献: zh-CN/contribute.md
+    - 归档（Series 1）:
+      - 首页: zh-CN/arquivo/1.x/index.md
+      - 安装指南: 
+        - 系统要求: zh-CN/arquivo/1.x/installation/requirements.md
+        - 安装指南: zh-CN/arquivo/1.x/installation/guide.md
+      - 发行版:
+        - Marsh (KDE Plasma): zh-CN/arquivo/1.x/distros/marsh.md
+        - Pup (Xfce): zh-CN/arquivo/1.x/distros/pup.md
+        - Snout (GNOME): zh-CN/arquivo/1.x/distros/snout.md
+      - FAQ: zh-CN/arquivo/1.x/faq.md
+      - 返回首页: zh-CN/index.md
 copyright: >
   © 2026 CapivaraOS Project —
   <a href="https://capivaraos.org">capivaraos.org</a>.
